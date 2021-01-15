@@ -7,11 +7,11 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'lodestone-template',
+        repositoryName: 'sapwood-example-website',
         schemas: {
           home_page: require('./src/schemas/home_page.json'),
           global_navigation: require('./src/schemas/global_navigation.json'),
-          default_seo_settings: require('./src/schemas/default_seo_settings.json'),
+          global_seo_settings: require('./src/schemas/global_seo_settings.json'),
         },
         prismicToolbar: false,
       },
