@@ -4,12 +4,13 @@ main > * + * {
 }
 
 html {
-  max-width: 40rem;
-  width: auto;
+  color: var(--grey-900);
+}
 
-  margin: 4rem auto;
-  padding: 1.5rem;
+body {
+  background-color: var(--honey-100);
+}
 
-  border: 1px solid rgb(218, 213, 248);
-  border-radius: 4px;
+a:any-link {
+  color: var(--dusk-pink-700);
 }

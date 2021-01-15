@@ -27,6 +27,12 @@ const HeroHeader = styled.h1`
   display: flex;
 `;
 
+const HomePageContainerStyles = styled.main`
+  * {
+    grid-column: 1 / 8;
+  }
+`;
+
 const index = (props) => {
   if (!props) return null;
 
@@ -38,11 +44,11 @@ const index = (props) => {
   const mainText = homePageData.homepage_paragraph.html;
 
   return (
-    <main id="main">
+    <HomePageContainerStyles id="main">
       <SEO />
       <HeroHeader>{mainTitle}</HeroHeader>
       <HTMLRenderer html={mainText} />
-    </main>
+    </HomePageContainerStyles>
   );
 };
 

@@ -1,13 +1,72 @@
 :root {
-  --grey-900: #010101;
+  /* Color styles */
+  --grey-900: #102225;
+  --grey-800: #163237;
+  --grey-700: #2c474b;
+  --grey-600: #4d6a70;
+  --grey-500: #5b7f86;
+  --grey-400: #8faaae;
+  --grey-300: #c1d6d9;
+  --grey-200: #dfecef;
+  --grey-100: #f1f7f7;
+  --grey-000: #fcfdfd;
+  --honey-900: #f9cb00;
+  --honey-800: #f6c905;
+  --honey-700: #f7d74a;
+  --honey-600: #fee785;
+  --honey-500: #feeeab;
+  --honey-400: #f9eaa8;
+  --honey-300: #fcf2c7;
+  --honey-200: #fef8de;
+  --honey-100: #fcfaf1;
+  --dusk-pink-900: #80333f;
+  --dusk-pink-800: #9f4452;
+  --dusk-pink-700: #b7606d;
+  --dusk-pink-600: #c67d88;
+  --dusk-pink-500: #db929d;
+  --dusk-pink-400: #ef9eab;
+  --dusk-pink-300: #f2c0c7;
+  --dusk-pink-200: #fde3e7;
+  --dusk-pink-100: #fff0f2;
+  --purple-900: #35195a;
+  --purple-800: #432a62;
+  --purple-700: #593784;
+  --purple-600: #7c4cbf;
+  --purple-500: #9a72d1;
+  --purple-400: #bda0e5;
+  --purple-300: #d4b6fc;
+  --purple-200: #e3cfff;
+  --purple-100: #f3ebfe;
+  --green-900: #1e4c35;
+  --green-800: #2d5d45;
+  --green-700: #317251;
+  --green-600: #46936c;
+  --green-500: #599b7a;
+  --green-400: #76b092;
+  --green-300: #7eb99b;
+  --green-200: #9bceb4;
+  --green-100: #cdeddd;
+  --turquoise-900: #072e3b;
+  --turquoise-800: #134251;
+  --turquoise-700: #296173;
+  --turquoise-600: #2a758d;
+  --turquoise-500: #3f92ad;
+  --turquoise-400: #6db1c7;
+  --turquoise-300: #9ac7d6;
+  --turquoise-200: #c5dfe8;
+  --turquoise-100: #d9f0f8;
+  --apricot-900: #ce8918;
+  --apricot-800: #eba32e;
+  --apricot-700: #f7b955;
+  --apricot-600: #ffc566;
+  --apricot-500: #ffd28a;
+  --apricot-400: #ffe1b0;
+  --apricot-300: #fff3e0;
+  --apricot-200: #fff7eb;
+  --apricot-100: #fffdfa;
 
-  --link-700: rgb(6, 129, 151);
-}
-
-html {
-  color: var(--grey-900);
-}
-
-a:any-link {
-  color: var(--link-700);
+  /* Effect styles */
+  --frame--shadow: 24px 0px 4px rgba(0, 0, 0, 0.1);
+  --shadow---small: 12px 0px 8px rgba(44, 71, 75, 0.15);
+  --form--inset: inset 2px 0px 2px rgba(22, 50, 55, 0.3);
 }

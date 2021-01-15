@@ -3,7 +3,9 @@ import React from 'react';
 const GlobalFooter = () => (
   <footer>
     <ul>
-      <li>© Copyright 2020 Lodestone Studio. All rights reserved.</li>
+      <li className="italics">
+        © Copyright 2020 Lodestone Studio. All rights reserved.
+      </li>
       <li>Email</li>
       <li>Insta</li>
     </ul>

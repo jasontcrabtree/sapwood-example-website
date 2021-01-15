@@ -31,23 +31,6 @@ export default function SEO({ title, description, location, image, imageALT }) {
 
   const metaDataQuery = data.prismicGlobalSeoSettings.data;
 
-  // let metaDataQuery = 'data';
-
-  // metaDataQuery = {
-  //   meta_title: 'Placeholder Title',
-  //   meta_description: 'Placeholder Description',
-  //   secondary_title: 'Secondary Title',
-  //   twitter_username: '@lodestonestudio',
-  //   social_sharing_image: {
-  //     url: 'https://images.unsplash.com/photo-1564316893853-d62a3593c84e',
-  //     alt:
-  //       'A bright and colourful studio office with a brick facing back and a retro green iMac on a vintage desk',
-  //   },
-  //   website_url: {
-  //     url: 'https://lodestone-template.netlify.app',
-  //   },
-  // };
-
   const metaDataValues = {
     title: metaDataQuery.meta_title,
     description: metaDataQuery.meta_description,

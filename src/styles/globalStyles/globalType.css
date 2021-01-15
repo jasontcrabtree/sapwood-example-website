@@ -1,11 +1,50 @@
-html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap');
 
-  text-rendering: optimizeLegibility;
+html {
+  font-family: 'Gothic A1', sans-serif;
+
   font-variant-ligatures: common-ligatures;
 
   line-height: 1.75rem; /* 28px */
   font-size: 1.125rem; /* 18px */
   letter-spacing: 0.2px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Text-size styles */
+/* --64px---h1-hero-title: 64px;
+--56px---h1-title: 56px;
+--44px--h2--title-serif: 44px;
+--44px--h2--title-sans: 44px;
+--h3--title---sans: 32px;
+--h3--title---serif: 32px;
+--24px---large--copy: 24px;
+--22px--h4--title-sans: 22px;
+--22px--h4--title-serif: 22px;
+--18px---body-regular: 18px;
+--18px---body-bold: 18px;
+--18px---body-semibold: 18px;
+--18px---body-italics: 18px;
+--18px---body-underline: 18px;
+--16px---small-regular: 16px;
+--16px---small-bold: 16px;
+--16px---small-italics: 16px;
+--16px---small-underline: 16px;
+--14px--- -eyebrow: 14px;
+-----label160px--figma -label: 160px; */
+
+p {
+  font-size: 1rem;
+}
+
+em,
+.italics {
+  font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif,
+    -apple-system, Roboto, Oxygen, 'Open Sans';
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.35px;
 }
