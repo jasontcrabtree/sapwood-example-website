@@ -1,52 +1,52 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-// import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export default function SEO({ title, description, location, image, imageALT }) {
-  //   const data = useStaticQuery(graphql`
-  //     query metaQuery {
-  //       prismicMetaInfo {
-  //         data {
-  //           meta_title
-  //           secondary_title
-  //           meta_description
-  //           meta_site_name
-  //           twitter_username
-  //           social_sharing_image {
-  //             url
-  //             alt
-  //           }
-  //           twitter_social_sharing_image {
-  //             url
-  //             alt
-  //           }
-  //           website_url {
-  //             url
-  //             link_type
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `);
+  const data = useStaticQuery(graphql`
+    query metaQuery {
+      prismicGlobalSeoSettings {
+        data {
+          meta_title
+          secondary_title
+          meta_description
+          meta_site_name
+          twitter_username
+          social_sharing_image {
+            url
+            alt
+          }
+          twitter_social_sharing_image {
+            url
+            alt
+          }
+          website_url {
+            url
+            link_type
+          }
+        }
+      }
+    }
+  `);
 
-  // const metaDataQuery = data.prismicMetaInfo.data;
+  const metaDataQuery = data.prismicGlobalSeoSettings.data;
 
-  let metaDataQuery = 'data';
+  // let metaDataQuery = 'data';
 
-  metaDataQuery = {
-    meta_title: 'Placeholder Title',
-    meta_description: 'Placeholder Description',
-    secondary_title: 'Secondary Title',
-    twitter_username: '@lodestonestudio',
-    social_sharing_image: {
-      url: 'https://images.unsplash.com/photo-1564316893853-d62a3593c84e',
-      alt:
-        'A bright and colourful studio office with a brick facing back and a retro green iMac on a vintage desk',
-    },
-    website_url: {
-      url: 'https://lodestone-template.netlify.app',
-    },
-  };
+  // metaDataQuery = {
+  //   meta_title: 'Placeholder Title',
+  //   meta_description: 'Placeholder Description',
+  //   secondary_title: 'Secondary Title',
+  //   twitter_username: '@lodestonestudio',
+  //   social_sharing_image: {
+  //     url: 'https://images.unsplash.com/photo-1564316893853-d62a3593c84e',
+  //     alt:
+  //       'A bright and colourful studio office with a brick facing back and a retro green iMac on a vintage desk',
+  //   },
+  //   website_url: {
+  //     url: 'https://lodestone-template.netlify.app',
+  //   },
+  // };
 
   const metaDataValues = {
     title: metaDataQuery.meta_title,
