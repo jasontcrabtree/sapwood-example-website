@@ -1,0 +1,15 @@
+/* autoprefixer grid: autoplace */
+main > * + * {
+  margin-top: 2rem;
+}
+
+html {
+  max-width: 40rem;
+  width: auto;
+
+  margin: 4rem auto;
+  padding: 1.5rem;
+
+  border: 1px solid rgb(218, 213, 248);
+  border-radius: 4px;
+}

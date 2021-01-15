@@ -1,0 +1,13 @@
+:root {
+  --grey-900: #010101;
+
+  --link-700: rgb(6, 129, 151);
+}
+
+html {
+  color: var(--grey-900);
+}
+
+a:any-link {
+  color: var(--link-700);
+}

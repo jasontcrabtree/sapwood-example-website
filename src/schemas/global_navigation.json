@@ -1,0 +1,55 @@
+{
+  "Main": {
+    "home_page_nav_label": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Home Navigation Label",
+        "placeholder": "Home Page Label"
+      }
+    },
+    "home_page_nav_link": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "page",
+          "homepage",
+          "contact_page"
+        ],
+        "label": "Home Page Link",
+        "placeholder": "Home Page URL Link"
+      }
+    },
+    "main_pages_nav_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "page_nav_label": {
+            "type": "Text",
+            "config": {
+              "label": "Page Navigation Label",
+              "placeholder": "Page Navigation Label"
+            }
+          },
+          "page_nav_link": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "page",
+                "contact_page",
+                "contactpage",
+                "aboutpage",
+                "blogpage"
+              ],
+              "label": "Page Navigation Link",
+              "placeholder": "Page Navigation URL Link"
+            }
+          }
+        },
+        "label": "Main Pages Links"
+      }
+    }
+  }
+}

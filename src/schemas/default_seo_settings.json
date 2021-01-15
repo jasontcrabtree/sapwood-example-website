@@ -1,0 +1,68 @@
+{
+  "Main" : {
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title",
+        "placeholder" : "SEO and Browser Page Title"
+      }
+    },
+    "secondary_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Secondary Title",
+        "placeholder" : "Secondary title e.g.  \"PAGE TITLE - COMPANY\""
+      }
+    },
+    "meta_site_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Site Name",
+        "placeholder" : "Overall Site Name"
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Description",
+        "placeholder" : "SEO description of page content. Recommended to keep under 160 characters."
+      }
+    },
+    "website_url" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "Website URL",
+        "placeholder" : "Website URL / Domain"
+      }
+    },
+    "twitter_username" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Twitter Username",
+        "placeholder" : "Twitter Username (including the @)"
+      }
+    },
+    "social_sharing_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1200,
+          "height" : 630
+        },
+        "thumbnails" : [ ],
+        "label" : "Social Sharing Image"
+      }
+    },
+    "twitter_social_sharing_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1200,
+          "height" : 600
+        },
+        "thumbnails" : [ ],
+        "label" : "Twitter Social Sharing Image"
+      }
+    }
+  }
+}
