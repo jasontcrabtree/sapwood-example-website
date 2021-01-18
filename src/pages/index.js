@@ -20,12 +20,7 @@ export const homePageQuery = graphql`
   }
 `;
 
-const HeroHeader = styled.h1`
-  font-weight: 400;
-  letter-spacing: -0.4px;
-
-  display: flex;
-`;
+const HeroHeader = styled.h1``;
 
 const HomePageContainerStyles = styled.main`
   * {

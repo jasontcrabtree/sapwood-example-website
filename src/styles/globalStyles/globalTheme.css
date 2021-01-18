@@ -69,4 +69,7 @@
   --frame--shadow: 24px 0px 4px rgba(0, 0, 0, 0.1);
   --shadow---small: 12px 0px 8px rgba(44, 71, 75, 0.15);
   --form--inset: inset 2px 0px 2px rgba(22, 50, 55, 0.3);
+
+  --serif: 'Playfair Display', Georgia, serif, Cambria, Cochin, Times,
+    'Times New Roman', serif;
 }

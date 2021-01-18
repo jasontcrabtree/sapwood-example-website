@@ -22,18 +22,22 @@ cssVars({
 });
 
 const GlobalLayoutStyles = styled.div`
-  border: 1px solid var(--green-600);
-
-  margin: 80px 160px;
+  /* border: 1px solid var(--green-600); */
 
   main {
-    display: grid;
-    padding: 40px;
-    margin: 40px;
-    grid-gap: 24px;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    /* Global Content Margin 9.6vw === 160px */
+    margin: 0px 9.6vw 240px;
 
-    border: 1px solid var(--dusk-pink-500);
+    /* Inner grid padding */
+    padding: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 24px;
+
+    /* Working styles */
+    border-left: 1px solid var(--dusk-pink-500);
+    border-right: 1px solid var(--dusk-pink-500);
   }
 `;
 
@@ -47,7 +51,7 @@ const GlobalLayout = (props) => {
       {/* <SkipLink /> */}
       <GlobalNav />
       <>{children}</>
-      <GlobalFooter />
+      {/* <GlobalFooter /> */}
     </GlobalLayoutStyles>
   );
 };

@@ -12,5 +12,30 @@ body {
 }
 
 a:any-link {
+  color: var(--turquoise-700);
+}
+
+a:any-link:hover {
+  color: var(--dusk-pink-900);
+}
+
+hr {
+  border-top: 2px solid var(--dusk-pink-600);
+}
+
+.loose > * {
+  margin-top: 24px;
+}
+
+.sapwood-wordmark {
+  font-family: Gothic A1;
+  font-weight: bold;
+  color: #b7606d;
   color: var(--dusk-pink-700);
+}
+
+ul > li > .sapwood-wordmark {
+  color: #b7606d;
+  color: var(--dusk-pink-700);
+  text-decoration: none;
 }

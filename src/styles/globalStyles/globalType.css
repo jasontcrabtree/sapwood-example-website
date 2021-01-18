@@ -1,50 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap');
 
 html {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Gothic A1', -apple-system, sans-serif, 'Helvetica Neue',
+    BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, 'Open Sans';
+
+  color: var(--grey-900);
 
   font-variant-ligatures: common-ligatures;
 
-  line-height: 1.75rem; /* 28px */
+  /* line-height: 1.75rem;  */
+  line-height: 1.75;
   font-size: 1.125rem; /* 18px */
   letter-spacing: 0.2px;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif, Cambria, Cochin, Times,
+    'Times New Roman', serif;
 }
 
-/* Text-size styles */
-/* --64px---h1-hero-title: 64px;
---56px---h1-title: 56px;
---44px--h2--title-serif: 44px;
---44px--h2--title-sans: 44px;
---h3--title---sans: 32px;
---h3--title---serif: 32px;
---24px---large--copy: 24px;
---22px--h4--title-sans: 22px;
---22px--h4--title-serif: 22px;
---18px---body-regular: 18px;
---18px---body-bold: 18px;
---18px---body-semibold: 18px;
---18px---body-italics: 18px;
---18px---body-underline: 18px;
---16px---small-regular: 16px;
---16px---small-bold: 16px;
---16px---small-italics: 16px;
---16px---small-underline: 16px;
---14px--- -eyebrow: 14px;
------label160px--figma -label: 160px; */
+p {
+  line-height: 32px;
+}
+
+li {
+  line-height: 32px;
+}
+
+li {
+  max-width: 628px;
+}
 
 p {
-  font-size: 1rem;
+  max-width: 628px;
+}
+
+.serif {
+  font-family: var(--serif);
+}
+
+.h1-hero {
+  font-size: 64px;
+
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 88px;
+
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+
+  color: var(--turquoise-700);
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 72px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 44px;
+  line-height: 56px;
+}
+
+.h2-serif {
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+h3 {
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.h3-serif {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.lg-copy {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.h4-serif {
+  font-weight: 600;
+}
+
+p,
+ul,
+ol,
+li,
+a:any-link {
+  font-size: 18px;
+}
+
+.p-bold {
+  font-weight: 700;
+}
+
+.p-semibold {
+  font-weight: 600;
 }
 
 em,
-.italics {
+.italics,
+.p-italics {
   font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif,
     -apple-system, Roboto, Oxygen, 'Open Sans';
   font-weight: 400;
-  font-style: italic;
   letter-spacing: 0.35px;
+  font-style: italic;
+}
+
+.p-underline {
+  text-decoration: underline;
+}
+
+.p-small {
+  font-size: 16px;
+}
+
+.eyebrow {
+  color: var(--grey-600);
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+}
+
+ul > li {
+  list-style: url('./../../../static/bullet.svg');
+}
+
+li {
+  padding-left: 8px;
+}
+
+ul,
+ol {
+  padding-inline-start: 16px;
+}
+
+ol {
+  padding-inline-start: 20px;
+}
+
+ol li::marker {
+  color: var(--turquoise-700);
 }
