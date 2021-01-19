@@ -1,18 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Typography from '../components/Typography';
+import Typography from '../components/TypographyDemo';
 
-import HeroTitleBlockFour from '../components/HeroTitleBlockFour';
-import HeroTitleBlockOne from '../components/HeroTitleBlockOne';
-import HeroTitleBlockThree from '../components/HeroTitleBlockThree';
-import HeroTitleBlockTwo from '../components/HeroTitleBlockTwo';
+import HeroTitleBlockFour from '../components/titles/HeroTitleBlockFour';
+import HeroTitleBlockOne from '../components/titles/HeroTitleBlockOne';
+import HeroTitleBlockThree from '../components/titles/HeroTitleBlockThree';
+import HeroTitleBlockTwo from '../components/titles/HeroTitleBlockTwo';
 
-import TitleBlockOne from '../components/TitleBlockOne';
-import TitleBlockTwo from '../components/TitleBlockTwo';
-import TitleBlockThree from '../components/TitleBlockThree';
-import TitleBlockFour from '../components/TitleBlockFour';
-import TextColumns from '../components/TextColumns';
+import TitleBlockOne from '../components/titles/TitleBlockOne';
+import TitleBlockTwo from '../components/titles/TitleBlockTwo';
+import TitleBlockThree from '../components/titles/TitleBlockThree';
+import TitleBlockFour from '../components/titles/TitleBlockFour';
+import TextColumns from '../components/textSections/TextColumns';
+import TextLargeImage from '../components/textSections/TextLargeImage';
+import TextMediumImage from '../components/textSections/TextMediumImage';
+import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
 
 const ComponentPageMainStyles = styled.main`
   /* ALL STYLES HERE ARE PURELY FOR PRESENTATION OF THE COMPONENTS PAGE, NO STYLES FOR COMPONENTS */
@@ -27,6 +30,7 @@ const ComponentPageMainStyles = styled.main`
 
   .label {
     color: var(--dusk-pink-700);
+    margin-bottom: 72px;
   }
 
   .type {
@@ -224,7 +228,9 @@ function ComponentsPage() {
       </section>
 
       <section>
-        <h2 className="label">Text Columns Two Columns</h2>
+        <h2 className="label">
+          Text Columns Two Columns with Background Column Style
+        </h2>
         <TextColumns
           backgroundColumnStyle
           columnOne="Paying down debt and long-term interest loans in a managed, deliberate
@@ -237,7 +243,7 @@ function ComponentsPage() {
       </section>
 
       <section>
-        <h2 className="label">Text Columns Light Background Colour</h2>
+        <h2 className="label">Text Columns Background Column Style</h2>
         <TextColumns
           backgroundColumnStyle
           columnOne="Paying down debt and long-term interest loans in a managed, deliberate
@@ -250,6 +256,128 @@ function ComponentsPage() {
         and loved ones through making financial investments with different
         levels of managed risk and time horizons."
         />
+      </section>
+
+      <section>
+        <h1 className="label">Unordered List</h1>
+        <ul>
+          <li>
+            New Zealand has a universal superannuation scheme. Everyone aged 65
+            years old or over, who is a New Zealand citizen or permanent
+            resident and normally lives in New Zealand at the time they apply is
+            eligible.
+          </li>
+          <li>
+            They must also have lived in New Zealand for at least 10 years since
+            they turned 20 with five of those years being since they turned 50.
+          </li>
+          <li>
+            Time spent overseas in certain countries and for certain reasons may
+            be counted for New Zealand Superannuation.
+          </li>
+          <li>
+            New Zealand Superannuation is taxed, the rate of which depends on
+            their other income.
+          </li>
+          <li>
+            The amount of Superannuation paid depends on the person's household
+            situation.
+          </li>
+          <li>
+            For a married couple the net tax amount is set by legislation to be
+            no less than 66% of net average wage.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h1 className="label">Ordered List</h1>
+        <ol>
+          <li>
+            New Zealand has a universal superannuation scheme. Everyone aged 65
+            years old or over, who is a New Zealand citizen or permanent
+            resident and normally lives in New Zealand at the time they apply is
+            eligible.
+          </li>
+          <li>
+            They must also have lived in New Zealand for at least 10 years since
+            they turned 20 with five of those years being since they turned 50.
+          </li>
+          <li>
+            Time spent overseas in certain countries and for certain reasons may
+            be counted for New Zealand Superannuation.
+          </li>
+          <li>
+            New Zealand Superannuation is taxed, the rate of which depends on
+            their other income.
+          </li>
+          <li>
+            The amount of Superannuation paid depends on the person's household
+            situation.
+          </li>
+          <li>
+            For a married couple the net tax amount is set by legislation to be
+            no less than 66% of net average wage.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2 className="label">Text Sections</h2>
+        <TitleBlockThree
+          title="Sapwood Client Resources"
+          headingLevel="h2"
+          serifStyle="serif"
+        />
+        <p>
+          New Zealand has a universal superannuation scheme. Everyone aged 65
+          years old or over, who is a New Zealand citizen or permanent resident
+          and normally lives in New Zealand at the time they apply is eligible.
+        </p>
+
+        <p>
+          They must also have lived in New Zealand for at least 10 years since
+          they turned 20 with five of those years being since they turned 50.
+          Time spent overseas in certain countries and for certain reasons may
+          be counted for New Zealand Superannuation.
+        </p>
+
+        <p>
+          New Zealand Superannuation is taxed, the rate of which depends on
+          their other income. The amount of Superannuation paid depends on the
+          person's household situation. For a married couple the net tax amount
+          is set by legislation to be no less than 66% of net average wage.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="label">Text Sections</h2>
+        <TitleBlockThree
+          title="Varied Client Packages"
+          headingLevel="h2"
+          serifStyle="serif"
+        />
+        <TextLargeImage />
+      </section>
+
+      <section>
+        <h2 className="label">Text Sections</h2>
+        <TitleBlockThree
+          title="One-on-one Client Meetings"
+          headingLevel="h2"
+          serifStyle="serif"
+        />
+        <TextMediumImage />
+      </section>
+
+      <section>
+        <h2 className="label">Text Sections</h2>
+        <TitleBlockThree
+          title="Appproachable and Adaptable Solutions"
+          headingLevel="h2"
+          serifStyle="serif"
+        />
+        <ImageTextReverseOrder />
       </section>
     </ComponentPageMainStyles>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Typography() {
+function TypographyDemo() {
   return (
     <section className="typography">
       <h2 className="label">Typography</h2>
@@ -57,4 +57,4 @@ function Typography() {
   );
 }
 
-export default Typography;
+export default TypographyDemo;

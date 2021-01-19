@@ -5,7 +5,8 @@ main > * + * {
   margin-top: 48px;
 }
 
-main > section > p + * {
+main > section > p + *,
+p {
   margin-top: 24px;
 }
 
@@ -49,4 +50,14 @@ ul > li > .sapwood-wordmark {
   color: #b7606d;
   color: var(--dusk-pink-700);
   text-decoration: none;
+}
+
+ul > li,
+ol > li {
+  margin-top: 12px;
+}
+
+ul,
+ol {
+  margin-top: 24px;
 }

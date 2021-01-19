@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BrandSquare from '../../static/brand-square.svg';
+import BrandSquare from '../../../static/brand-square.svg';
 
 const HeroTitleBlockTwoStyles = styled.h1`
   width: fit-content;

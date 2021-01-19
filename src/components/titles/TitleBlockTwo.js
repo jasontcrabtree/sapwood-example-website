@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BrandTurquoiseCircle from '../../static/brand-turquoise-circle.svg';
+import BrandTurquoiseCircle from '../../../static/brand-turquoise-circle.svg';
 
 const TitleBlockTwoStyles = styled.div`
   color: var(--turquoise-700);
