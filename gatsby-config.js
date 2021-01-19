@@ -17,7 +17,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     'gatsby-plugin-netlify-cache',
     `gatsby-plugin-netlify`, // keep last in plugins array
   ],

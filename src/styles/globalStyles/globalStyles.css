@@ -1,6 +1,17 @@
 /* autoprefixer grid: autoplace */
+
+/* Top level Section spacing 24px (grid gap) + owl selector */
 main > * + * {
-  margin-top: 2rem;
+  margin-top: 48px;
+}
+
+main > section > p + * {
+  margin-top: 24px;
+}
+
+main > section.p-small > p,
+main > .p-small > p {
+  margin-top: 16px;
 }
 
 html {

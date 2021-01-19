@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import GlobalFooter from './GlobalFooter';
 import GlobalNav from './GlobalNav';
 import SEO from './SEO';
-import SkipLink from './SkipLink';
+// import SkipLink from './SkipLink';
 
 cssVars({
   include: 'style',
@@ -22,14 +22,12 @@ cssVars({
 });
 
 const GlobalLayoutStyles = styled.div`
-  /* border: 1px solid var(--green-600); */
-
   main {
     /* Global Content Margin 9.6vw === 160px */
-    margin: 0px 9.6vw 240px;
+    margin: 0px 9.6vw 0px;
 
     /* Inner grid padding */
-    padding: 40px;
+    padding: 40px 40px 400px 40px;
 
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -51,7 +49,7 @@ const GlobalLayout = (props) => {
       {/* <SkipLink /> */}
       <GlobalNav />
       <>{children}</>
-      {/* <GlobalFooter /> */}
+      <GlobalFooter />
     </GlobalLayoutStyles>
   );
 };

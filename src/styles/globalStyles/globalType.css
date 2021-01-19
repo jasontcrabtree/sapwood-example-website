@@ -59,12 +59,17 @@ h1 {
   letter-spacing: 0.5px;
 }
 
+h1 {
+  max-width: 24ch;
+}
+
 h2 {
   font-size: 44px;
   line-height: 56px;
 }
 
 .h2-serif {
+  font-family: var(--serif);
   font-weight: 600;
   letter-spacing: 0.6px;
 }
@@ -93,14 +98,14 @@ h4 {
 .h4-serif {
   font-weight: 600;
 }
-
+/*
 p,
 ul,
 ol,
 li,
 a:any-link {
   font-size: 18px;
-}
+} */
 
 .p-bold {
   font-weight: 700;
