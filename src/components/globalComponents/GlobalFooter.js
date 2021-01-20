@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GlobalFooterStyles = styled.nav`
+const GlobalFooterStyles = styled.footer`
   padding: 64px 200px 112px;
   background-color: var(--dusk-pink-100);
 

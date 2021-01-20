@@ -38,7 +38,7 @@ const ImageTextReverseOrderStyles = styled.div`
     background-color: var(--grey-300);
     position: absolute;
     top: -32px;
-    left: 0px;
+    left: 10px;
     height: 328px;
     width: 80%;
     z-index: -1;
@@ -46,7 +46,6 @@ const ImageTextReverseOrderStyles = styled.div`
 `;
 
 function ImageTextReverseOrder(props) {
-  console.log(props);
   return (
     <ImageTextReverseOrderStyles>
       <div className="parent">

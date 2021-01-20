@@ -29,7 +29,7 @@ const TextLargeImageStyles = styled.div`
     background-color: var(--green-300);
     position: absolute;
     top: -32px;
-    right: -16px;
+    right: 4px;
     height: 420px;
     width: 560px;
     z-index: -1;
@@ -37,7 +37,6 @@ const TextLargeImageStyles = styled.div`
 `;
 
 function TextLargeImage(props) {
-  console.log(props);
   return (
     <TextLargeImageStyles>
       <div>

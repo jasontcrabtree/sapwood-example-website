@@ -71,18 +71,12 @@ button,
 textarea,
 select,
 fieldset {
-  border: rgb(157, 160, 165) 1px solid;
+  border: var(--grey-400) 1px solid;
 }
 
 /* Flex Texarea */
 textarea {
   display: flex;
-}
-
-/* Normalise size of checkbox */
-input[type='checkbox'] {
-  transform: scale(1.5);
-  margin-right: 16px;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

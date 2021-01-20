@@ -16,6 +16,11 @@ import TextColumns from '../components/textSections/TextColumns';
 import TextLargeImage from '../components/textSections/TextLargeImage';
 import TextMediumImage from '../components/textSections/TextMediumImage';
 import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
+import CardGridOne from '../components/cardBlocks/CardGridOne';
+import CardGridTwo from '../components/cardBlocks/CardGridTwo';
+import CardGridThree from '../components/cardBlocks/CardGridThree';
+import CardGridFour from '../components/cardBlocks/CardGridFour';
+import FormDemo from '../components/FormDemo';
 
 const ComponentPageMainStyles = styled.main`
   /* ALL STYLES HERE ARE PURELY FOR PRESENTATION OF THE COMPONENTS PAGE, NO STYLES FOR COMPONENTS */
@@ -25,12 +30,12 @@ const ComponentPageMainStyles = styled.main`
   section {
     grid-column: 1 / -1;
     border: 1px solid var(--dusk-pink-500);
-    padding: 16px;
   }
 
   .label {
     color: var(--dusk-pink-700);
-    margin-bottom: 72px;
+    margin-bottom: 24px;
+    margin-top: 72px;
   }
 
   .type {
@@ -378,6 +383,23 @@ function ComponentsPage() {
           serifStyle="serif"
         />
         <ImageTextReverseOrder />
+      </section>
+
+      <section>
+        <h2 className="label">Card Grids</h2>
+        <h3 className="label">Card Grid One</h3>
+        <CardGridOne />
+        <h3 className="label">Card Grid Two</h3>
+        <CardGridTwo />
+        <h3 className="label">Card Grid Three</h3>
+        <CardGridThree />
+        <h3 className="label">Card Grid Four</h3>
+        <CardGridFour />
+      </section>
+
+      <section>
+        <h2 className="label">Form Inputs and Buttons</h2>
+        <FormDemo />
       </section>
     </ComponentPageMainStyles>
   );

@@ -43,12 +43,12 @@ hr {
   font-family: Gothic A1;
   font-weight: bold;
   color: #b7606d;
-  color: var(--dusk-pink-700);
+  color: var(--dusk-pink-800);
 }
 
 ul > li > .sapwood-wordmark {
   color: #b7606d;
-  color: var(--dusk-pink-700);
+  color: var(--dusk-pink-800);
   text-decoration: none;
 }
 
@@ -60,4 +60,60 @@ ol > li {
 ul,
 ol {
   margin-top: 24px;
+}
+
+form > input[type='submit'],
+form > input[type='button'],
+button {
+  background: var(--turquoise-700);
+  color: var(--honey-100);
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+
+  border-radius: 100px;
+
+  line-height: 32px;
+
+  max-width: fit-content;
+  padding: 20px 72px;
+
+  margin: 24px 0px;
+
+  box-shadow: var(--shadow-medium);
+}
+
+.button-pink-1 {
+  background: var(--dusk-pink-200);
+  color: var(--grey-800);
+  border: 6px double var(--dusk-pink-600);
+
+  border-radius: 2px;
+}
+
+.button-blue-1 {
+  background: var(--turquoise-100);
+  color: var(--grey-800);
+  border: 6px double var(--turquoise-600);
+
+  border-radius: 2px;
+}
+
+.button-green-1 {
+  background: var(--green-200);
+  color: var(--grey-900);
+  border: 2px solid var(--grey-500);
+
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.button-grey-1 {
+  background: var(--grey-200);
+  color: var(--grey-900);
+  border: 2px solid var(--grey-400);
+
+  border-radius: 2px;
+  box-shadow: none;
 }

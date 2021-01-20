@@ -142,6 +142,16 @@ em,
   font-weight: 600;
 }
 
+label,
+.form-label {
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--turquoise-700);
+  text-transform: uppercase;
+}
+
 ul > li {
   list-style: url('./../../../static/bullet.svg');
 }

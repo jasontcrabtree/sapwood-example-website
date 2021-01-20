@@ -30,15 +30,14 @@ const TextMediumImageStyles = styled.div`
     background-color: var(--turquoise-700);
     position: absolute;
     top: -32px;
-    right: 64px;
+    right: 83px;
     height: 328px;
-    width: 80%;
+    width: 72%;
     z-index: -1;
   }
 `;
 
 function TextLargeImage(props) {
-  console.log(props);
   return (
     <TextMediumImageStyles>
       <div>
