@@ -27,7 +27,7 @@ const GlobalLayoutStyles = styled.div`
     margin: 0px 9.6vw 0px;
 
     /* Inner grid padding */
-    padding: 40px 40px 400px 40px;
+    padding: 112px 40px 200px 40px;
 
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));

@@ -61,6 +61,7 @@ h1 {
 
 h1 {
   max-width: 24ch;
+  margin-bottom: 48px;
 }
 
 h2 {
@@ -134,12 +135,12 @@ em,
 }
 
 .eyebrow {
-  color: var(--grey-600);
+  color: var(--green-700);
   text-transform: uppercase;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.2px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 label,

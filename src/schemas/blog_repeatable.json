@@ -1,0 +1,119 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Page Label",
+        "placeholder": "Label to identify Page"
+      }
+    },
+    "blog_post_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Blog Post Title",
+        "placeholder": "Blog Post Title"
+      }
+    },
+    "publish_date": {
+      "type": "Date",
+      "config": {
+        "label": "publish_date",
+        "placeholder": "Publish Date"
+      }
+    },
+    "last_updated_date": {
+      "type": "Date",
+      "config": {
+        "label": "Last Updated Date",
+        "placeholder": "Date Updated (if any)"
+      }
+    },
+    "blog_post_author": {
+      "type": "Text",
+      "config": {
+        "label": "Blog Post Author",
+        "placeholder": "Author"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "blog_post_content": [],
+          "image_block": []
+        },
+        "choices": {
+          "blog_post_content": {
+            "type": "Slice",
+            "fieldset": "Blog Post Content",
+            "description": "Blog Post Text Content",
+            "icon": "format_textdirection_l_to_r",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "blog_post_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Blog Post Text Content"
+                }
+              }
+            }
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Image Block",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image_block_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "1 - TR",
+                    "2 - BR",
+                    "3 - BL",
+                    "4 - TL",
+                    "5 - TR-SM",
+                    "6 - BR - SM",
+                    "7 - BL - SM",
+                    "8 - TL - SM"
+                  ],
+                  "default_value": "1 - TR",
+                  "label": "Image Block Style"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "image_alt_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Alt Text",
+                  "placeholder": "Accessible Image Text"
+                }
+              },
+              "image_block_colour_style": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Hex Code / Colour Name"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
