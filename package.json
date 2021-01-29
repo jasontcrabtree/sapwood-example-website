@@ -1,7 +1,7 @@
 {
-  "name": "lodestone-template",
+  "name": "sapwood",
   "private": true,
-  "description": "New project template for Lodestone Studio websites.",
+  "description": "Sapwood Financial Advisors: A Demo Website by Lodestone Studio",
   "version": "1.1.0",
   "license": "0BSD",
   "scripts": {
@@ -58,10 +58,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasontcrabtree/lodestone-template"
+    "url": "https://github.com/jasontcrabtree/sapwood-example-website"
   },
   "bugs": {
-    "url": "https://github.com/jasontcrabtree/lodestone-template"
+    "url": "https://github.com/jasontcrabtree/sapwood-example-website"
   },
   "browserslist": {
     "production": [

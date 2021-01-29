@@ -1,6 +1,33 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+
+export const navigationQuery = graphql`
+  {
+    allPrismicGlobalNavigation {
+      edges {
+        node {
+          data {
+            main_pages_nav_links {
+              page_nav_label
+              page_nav_link {
+                uid
+                slug
+                url
+              }
+            }
+            home_page_nav_link {
+              url
+            }
+            home_page_nav_label {
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
@@ -31,19 +58,25 @@ const GlobalNavStyles = styled.nav`
   }
 `;
 
-const GlobalNav = () => (
-  <GlobalNavStyles>
-    <ul>
-      <li>
-        <Link to="/" className="sapwood-wordmark">
-          Sapwood Financial Advisors
-        </Link>
-      </li>
-      <li>
-        <Link to="/components">Components</Link>
-      </li>
-    </ul>
-  </GlobalNavStyles>
-);
+const GlobalNav = (props) => {
+  if (!props) return null;
+
+  console.log(props);
+
+  return (
+    <GlobalNavStyles>
+      <ul>
+        <li>
+          <Link to="/" className="sapwood-wordmark">
+            Sapwood Financial Advisors
+          </Link>
+        </li>
+        <li>
+          <Link to="/components">Components</Link>
+        </li>
+      </ul>
+    </GlobalNavStyles>
+  );
+};
 
 export default GlobalNav;
