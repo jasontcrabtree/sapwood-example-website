@@ -1,33 +1,6 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-
-export const navigationQuery = graphql`
-  {
-    allPrismicGlobalNavigation {
-      edges {
-        node {
-          data {
-            main_pages_nav_links {
-              page_nav_label
-              page_nav_link {
-                uid
-                slug
-                url
-              }
-            }
-            home_page_nav_link {
-              url
-            }
-            home_page_nav_label {
-              text
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
@@ -56,17 +29,68 @@ const GlobalNavStyles = styled.nav`
       list-style: none;
     }
   }
+
+  .sapwood-wordmark-list {
+    padding-left: 0px;
+  }
+
+  .test-list {
+    outline: 1px solid var(--dusk-pink-300);
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+    margin-top: 2rem;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    li + * {
+      margin-left: 72px;
+    }
+  }
 `;
 
-const GlobalNav = (props) => {
-  if (!props) return null;
+const GlobalNav = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allPrismicGlobalNavigation {
+        edges {
+          node {
+            data {
+              main_pages_nav_links {
+                page_nav_label
+                page_nav_link {
+                  uid
+                  id
+                  slug
+                  url
+                }
+              }
+              home_page_nav_link {
+                url
+              }
+              home_page_nav_label {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
-  console.log(props);
+  const globalNavRes =
+    data.allPrismicGlobalNavigation.edges[0].node.data.main_pages_nav_links;
 
   return (
     <GlobalNavStyles>
       <ul>
-        <li>
+        <li className="sapwood-wordmark-list">
           <Link to="/" className="sapwood-wordmark">
             Sapwood Financial Advisors
           </Link>
@@ -74,6 +98,13 @@ const GlobalNav = (props) => {
         <li>
           <Link to="/components">Components</Link>
         </li>
+      </ul>
+      <ul className="test-list">
+        {globalNavRes.map((navItem) => (
+          <li key={navItem.page_nav_link.id}>
+            <Link to={navItem.page_nav_link.url}>{navItem.page_nav_label}</Link>
+          </li>
+        ))}
       </ul>
     </GlobalNavStyles>
   );

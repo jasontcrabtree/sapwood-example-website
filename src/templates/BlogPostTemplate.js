@@ -4,6 +4,7 @@ import HTMLRenderer from 'react-html-renderer';
 import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
 import HeroTitleBlockTwo from '../components/titles/HeroTitleBlockTwo';
+import SliceZone from '../components/globalComponents/SliceZone';
 
 export const query = graphql`
   query blogPostRepeatableSinglePost($uid: String) {
@@ -19,6 +20,7 @@ export const query = graphql`
         body {
           ... on PrismicBlogRepeatableBodyBlogPostContent {
             id
+            slice_type
             items {
               blog_post_text_content {
                 html
@@ -27,6 +29,7 @@ export const query = graphql`
           }
           ... on PrismicBlogRepeatableBodyImageBlock {
             id
+            slice_type
             items {
               image {
                 url
@@ -43,15 +46,28 @@ export const query = graphql`
 
 const BlogTemplateMainStyles = styled.main`
   section {
-    outline: 1px solid var(--green-400);
+    /* outline: 1px solid var(--green-400); */
     display: grid;
     grid-column: 3 / 11;
     margin: 0 auto;
-    max-width: auto;
   }
 
-  section::not(::first-child) {
+  section > * {
     max-width: 648px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    /* border: 1px solid orangered; */
+  }
+
+  section > * + * {
+    margin-top: 48px;
+  }
+
+  section:first-child > * {
+    max-width: 848px;
   }
 `;
 
@@ -74,6 +90,10 @@ const PageTemplate = (props) => {
   // POST CONTENT
   const blogPostContent =
     blogPostRepeatableRes.body[0].items[0].blog_post_text_content.html;
+
+  const blogPostBody = blogPostRepeatableRes.body;
+
+  console.log(blogPostBody);
 
   //   const fluidImgURL =
   //     prismicBlogPostDataResponse.cover_image.localFile.childImageSharp.fluid;
@@ -102,8 +122,11 @@ const PageTemplate = (props) => {
           return <p>{body.items}</p>;
         })}
       </section> */}
+      {/* <section> */}
+      {/* <HTMLRenderer html={blogPostContent} /> */}
+      {/* </section> */}
       <section>
-        <HTMLRenderer html={blogPostContent} />
+        <SliceZone body={blogPostBody} />
       </section>
       {/* TODO: SLICEZONE???? */}
     </BlogTemplateMainStyles>

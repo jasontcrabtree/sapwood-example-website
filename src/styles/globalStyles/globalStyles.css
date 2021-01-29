@@ -2,17 +2,16 @@
 
 /* Top level Section spacing 24px (grid gap) + owl selector */
 main > * + * {
-  margin-top: 48px;
+  /* margin-top: 48px; */
 }
 
-main > section > p + *,
-p {
-  margin-top: 24px;
+section > p + * {
+  /* margin-top: 32px; */
 }
 
 main > section.p-small > p,
 main > .p-small > p {
-  margin-top: 16px;
+  /* margin-top: 16px; */
 }
 
 html {
@@ -37,6 +36,19 @@ hr {
 
 .loose > * {
   margin-top: 24px;
+}
+
+.med-spacing > * {
+  /* margin-top: 64px; */
+}
+
+.med-spacing > * + * {
+  /* border: 1px solid red;
+  margin-top: 64px; */
+}
+
+.loose > * + * {
+  /* margin-top: 24px; */
 }
 
 .sapwood-wordmark {
