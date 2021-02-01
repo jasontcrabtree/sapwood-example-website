@@ -59,7 +59,8 @@ const BlogTemplateMainStyles = styled.main`
     /* outline: 1px solid var(--green-400); */
     display: grid;
     grid-column: 3 / 11;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   section > * {
@@ -68,12 +69,17 @@ const BlogTemplateMainStyles = styled.main`
     margin-right: auto;
   }
 
-  p {
-    /* border: 1px solid orangered; */
+  section > * + * {
+    margin-top: 64px;
   }
 
-  section > * + * {
-    margin-top: 48px;
+  section > figure {
+    margin-top: 64px;
+  }
+
+  p,
+  ul {
+    border: 1px solid orangered;
   }
 
   section:first-child > * {

@@ -9,6 +9,9 @@ section > p + * {
   /* margin-top: 32px; */
 }
 
+section {
+}
+
 main > section.p-small > p,
 main > .p-small > p {
   /* margin-top: 16px; */
@@ -64,8 +67,8 @@ ul > li > .sapwood-wordmark {
   text-decoration: none;
 }
 
-ul > li,
-ol > li {
+ul > li + *,
+ol > li + * {
   margin-top: 12px;
 }
 

@@ -9,10 +9,12 @@ const ImageWrapperStyles = styled.figure`
     object-fit: contain;
   } */
 
-  display: grid;
+  border: 1px solid red;
 
+  display: grid;
   width: fit-content;
-  margin: 24px auto 0px;
+  margin-left: 0;
+  margin-right: auto;
   padding-right: 16px;
 
   position: relative;
@@ -52,7 +54,7 @@ const ImageWrapperStyles = styled.figure`
   .bottom-centre {
   }
   .bottom-left {
-    bottom: -8px;
+    bottom: -32px;
     left: -32px;
   }
   .top-left {
@@ -61,6 +63,15 @@ const ImageWrapperStyles = styled.figure`
     left: -32px;
   }
   .top-centre {
+  }
+
+  .reverse-order {
+    display: flex
+    flex-direction: column-reverse;
+  }
+
+  .test {
+    display: flex;
   }
 `;
 
@@ -76,26 +87,39 @@ function ImageWrapper(props) {
     imageColourBlockPosition,
   } = props;
 
-  console.log(props);
+  // console.log(props);
 
   // if (imageStyle === 'OneTopRight') {
   //   // console.log('hello');
   // }
 
   return (
-    <ImageWrapperStyles className="parent" background={imageBlockColourStyle}>
+    <ImageWrapperStyles
+      className={`parent test ${
+        imageColourBlockPosition === 'TopRight' ? 'top-right' : ''
+      }${imageColourBlockPosition === 'BottomRight' ? 'bottom-right' : ''}${
+        imageColourBlockPosition === 'BottomLeft' ? 'reverse-order' : ''
+      }${imageColourBlockPosition === 'TopLeft' ? 'top-left' : ''}${
+        imageColourBlockPosition === 'Top' ? 'top' : ''
+      }${imageColourBlockPosition === 'Bottom' ? 'top' : ''} test`}
+      background={imageBlockColourStyle}
+    >
       <div
-        className={`color-block color-block-colour size
-      ${imageColourBlockPosition === 'TopRight' ? 'top-right' : ''}
-      ${imageColourBlockPosition === 'BottomRight' ? 'bottom-right' : ''}
-      ${imageColourBlockPosition === 'BottomLeft' ? 'bottom-left' : ''}
-      ${imageColourBlockPosition === 'TopLeft' ? 'top-left' : ''}
-      ${imageColourBlockPosition === 'Top' ? 'top-left' : ''}
-      ${imageColourBlockPosition === 'Bottom' ? 'top-left' : ''}
-      `}
+        className={`color-block color-block-colour size ${
+          imageColourBlockPosition === 'TopRight' ? 'top-right' : ''
+        }${imageColourBlockPosition === 'BottomRight' ? 'bottom-right' : ''}${
+          imageColourBlockPosition === 'BottomLeft' ? 'bottom-left' : ''
+        }${imageColourBlockPosition === 'TopLeft' ? 'top-left' : ''}${
+          imageColourBlockPosition === 'Top' ? 'top' : ''
+        }${imageColourBlockPosition === 'Bottom' ? 'top' : ''}`}
       />
-      <img src={imageSource} alt={imageAlt} />
-      <figcaption className="eyebrow">
+      <img src={imageSource} className="test" alt={imageAlt} />
+      <figcaption
+        className={`eyebrow test ${
+          imageColourBlockPosition === 'BottomLeft' ? 'reverse-order' : ''
+        }`}
+        background={imageBlockColourStyle}
+      >
         <a href={imageSourceLink}>{imageCredit}</a>
       </figcaption>
     </ImageWrapperStyles>

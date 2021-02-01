@@ -20,25 +20,35 @@ const SliceZone = (props) => {
           );
         }
         if (bodyContent.slice_type === 'image_block') {
-          return (
-            <ImageWrapper
-              key={i}
-              imageAlt={bodyContent.items[0].image.alt}
-              imageCredit={
-                bodyContent.items[0].image_credit || 'Image via Unsplash'
-              }
-              imageSource={bodyContent.items[0].image.url || ''}
-              imageSourceLink={bodyContent.items[0].image_source_link.url || ''}
-              imageBlockColourStyle={
-                bodyContent.items[0].image_block_colour_style || ''
-              }
-              imageBlockSize={bodyContent.primary.image_block_size}
-              imageColourBlockSize={bodyContent.primary.image_colour_block_size}
-              imageColourBlockPosition={
-                bodyContent.primary.image_colour_block_position
-              }
-            />
-          );
+          return bodyContent.items.map((imageItem, id) => {
+            console.log(imageItem);
+            return (
+              <ImageWrapper
+                key={bodyContent.id + id}
+                imageAlt={imageItem.image.alt}
+                imageCredit={imageItem.image_credit || 'Image via Unsplash'}
+                imageSource={imageItem.image.url || ''}
+                imageSourceLink={imageItem.image_source_link.url || ''}
+                imageBlockColourStyle={imageItem.image_block_colour_style || ''}
+                imageBlockSize={bodyContent.primary.image_block_size}
+                imageColourBlockSize={
+                  bodyContent.primary.image_colour_block_size
+                }
+                imageColourBlockPosition={
+                  bodyContent.primary.image_colour_block_position
+                }
+              />
+            );
+          });
+
+          // return bodyContent.items.map((item, id) => {
+          //   console.log(item);
+          //   return (
+          //     <div key={id}>
+          //       <img src={item.image.url} alt={item.image.alt} />
+          //     </div>
+          //   );
+          // });
         }
         return null;
       })}

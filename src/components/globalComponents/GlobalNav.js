@@ -32,6 +32,7 @@ const GlobalNavStyles = styled.nav`
 
   .sapwood-wordmark-list {
     padding-left: 0px;
+    margin-top: 12px;
   }
 
   .test-list {
