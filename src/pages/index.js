@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import HTMLRenderer from 'react-html-renderer';
 
 import SEO from '../components/globalComponents/SEO';
+import ImageWrapper from '../components/ImageWrapper';
 
 export const homePageQuery = graphql`
   query homePageQuery {
@@ -41,8 +42,18 @@ const index = (props) => {
   return (
     <HomePageContainerStyles id="main">
       <SEO />
-      <HeroHeader>{mainTitle}</HeroHeader>
-      <HTMLRenderer html={mainText} />
+      {/* <HeroHeader>{mainTitle}</HeroHeader> */}
+      <section>
+        <ImageWrapper
+          imageStyle="OneTopRight"
+          imageAlt="Hundreds of people gather and sit around a sunny riverway during a summers day in Paris, France."
+          imageCredit="Image via Brooke"
+          imageSource="https://images.unsplash.com/photo-1611677233318-de54d11b189e"
+          imageSourceLink="https://unsplash.com/photos/a3Dyzxrmnss"
+          imageBlockColourStyle="var(--dusk-pink-500)"
+        />
+      </section>
+      {/* <HTMLRenderer html={mainText} /> */}
     </HomePageContainerStyles>
   );
 };

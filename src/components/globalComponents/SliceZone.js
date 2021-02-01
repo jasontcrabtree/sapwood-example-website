@@ -1,13 +1,12 @@
 import React from 'react';
 import HTMLRenderer from 'react-html-renderer';
-// import Hero from './hero';
-// import CallToActionGrid from './callToActionGrid';
-// import PriceList from './priceList';
+import ImageWrapper from '../ImageWrapper';
 
 const SliceZone = (props) => {
   if (!props) return null;
-
   const { body } = props;
+
+  console.log(props);
 
   return (
     <>
@@ -22,20 +21,23 @@ const SliceZone = (props) => {
         }
         if (bodyContent.slice_type === 'image_block') {
           return (
-            <figure
+            <ImageWrapper
               key={i}
-              style={{
-                borderColor: `${bodyContent.items[0].image_block_colour_style}`,
-                borderWidth: `4px`,
-                borderStyle: `solid`,
-              }}
-            >
-              <img
-                src={bodyContent.items[0].image.url}
-                alt={bodyContent.items[0].image.alt}
-              />
-              <figcaption className="eyebrow">Photo Credit</figcaption>
-            </figure>
+              imageAlt={bodyContent.items[0].image.alt}
+              imageCredit={
+                bodyContent.items[0].image_credit || 'Image via Unsplash'
+              }
+              imageSource={bodyContent.items[0].image.url || ''}
+              imageSourceLink={bodyContent.items[0].image_source_link.url || ''}
+              imageBlockColourStyle={
+                bodyContent.items[0].image_block_colour_style || ''
+              }
+              imageBlockSize={bodyContent.primary.image_block_size}
+              imageColourBlockSize={bodyContent.primary.image_colour_block_size}
+              imageColourBlockPosition={
+                bodyContent.primary.image_colour_block_position
+              }
+            />
           );
         }
         return null;

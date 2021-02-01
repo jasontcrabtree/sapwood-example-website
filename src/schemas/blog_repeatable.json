@@ -65,25 +65,45 @@
           "image_block": {
             "type": "Slice",
             "fieldset": "Image Block",
-            "description": "Image Block",
+            "description": "Image block with a stylised color block and credit text",
             "icon": "image",
             "display": "list",
             "non-repeat": {
-              "image_block_style": {
+              "image_block_size": {
                 "type": "Select",
                 "config": {
                   "options": [
-                    "1 - TR",
-                    "2 - BR",
-                    "3 - BL",
-                    "4 - TL",
-                    "5 - TR-SM",
-                    "6 - BR - SM",
-                    "7 - BL - SM",
-                    "8 - TL - SM"
+                    "Small",
+                    "Medium"
                   ],
-                  "default_value": "1 - TR",
-                  "label": "Image Block Style"
+                  "default_value": "Small",
+                  "label": "Image Block Size"
+                }
+              },
+              "image_colour_block_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Small",
+                    "Medium"
+                  ],
+                  "default_value": "Small",
+                  "label": "Image Colour Block Size"
+                }
+              },
+              "image_colour_block_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Colour Block Position"
                 }
               }
             },
@@ -108,6 +128,20 @@
                 "config": {
                   "label": "Image Block Colour Style",
                   "placeholder": "Hex Code / Colour Name"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "e.g. https://unsplash.com"
+                }
+              },
+              "image_credit": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Credit",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
                 }
               }
             }

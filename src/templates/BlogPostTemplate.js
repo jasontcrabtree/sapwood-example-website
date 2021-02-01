@@ -30,12 +30,22 @@ export const query = graphql`
           ... on PrismicBlogRepeatableBodyImageBlock {
             id
             slice_type
+            primary {
+              image_block_size
+              image_colour_block_size
+              image_colour_block_position
+            }
             items {
               image {
                 url
                 alt
               }
               image_block_colour_style
+              image_alt_text
+              image_credit
+              image_source_link {
+                url
+              }
             }
           }
         }
@@ -93,7 +103,7 @@ const PageTemplate = (props) => {
 
   const blogPostBody = blogPostRepeatableRes.body;
 
-  console.log(blogPostBody);
+  // console.log(blogPostBody);
 
   //   const fluidImgURL =
   //     prismicBlogPostDataResponse.cover_image.localFile.childImageSharp.fluid;
@@ -116,19 +126,9 @@ const PageTemplate = (props) => {
           Author: {pageInfoAuthor}
         </span>
       </section>
-      {/* <section>
-        {blogPostRepeatableRes.body.items((body, i) => {
-          console.log(body.items);
-          return <p>{body.items}</p>;
-        })}
-      </section> */}
-      {/* <section> */}
-      {/* <HTMLRenderer html={blogPostContent} /> */}
-      {/* </section> */}
       <section>
         <SliceZone body={blogPostBody} />
       </section>
-      {/* TODO: SLICEZONE???? */}
     </BlogTemplateMainStyles>
   );
 };

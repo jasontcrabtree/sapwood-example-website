@@ -21,6 +21,7 @@ import CardGridTwo from '../components/cardBlocks/CardGridTwo';
 import CardGridThree from '../components/cardBlocks/CardGridThree';
 import CardGridFour from '../components/cardBlocks/CardGridFour';
 import FormDemo from '../components/FormDemo';
+import ImageWrapper from '../components/ImageWrapper';
 
 const ComponentPageMainStyles = styled.main`
   /* ALL STYLES HERE ARE PURELY FOR PRESENTATION OF THE COMPONENTS PAGE, NO STYLES FOR COMPONENTS */
