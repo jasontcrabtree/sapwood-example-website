@@ -74,7 +74,7 @@ const BlogTemplateMainStyles = styled.main`
 
   p,
   ul {
-    border: 1px solid orangered;
+    /* border: 1px solid orangered; */
   }
 
   section:first-child > * {

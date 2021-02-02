@@ -8,6 +8,8 @@ const ImageWrapperStyles = styled.figure`
   margin-right: auto;
   padding-left: 0;
   padding-right: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 
   position: relative;
 
@@ -15,6 +17,7 @@ const ImageWrapperStyles = styled.figure`
     width: 600px;
     height: 448px;
     object-fit: cover;
+    box-shadow: 0px 0px 1px 1px rgba(0.1, 0.1, 0.1, 0.01);
   }
 
   /* ::after, */
