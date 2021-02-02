@@ -6,7 +6,7 @@ const SliceZone = (props) => {
   if (!props) return null;
   const { body } = props;
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <>
@@ -20,35 +20,25 @@ const SliceZone = (props) => {
           );
         }
         if (bodyContent.slice_type === 'image_block') {
-          return bodyContent.items.map((imageItem, id) => {
-            console.log(imageItem);
-            return (
-              <ImageWrapper
-                key={bodyContent.id + id}
-                imageAlt={imageItem.image.alt}
-                imageCredit={imageItem.image_credit || 'Image via Unsplash'}
-                imageSource={imageItem.image.url || ''}
-                imageSourceLink={imageItem.image_source_link.url || ''}
-                imageBlockColourStyle={imageItem.image_block_colour_style || ''}
-                imageBlockSize={bodyContent.primary.image_block_size}
-                imageColourBlockSize={
-                  bodyContent.primary.image_colour_block_size
-                }
-                imageColourBlockPosition={
-                  bodyContent.primary.image_colour_block_position
-                }
-              />
-            );
-          });
-
-          // return bodyContent.items.map((item, id) => {
-          //   console.log(item);
-          //   return (
-          //     <div key={id}>
-          //       <img src={item.image.url} alt={item.image.alt} />
-          //     </div>
-          //   );
-          // });
+          return (
+            <ImageWrapper
+              key={bodyContent.id}
+              imageAlt={bodyContent.primary.image.alt}
+              imageCredit={
+                bodyContent.primary.image_credit || 'Image via Unsplash'
+              }
+              imageSource={bodyContent.primary.image.url || ''}
+              imageSourceLink={bodyContent.primary.image_source_link.url || ''}
+              imageBlockColourStyle={
+                bodyContent.primary.image_block_colour_style || ''
+              }
+              // imageBlockSize={bodyContent.primary.image_block_size}
+              // imageColourBlockSize={bodyContent.primary.image_colour_block_size}
+              imageColourBlockPosition={
+                bodyContent.primary.image_colour_block_position
+              }
+            />
+          );
         }
         return null;
       })}

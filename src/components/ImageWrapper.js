@@ -2,23 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageWrapperStyles = styled.figure`
-  /*
-  .parent > img {
-    max-width: 596px;
-    max-height: 447px;
-    object-fit: contain;
-  } */
-
-  border: 1px solid red;
-
   display: grid;
   width: fit-content;
   margin-left: 0;
   margin-right: auto;
+  padding-left: 0;
   padding-right: 16px;
 
   position: relative;
-  align-self: center;
 
   img {
     width: 600px;
@@ -48,30 +39,28 @@ const ImageWrapperStyles = styled.figure`
     top: -32px;
   }
   .bottom-right {
-    bottom: -8px;
+    bottom: -32px;
     right: -16px;
   }
   .bottom-centre {
+    bottom: -32px;
+    width: 82%;
+    left: 8%;
+    right: 8%;
   }
   .bottom-left {
     bottom: -32px;
     left: -32px;
   }
   .top-left {
-    background-color: var(--grey-300);
     top: -32px;
     left: -32px;
   }
   .top-centre {
-  }
-
-  .reverse-order {
-    display: flex
-    flex-direction: column-reverse;
-  }
-
-  .test {
-    display: flex;
+    top: -32px;
+    width: 82%;
+    left: 8%;
+    right: 8%;
   }
 `;
 
@@ -82,27 +71,15 @@ function ImageWrapper(props) {
     imageSourceLink,
     imageCredit,
     imageBlockColourStyle,
-    imageBlockSize,
-    imageColourBlockSize,
+    // imageBlockSize,
+    // imageColourBlockSize,
     imageColourBlockPosition,
   } = props;
 
-  // console.log(props);
-
-  // if (imageStyle === 'OneTopRight') {
-  //   // console.log('hello');
-  // }
-
   return (
     <ImageWrapperStyles
-      className={`parent test ${
-        imageColourBlockPosition === 'TopRight' ? 'top-right' : ''
-      }${imageColourBlockPosition === 'BottomRight' ? 'bottom-right' : ''}${
-        imageColourBlockPosition === 'BottomLeft' ? 'reverse-order' : ''
-      }${imageColourBlockPosition === 'TopLeft' ? 'top-left' : ''}${
-        imageColourBlockPosition === 'Top' ? 'top' : ''
-      }${imageColourBlockPosition === 'Bottom' ? 'top' : ''} test`}
-      background={imageBlockColourStyle}
+      className="parent "
+      background={`var(--${imageBlockColourStyle.toLowerCase()})`}
     >
       <div
         className={`color-block color-block-colour size ${
@@ -110,88 +87,28 @@ function ImageWrapper(props) {
         }${imageColourBlockPosition === 'BottomRight' ? 'bottom-right' : ''}${
           imageColourBlockPosition === 'BottomLeft' ? 'bottom-left' : ''
         }${imageColourBlockPosition === 'TopLeft' ? 'top-left' : ''}${
-          imageColourBlockPosition === 'Top' ? 'top' : ''
-        }${imageColourBlockPosition === 'Bottom' ? 'top' : ''}`}
+          imageColourBlockPosition === 'Top' ? 'top-centre' : ''
+        }${imageColourBlockPosition === 'Bottom' ? 'bottom-centre' : ''}`}
       />
-      <img src={imageSource} className="test" alt={imageAlt} />
-      <figcaption
-        className={`eyebrow test ${
-          imageColourBlockPosition === 'BottomLeft' ? 'reverse-order' : ''
-        }`}
-        background={imageBlockColourStyle}
-      >
-        <a href={imageSourceLink}>{imageCredit}</a>
-      </figcaption>
+      {imageColourBlockPosition === 'BottomLeft' ||
+      imageColourBlockPosition === 'BottomRight' ||
+      imageColourBlockPosition === 'Bottom' ? (
+        <>
+          <figcaption className="eyebrow" background={imageBlockColourStyle}>
+            <a href={imageSourceLink}>{imageCredit}</a>
+          </figcaption>
+          <img src={imageSource} alt={imageAlt} />
+        </>
+      ) : (
+        <>
+          <img src={imageSource} alt={imageAlt} />
+          <figcaption className="eyebrow" background={imageBlockColourStyle}>
+            <a href={imageSourceLink}>{imageCredit}</a>
+          </figcaption>
+        </>
+      )}
     </ImageWrapperStyles>
   );
 }
 
 export default ImageWrapper;
-
-// condition ? exprIfTrue : exprIfFalse
-
-// ImageWrapper TODO
-
-/*
-
-Image Styles
-
-Image Size
-- Small
-- Medium
-
-Block Size
-- SmallBlock
-- MediumBlock
-
-Block Position
-- Top
-- Bottom
-- TopRight
-- BottomRight
-- BottomLeft
-- TopLeft
-
-Top
-Bottom
-TopRight
-BottomRight
-BottomLeft
-TopLeft
-
-
-*/
-
-/*
-
-1. Write base component HTML
-2. Define required Prismic info (with fallbacks if not avaliable)
-3. Style default (responsive) image styles (figure, image, aspect ratio)
-4. FigCaption - is it a link?
-5. Create seperate styled components for each of the 8 different image wrapper styles
-6. Create a function, ternary, or set of nested if statements to amend the styles based on the component image_block_style (with fallback)
-7. Change the colour of the image block based on the prismic image_block_colour_style data (with fallback)
-8. Set defaults for image block if none provided by author
-
-*/
-
-/* top: ${(props) =>
-  props.imageStyle === 'OneTopRight' ? '-32px' : '0'}; */
-
-/* top: ${(props) => (props.imageStyle ? '-32px' : '0px')}; */
-
-/* ${(props) =>
-  props.imageStyle ===
-  OneTopRight`
-    top: '-32px';
-  `} */
-
-/* top: ${(imageStyle) =>
-  imageStyle === 'OneTopRight' ? '-32px' : '0px'}; */
-
-/* top: ${(imageStyle) =>
-  imageStyle === 'OneTopRight' ? '-32px' : '0px'}; */
-
-/* ${props.upsidedown && 'transform: rotate(180deg);'} */
-
-/* ${(props) => $`{props.imageStyle && 'top: -132px;'}`} */

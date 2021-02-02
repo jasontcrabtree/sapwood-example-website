@@ -31,18 +31,13 @@ export const query = graphql`
             id
             slice_type
             primary {
-              image_block_size
-              image_colour_block_size
-              image_colour_block_position
-            }
-            items {
               image {
-                url
                 alt
+                url
               }
+              image_colour_block_position
               image_block_colour_style
-              image_alt_text
-              image_credit
+              image_source
               image_source_link {
                 url
               }
