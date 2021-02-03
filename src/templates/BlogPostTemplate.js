@@ -6,7 +6,7 @@ import SEO from '../components/globalComponents/SEO';
 import HeroTitleBlockTwo from '../components/titles/HeroTitleBlockTwo';
 import SliceZone from '../components/globalComponents/SliceZone';
 
-export const query = graphql`
+export const blogPostQuery = graphql`
   query blogPostRepeatableSinglePost($uid: String) {
     prismicBlogRepeatable(uid: { eq: $uid }) {
       uid
@@ -80,9 +80,15 @@ const BlogTemplateMainStyles = styled.main`
   section:first-child > * {
     max-width: 848px;
   }
+
+  @media screen and (max-width: 920px) {
+    section {
+      grid-column: 1 / -1;
+    }
+  }
 `;
 
-const PageTemplate = (props) => {
+const BlogPostTemplate = (props) => {
   const { data } = props;
   const blogPostRepeatableRes = data.prismicBlogRepeatable.data;
 
@@ -134,4 +140,4 @@ const PageTemplate = (props) => {
   );
 };
 
-export default PageTemplate;
+export default BlogPostTemplate;

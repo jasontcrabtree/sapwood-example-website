@@ -9,6 +9,10 @@ const TitleBlockTwoStyles = styled.div`
   width: fit-content;
   text-align: center;
 
+  .left {
+    text-align: left;
+  }
+
   height: 92px;
 
   .brand-circles {
@@ -17,6 +21,14 @@ const TitleBlockTwoStyles = styled.div`
     margin: 0px;
     padding: 0px;
     padding-bottom: 24px;
+  }
+
+  @media screen and (max-width: 920px) {
+    .brand-circles {
+      display: flex;
+      width: fit-content;
+      margin: 0 auto;
+    }
   }
 `;
 

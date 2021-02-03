@@ -20,9 +20,21 @@ const TitleBlockOneStyles = styled.div`
     width: 160px;
     z-index: -1;
   }
+
+  @media screen and (max-width: 920px) {
+    padding-top: 16px;
+    padding-left: 16px;
+
+    ::after {
+      top: 0px;
+      left: 0px;
+      height: 80px;
+      width: 136px;
+    }
+  }
 `;
 
-function TitleBlockOne(props) {
+function TitleBlockFour(props) {
   const { title, headingLevel, serifStyle } = props;
   const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
@@ -36,4 +48,4 @@ function TitleBlockOne(props) {
   );
 }
 
-export default TitleBlockOne;
+export default TitleBlockFour;

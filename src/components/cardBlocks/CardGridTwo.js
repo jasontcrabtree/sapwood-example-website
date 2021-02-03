@@ -105,6 +105,22 @@ const CardGridStyles = styled.div`
     width: 36px;
     height: 22px;
   }
+
+  @media screen and (max-width: 920px) {
+    ul {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-right: 0px;
+      gap: 24px;
+    }
+
+    li > a > div {
+      padding: 16px;
+    }
+
+    .arrow-right {
+      display: none;
+    }
+  }
 `;
 
 function CardGridTwo() {

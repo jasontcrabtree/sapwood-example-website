@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const TextColumnStyles = styled.ul`
   display: flex;
+
   gap: 24px;
 
   padding: 0px;
@@ -22,6 +23,9 @@ const TextColumnStyles = styled.ul`
     background-color: var(--apricot-100);
     border: 1px solid var(--dusk-pink-400);
     padding: 24px;
+  }
+  @media screen and (max-width: 920px) {
+    flex-direction: column;
   }
 `;
 

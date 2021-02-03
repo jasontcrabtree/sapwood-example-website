@@ -101,6 +101,22 @@ const CardGridStyles = styled.div`
     width: 480px;
     z-index: -1;
   }
+
+  @media screen and (max-width: 920px) {
+    ul {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-right: 0px;
+    }
+
+    ul::after {
+      top: -24px;
+      right: -40px;
+      left: 80px;
+      height: 240px;
+      width: 360px;
+      width: auto;
+    }
+  }
 `;
 
 function CardGridFour() {

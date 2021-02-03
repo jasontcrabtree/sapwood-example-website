@@ -61,7 +61,16 @@ h1 {
 
 h1 {
   max-width: 24ch;
-  margin-bottom: 48px;
+  margin-bottom: 0px;
+}
+
+@media screen and (max-width: 920px) {
+  h1,
+  .h1-hero {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.5px;
+  }
 }
 
 h2 {

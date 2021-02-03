@@ -38,7 +38,7 @@ const ImageWrapperStyles = styled.figure`
   }
 
   .top-right {
-    left: 64px;
+    right: -16px;
     top: -32px;
   }
   .bottom-right {
@@ -64,6 +64,44 @@ const ImageWrapperStyles = styled.figure`
     width: 82%;
     left: 8%;
     right: 8%;
+  }
+
+  @media screen and (max-width: 920px) {
+    padding-right: 16px;
+    padding-left: 16px;
+
+    .top-right {
+      right: -8px;
+      top: -24px;
+    }
+    .bottom-right {
+      bottom: -24px;
+      right: -8px;
+    }
+    .bottom-centre {
+      bottom: -24px;
+      width: 72%;
+      left: 48px;
+      right: 48px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bottom-left {
+      bottom: -24px;
+      left: -16px;
+    }
+    .top-left {
+      top: -24px;
+      left: -16px;
+    }
+    .top-centre {
+      top: -24px;
+      width: 72%;
+      left: 48px;
+      right: 48px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 `;
 

@@ -12,6 +12,12 @@ module.exports = {
           if (doc.type === 'blog_repeatable') {
             return `/blog/${doc.uid}`;
           }
+          if (doc.type === 'resources_repeatable') {
+            return `/resources/${doc.uid}`;
+          }
+          if (doc.type === 'services_repeatable') {
+            return `/services/${doc.uid}`;
+          }
           // Backup for all other types
           return `/${doc.uid}`;
         },

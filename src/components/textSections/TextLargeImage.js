@@ -34,6 +34,30 @@ const TextLargeImageStyles = styled.div`
     width: 560px;
     z-index: -1;
   }
+
+  @media screen and (max-width: 920px) {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .parent {
+      margin-left: 0px;
+    }
+
+    .parent > img {
+      max-width: 100%;
+      width: auto;
+      max-height: 328px;
+      object-fit: contain;
+    }
+
+    .parent::after {
+      top: -32px;
+      left: -16px;
+      height: 80%;
+      width: 80%;
+    }
+  }
 `;
 
 function TextLargeImage(props) {

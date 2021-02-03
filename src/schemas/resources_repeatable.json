@@ -14,6 +14,459 @@
         "label": "Page Title",
         "placeholder": "Main Page Title"
       }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "card_grid_section": []
+        },
+        "choices": {
+          "page_title_block": {
+            "type": "Slice",
+            "fieldset": "Page Title Block",
+            "description": "A Page Title with Different Display Styles",
+            "icon": "title",
+            "display": "list",
+            "non-repeat": {
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "One — Line",
+                    "Two — Dots",
+                    "Three — Block",
+                    "Four — Hero Standard",
+                    "Five — Hero Dots",
+                    "Six — Hero Line",
+                    "Seven — Hero Block"
+                  ],
+                  "default_value": "One — Line",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Text Left",
+                    "Text Centre"
+                  ],
+                  "default_value": "Text Left",
+                  "label": "Text Alignment"
+                }
+              },
+              "main_page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Main Page Title",
+                  "placeholder": "Page Title"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "column_text_section": {
+            "type": "Slice",
+            "fieldset": "Column Text Section",
+            "description": "Section Title, and Columns with Text and Images",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dots",
+                    "Block",
+                    "Hero-Standard",
+                    "Hero-Dots",
+                    "Hero-Line",
+                    "Hero-Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "title_text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Centre Aligned",
+                  "placeholder_true": "Left Aligned",
+                  "default_value": false,
+                  "label": "Title Text Alignment"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
+                }
+              }
+            },
+            "repeat": {
+              "column_image_content": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Column Image Content"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content"
+                }
+              }
+            }
+          },
+          "column_text_section1": {
+            "type": "Slice",
+            "fieldset": "Column Text Section",
+            "description": "Section Title, and Columns with Text and Images",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dots",
+                    "Block",
+                    "Hero-Standard",
+                    "Hero-Dots",
+                    "Hero-Line",
+                    "Hero-Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "title_text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Centre Aligned",
+                  "placeholder_true": "Left Aligned",
+                  "default_value": false,
+                  "label": "Title Text Alignment"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
+                }
+              }
+            },
+            "repeat": {
+              "column_image_content": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Column Image Content"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content"
+                }
+              }
+            }
+          },
+          "column_text_section2": {
+            "type": "Slice",
+            "fieldset": "Column Text Section",
+            "description": "Section Title, and Columns with Text and Images",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dots",
+                    "Block",
+                    "Hero-Standard",
+                    "Hero-Dots",
+                    "Hero-Line",
+                    "Hero-Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "title_text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Centre Aligned",
+                  "placeholder_true": "Left Aligned",
+                  "default_value": false,
+                  "label": "Title Text Alignment"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
+                }
+              }
+            },
+            "repeat": {
+              "column_image_content": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Column Image Content"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content"
+                }
+              }
+            }
+          },
+          "card_grid_section": {
+            "type": "Slice",
+            "fieldset": "Card Grid Section",
+            "description": "A Grid of Cards with Images, Text and Links",
+            "icon": "view_carousel",
+            "display": "list",
+            "non-repeat": {
+              "card_grid_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Card Grid Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dot",
+                    "Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "card_grid_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Style-One-ImageColourBlocks",
+                    "Style-Two-EdgeToEdge",
+                    "Style-Three-HorizontalStack",
+                    "Style-Four-SmallCardsGridColourBlock"
+                  ],
+                  "default_value": "Style-One-ImageColourBlocks",
+                  "label": "Card Grid Style"
+                }
+              }
+            },
+            "repeat": {
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Card Image"
+                }
+              },
+              "card_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3, heading4",
+                  "label": "Card Title"
+                }
+              },
+              "card_link_destination": {
+                "type": "Link",
+                "config": {
+                  "label": "Card Link Destination"
+                }
+              }
+            }
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Image block with a stylised color block and credit text",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image_block_colour_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Grey-300",
+                    "Grey-700",
+                    "Turquoise-300",
+                    "Turquoise-700",
+                    "Green-300",
+                    "Green-800",
+                    "Honey-300",
+                    "Honey-600",
+                    "Dusk-Pink-500",
+                    "Dusk-Pink-800"
+                  ],
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Colour"
+                }
+              },
+              "image_colour_block_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Colour Block Position"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "Source of image (to credit)"
+                }
+              },
+              "image_source": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Source",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "column_text_section3": {
+            "type": "Slice",
+            "fieldset": "Column Text Section",
+            "description": "Section Title, and Columns with Text and Images",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dots",
+                    "Block",
+                    "Hero-Standard",
+                    "Hero-Dots",
+                    "Hero-Line",
+                    "Hero-Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "title_text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Centre Aligned",
+                  "placeholder_true": "Left Aligned",
+                  "default_value": false,
+                  "label": "Title Text Alignment"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
+                }
+              }
+            },
+            "repeat": {
+              "column_image_content": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Column Image Content"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

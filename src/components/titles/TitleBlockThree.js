@@ -21,7 +21,7 @@ const TitleBlockOneStyles = styled.div`
   }
 `;
 
-function TitleBlockOne(props) {
+function TitleBlockThree(props) {
   const { title, headingLevel, serifStyle } = props;
   const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
@@ -35,4 +35,4 @@ function TitleBlockOne(props) {
   );
 }
 
-export default TitleBlockOne;
+export default TitleBlockThree;

@@ -23,3 +23,22 @@ Prismic repository at <https://lodestone-template.prismic.io/>
 
 - 30th Nov: Started repository
 - 15th Jan: Added CSSVars package, added preload font plugin, added Netlify Cache plugin
+
+"about_page",
+"blog_page",
+"blog_repeatable",
+"calculators_page",
+"contact_page",
+"global_cta",
+"global_footer",
+"global_navigation",
+"global_newsletter",
+"global_seo_settings",
+"home_page",
+"legal_page",
+"pricing_page",
+"referrals_page",
+"resources_page",
+"resources_repeatable",
+"services_page",
+"services_repeatable",

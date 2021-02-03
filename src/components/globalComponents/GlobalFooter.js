@@ -20,6 +20,12 @@ const GlobalFooterStyles = styled.footer`
       max-width: 32ch;
     }
   }
+
+  @media screen and (max-width: 920px) {
+    padding: 64px 24px 112px 24px;
+    max-width: 32rem;
+    width: auto;
+  }
 `;
 
 const GlobalFooter = () => (

@@ -152,6 +152,35 @@ const CardGridStyles = styled.div`
     width: 36px;
     height: 22px;
   }
+
+  @media screen and (max-width: 920px) {
+    ul {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-right: 0px;
+    }
+
+    li:first-child::after {
+      width: 64%;
+      height: 96px;
+    }
+
+    li:nth-child(2)::after {
+      top: 24px;
+      left: 48px;
+      right: 48px;
+      height: 96px;
+      width: 64%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    li:nth-child(3)::after {
+      top: 24px;
+      right: 32px;
+      height: 96px;
+      width: 64%;
+    }
+  }
 `;
 
 function CardGridOne() {

@@ -3,21 +3,8 @@
     "uid": {
       "type": "UID",
       "config": {
-        "label": "Services Page UID"
-      }
-    },
-    "title_display_style": {
-      "type": "Text",
-      "config": {
-        "label": "Title Display Style"
-      }
-    },
-    "page_main_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1",
-        "label": "Page Main Title",
-        "placeholder": "Main Page Title"
+        "label": "Page Label",
+        "placeholder": "Label to identify Page"
       }
     },
     "body": {
@@ -25,54 +12,276 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "section_text_01": [
+          "blog_post_content": [],
+          "image_block": [],
+          "page_title_block": [
             {
-              "name": "section_text",
-              "display": "section_text"
+              "name": "title",
+              "display": "title"
             }
-          ]
+          ],
+          "column_text": []
         },
         "choices": {
-          "section_text_01": {
+          "blog_post_content": {
             "type": "Slice",
-            "fieldset": "Section Text",
-            "description": "A single title + section of text",
-            "icon": "short_text",
+            "fieldset": "Blog Post Content",
+            "description": "Blog Post Text Content",
+            "icon": "format_textdirection_l_to_r",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "blog_post_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Blog Post Text Content"
+                }
+              }
+            }
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Image block with a stylised color block and credit text",
+            "icon": "image",
             "display": "list",
             "non-repeat": {
-              "section_text_type": {
+              "image_block_colour_style": {
                 "type": "Select",
                 "config": {
                   "options": [
-                    "1: Text",
-                    "2: Text + Img",
-                    "3: Text + Sm Img",
-                    "4: LH Sm Img + Text"
+                    "Grey-300",
+                    "Grey-700",
+                    "Turquoise-300",
+                    "Turquoise-700",
+                    "Green-300",
+                    "Green-800",
+                    "Honey-300",
+                    "Honey-600",
+                    "Dusk-Pink-500",
+                    "Dusk-Pink-800"
                   ],
-                  "default_value": "1: Text",
-                  "label": "Section Text Type"
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Colour"
                 }
               },
-              "section_text_title": {
+              "image_colour_block_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Colour Block Position"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "Source of image (to credit)"
+                }
+              },
+              "image_source": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Source",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "page_title_block": {
+            "type": "Slice",
+            "fieldset": "Page Title Block",
+            "description": "A Page Title with Different Display Styles",
+            "icon": "title",
+            "display": "list",
+            "non-repeat": {
+              "main_page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Main Page Title",
+                  "placeholder": "Page Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "One — Line",
+                    "Two — Dots",
+                    "Three — Block",
+                    "Four — Hero Standard",
+                    "Five — Hero Dots",
+                    "Six — Hero Line",
+                    "Seven — Hero Block"
+                  ],
+                  "default_value": "One — Line",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Align Left",
+                  "placeholder_true": "Align Centre",
+                  "default_value": false,
+                  "label": "Text Alignment"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "column_text": {
+            "type": "Slice",
+            "fieldset": "Column Text Section",
+            "description": "Section Title, and Columns with Text and Images",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading2, heading3, heading4, heading5, heading6",
-                  "label": "Section Text Title"
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dots",
+                    "Block",
+                    "Hero-Standard",
+                    "Hero-Dots",
+                    "Hero-Line",
+                    "Hero-Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "title_text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Centre Aligned",
+                  "placeholder_true": "Left Aligned",
+                  "default_value": false,
+                  "label": "Title Text Alignment"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
                 }
               }
             },
             "repeat": {
-              "section_text_title_display_style": {
-                "type": "Text",
+              "column_image_content": {
+                "type": "Image",
                 "config": {
-                  "label": "Section Text Title Display Style"
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Column Image Content"
                 }
               },
-              "section_text_content": {
+              "column_text_title": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label": "Section Text Content"
+                  "single": "heading4",
+                  "label": "Column Text Title"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content"
+                }
+              }
+            }
+          },
+          "card_grid_section": {
+            "type": "Slice",
+            "fieldset": "Card Grid Section",
+            "description": "A Grid of Cards with Images, Text and Links",
+            "icon": "view_carousel",
+            "display": "list",
+            "non-repeat": {
+              "card_grid_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Card Grid Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dot",
+                    "Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "card_grid_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Style-One-ImageColourBlocks",
+                    "Style-Two-EdgeToEdge",
+                    "Style-Three-HorizontalStack",
+                    "Style-Four-SmallCardsGridColourBlock"
+                  ],
+                  "default_value": "Style-One-ImageColourBlocks",
+                  "label": "Card Grid Style"
+                }
+              }
+            },
+            "repeat": {
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Card Image"
+                }
+              },
+              "card_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3, heading4",
+                  "label": "Card Title"
+                }
+              },
+              "card_link_destination": {
+                "type": "Link",
+                "config": {
+                  "label": "Card Link Destination"
                 }
               }
             }

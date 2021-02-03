@@ -12,7 +12,8 @@ const ImageTextReverseOrderStyles = styled.div`
   gap: 96px;
 
   div > p {
-    max-width: 514px;
+    width: auto;
+    /* max-width: 514px; */
   }
 
   .parent {
@@ -24,7 +25,9 @@ const ImageTextReverseOrderStyles = styled.div`
 
   .parent > img {
     max-width: 492px;
+    width: auto;
     max-height: 328px;
+    height: auto;
     object-fit: contain;
   }
 
@@ -38,10 +41,34 @@ const ImageTextReverseOrderStyles = styled.div`
     background-color: var(--grey-300);
     position: absolute;
     top: -32px;
-    left: 10px;
+    left: -20px;
     height: 328px;
     width: 80%;
     z-index: -1;
+  }
+
+  @media screen and (max-width: 920px) {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .parent {
+      margin-left: 0px;
+    }
+
+    .parent > img {
+      max-width: 100%;
+      width: auto;
+      max-height: 328px;
+      object-fit: contain;
+    }
+
+    .parent::after {
+      top: -32px;
+      left: -16px;
+      height: 80%;
+      width: 80%;
+    }
   }
 `;
 

@@ -13,8 +13,8 @@
       "config": {
         "select": "document",
         "customtypes": [
-          "page",
-          "homepage",
+          "home_page",
+          "about_page",
           "contact_page"
         ],
         "label": "Home Page Link",
@@ -37,11 +37,24 @@
             "config": {
               "select": "document",
               "customtypes": [
-                "page",
+                "about_page",
+                "blog_page",
+                "blog_repeatable",
+                "calculators_page",
                 "contact_page",
-                "contactpage",
-                "aboutpage",
-                "blogpage"
+                "global_cta",
+                "global_footer",
+                "global_navigation",
+                "global_newsletter",
+                "global_seo_settings",
+                "home_page",
+                "legal_page",
+                "pricing_page",
+                "referrals_page",
+                "resources_page",
+                "resources_repeatable",
+                "services_page",
+							  "services_repeatable"
               ],
               "label": "Page Navigation Link",
               "placeholder": "Page Navigation URL Link"

@@ -11,6 +11,20 @@ const GlobalNavStyles = styled.nav`
 
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
 
+  /* border-bottom: 2px solid var(--dusk-pink-600); */
+
+  /*  ::after {
+    content: '';
+    background: var(--green-300);
+    position: absolute;
+    bottom: 0;
+    left: 9.6%;
+    right: 9.6%;
+    top: 124px;
+    width: 80.8%;
+    height: 2px;
+  } */
+
   /* position: sticky;
   top: 0; */
 
@@ -52,6 +66,16 @@ const GlobalNavStyles = styled.nav`
 
     li + * {
       margin-left: 72px;
+    }
+  }
+  @media screen and (max-width: 920px) {
+    padding: 24px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        flex-direction: column;
+      }
     }
   }
 `;
@@ -99,14 +123,19 @@ const GlobalNav = () => {
         <li>
           <Link to="/components">Components</Link>
         </li>
-      </ul>
-      <ul className="test-list">
         {globalNavRes.map((navItem) => (
           <li key={navItem.page_nav_link.id}>
             <Link to={navItem.page_nav_link.url}>{navItem.page_nav_label}</Link>
           </li>
         ))}
       </ul>
+      {/* <ul className="test-list">
+        {globalNavRes.map((navItem) => (
+          <li key={navItem.page_nav_link.id}>
+            <Link to={navItem.page_nav_link.url}>{navItem.page_nav_label}</Link>
+          </li>
+        ))}
+      </ul> */}
     </GlobalNavStyles>
   );
 };

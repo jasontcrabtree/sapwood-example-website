@@ -123,9 +123,39 @@ const CardGridStyles = styled.div`
   li > a > div {
     display: flex;
     flex-direction: column;
+
     span {
       margin-top: auto;
       margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (max-width: 920px) {
+    ul {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-right: 0px;
+    }
+
+    li > a {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+    }
+
+    .arrow-right {
+      display: none;
+    }
+
+    li > a > div {
+      margin-left: 0px;
+    }
+
+    div > h3 {
+      margin-bottom: 8px;
+    }
+
+    .br {
+      display: none;
     }
   }
 `;
@@ -142,7 +172,7 @@ function CardGridThree() {
                 <h3>{card.title}</h3>
                 {/* TODO: USE GATSBY GRAPHQL DATE METHOD */}
                 <span className="eyebrow">
-                  {card.date} • <br />
+                  {card.date} • <br className="br" />
                   {card.author}
                   <img
                     className="arrow-right"
