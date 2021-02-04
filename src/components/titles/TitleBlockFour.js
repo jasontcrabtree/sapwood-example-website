@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TitleBlockOneStyles = styled.div`
+const TitleBlockFourStyles = styled.div`
   color: var(--turquoise-700);
 
   position: relative;
@@ -42,9 +42,9 @@ function TitleBlockFour(props) {
   const Title = validHeadingLevels.includes(safeHeading) ? safeHeading : 'h2';
 
   return (
-    <TitleBlockOneStyles>
+    <TitleBlockFourStyles>
       <Title className={serifStyle}>{title}</Title>
-    </TitleBlockOneStyles>
+    </TitleBlockFourStyles>
   );
 }
 

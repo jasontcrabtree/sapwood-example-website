@@ -3,15 +3,6 @@ import styled from 'styled-components';
 
 import Typography from '../components/TypographyDemo';
 
-import HeroTitleBlockFour from '../components/titles/HeroTitleBlockFour';
-import HeroTitleBlockOne from '../components/titles/HeroTitleBlockOne';
-import HeroTitleBlockThree from '../components/titles/HeroTitleBlockThree';
-import HeroTitleBlockTwo from '../components/titles/HeroTitleBlockTwo';
-
-import TitleBlockOne from '../components/titles/TitleBlockOne';
-import TitleBlockTwo from '../components/titles/TitleBlockTwo';
-import TitleBlockThree from '../components/titles/TitleBlockThree';
-import TitleBlockFour from '../components/titles/TitleBlockFour';
 import TextColumns from '../components/textSections/TextColumns';
 import TextLargeImage from '../components/textSections/TextLargeImage';
 import TextMediumImage from '../components/textSections/TextMediumImage';
@@ -22,6 +13,7 @@ import CardGridThree from '../components/cardBlocks/CardGridThree';
 import CardGridFour from '../components/cardBlocks/CardGridFour';
 import FormDemo from '../components/FormDemo';
 import ImageWrapper from '../components/ImageWrapper';
+import TitleBlock from '../components/titles/TitleBlock';
 
 const ComponentPageMainStyles = styled.main`
   /* ALL STYLES HERE ARE PURELY FOR PRESENTATION OF THE COMPONENTS PAGE, NO STYLES FOR COMPONENTS */
@@ -61,41 +53,12 @@ function ComponentsPage() {
 
       <section>
         <h2 className="label">Hero Title Blocks</h2>
-        <div className="title-blocks">
-          <HeroTitleBlockOne title="1. Money advice that meets you where you are" />
-          <HeroTitleBlockTwo title="2. Money advice that meets you where you are" />
-          <HeroTitleBlockThree title="3. Money advice that meets you where you are" />
-          <HeroTitleBlockFour title="4. Money advice that meets you where you are" />
-        </div>
+        <div className="title-blocks" />
       </section>
 
       <section>
         <h2 className="label">Standard Title Blocks</h2>
-        <div className="title-blocks">
-          <TitleBlockOne
-            title="One: Sapwood Client Resources"
-            headingLevel="h2"
-            serifStyle="serif"
-          />
-
-          <TitleBlockTwo
-            title="Two: Packages and Services"
-            headingLevel="h2"
-            serifStyle="serif"
-          />
-
-          <TitleBlockThree
-            title="Three: Contact Sapwood"
-            headingLevel="h2"
-            serifStyle="serif"
-          />
-
-          <TitleBlockFour
-            title="Four: Flexible Titles"
-            headingLevel="h2"
-            serifStyle="serif"
-          />
-        </div>
+        <div className="title-blocks" />
       </section>
 
       <section>
@@ -330,9 +293,9 @@ function ComponentsPage() {
 
       <section>
         <h2 className="label">Text Sections</h2>
-        <TitleBlockThree
-          title="Sapwood Client Resources"
-          headingLevel="h2"
+        <TitleBlock
+          titleText="Sapwood Client Resources"
+          headingSize="h2"
           serifStyle="serif"
         />
         <p>
@@ -358,9 +321,9 @@ function ComponentsPage() {
 
       <section>
         <h2 className="label">Text Sections</h2>
-        <TitleBlockThree
-          title="Varied Client Packages"
-          headingLevel="h2"
+        <TitleBlock
+          titleText="Varied Client Packages"
+          headingSize="h2"
           serifStyle="serif"
         />
         <TextLargeImage />
@@ -368,9 +331,9 @@ function ComponentsPage() {
 
       <section>
         <h2 className="label">Text Sections</h2>
-        <TitleBlockThree
-          title="One-on-one Client Meetings"
-          headingLevel="h2"
+        <TitleBlock
+          titleText="One To One Client Meetings"
+          headingSize="h2"
           serifStyle="serif"
         />
         <TextMediumImage />
@@ -378,9 +341,9 @@ function ComponentsPage() {
 
       <section>
         <h2 className="label">Text Sections</h2>
-        <TitleBlockThree
-          title="Appproachable and Adaptable Solutions"
-          headingLevel="h2"
+        <TitleBlock
+          titleText="Approachable and Adaptable Solutions"
+          headingSize="h2"
           serifStyle="serif"
         />
         <ImageTextReverseOrder />

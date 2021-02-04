@@ -5,6 +5,7 @@ import HTMLRenderer from 'react-html-renderer';
 
 import SEO from '../components/globalComponents/SEO';
 import ImageWrapper from '../components/ImageWrapper';
+import TitleBlock from '../components/titles/TitleBlock';
 
 export const homePageQuery = graphql`
   query homePageQuery {
@@ -25,7 +26,11 @@ const HeroHeader = styled.h1``;
 
 const HomePageContainerStyles = styled.main`
   * {
-    grid-column: 1 / 8;
+    grid-column: 1 / -1;
+  }
+
+  section {
+    border: 1px solid var(--dusk-pink-500);
   }
 `;
 
@@ -44,13 +49,63 @@ const index = (props) => {
       <SEO />
       {/* <HeroHeader>{mainTitle}</HeroHeader> */}
       <section>
-        <ImageWrapper
-          imageStyle="OneTopRight"
-          imageAlt="Hundreds of people gather and sit around a sunny riverway during a summers day in Paris, France."
-          imageCredit="Image via Brooke"
-          imageSource="https://images.unsplash.com/photo-1611677233318-de54d11b189e"
-          imageSourceLink="https://unsplash.com/photos/a3Dyzxrmnss"
-          imageBlockColourStyle="var(--dusk-pink-500)"
+        <TitleBlock
+          hero
+          titleAlignment
+          headingSize="h1"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="HeroTitleBlockOne"
+        />
+        <hr />
+        <TitleBlock
+          hero
+          titleAlignment
+          headingSize="h1"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="HeroTitleBlockTwo"
+        />
+        <hr />
+        <TitleBlock
+          hero
+          titleAlignment
+          headingSize="h1"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="HeroTitleBlockThree"
+        />
+        <hr />
+        <TitleBlock
+          hero
+          titleAlignment
+          headingSize="h1"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="HeroTitleBlockFour"
+        />
+      </section>
+
+      <section>
+        <TitleBlock
+          headingSize="h3"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="TitleBlockOne"
+        />
+        <hr />
+        <TitleBlock
+          headingSize="h3"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="TitleBlockTwo"
+        />
+        <hr />
+        <TitleBlock
+          headingSize="h3"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="TitleBlockThree"
+        />
+        <hr />
+        <TitleBlock
+          serifStyle
+          headingSize="h3"
+          titleText="H1 Hero Centered Title Text"
+          titleStyle="TitleBlockFour"
         />
       </section>
       {/* <HTMLRenderer html={mainText} /> */}

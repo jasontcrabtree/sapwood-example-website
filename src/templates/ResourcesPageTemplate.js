@@ -9,7 +9,6 @@ import CardGridFour from '../components/cardBlocks/CardGridFour';
 import TextColumns from '../components/textSections/TextColumns';
 import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
 import CardGridTwo from '../components/cardBlocks/CardGridTwo';
-import TitleBlockTwo from '../components/titles/TitleBlockTwo';
 
 export const resourcesPageQuery = graphql`
   query resourcesRepeatablePage($uid: String) {
@@ -79,7 +78,7 @@ const ResourcesPageTemplate = (props) => {
         <ImageTextReverseOrder />
       </section>
       <section>
-        <TitleBlockTwo className="left" title="Applying These Resources" />
+        <h2>Applying these Resources</h2>
         <TextColumns
           columnOne="DISCLAIMER TEXT:
 
@@ -90,7 +89,7 @@ const ResourcesPageTemplate = (props) => {
         <CardGridTwo />
       </section>
       <section>
-        <TitleBlockTwo className="left" title="Applying These Resources" />
+        <h2>Applying these Resources</h2>
         <TextColumns
           columnOne="DISCLAIMER TEXT:
 

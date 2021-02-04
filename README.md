@@ -47,3 +47,22 @@ TODO
 
 - Change all image instances to Gatsby image
 - Fix key props in SliceZone (subset of string content)
+
+<!-- Heading Size -->
+Page Title - H1
+Section Title - H2
+Element Title - H3
+Content Title - H4
+Subtitle - H5
+
+<!-- Title Style -->
+One - Simple
+Two - Dots
+Three - Line
+Four - Block
+---
+
+One - Hero Simple
+Two - Hero Squares
+Three - Hero Line
+Four - Hero Block
