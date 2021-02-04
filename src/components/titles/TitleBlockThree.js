@@ -8,7 +8,7 @@ const TitleBlockOneStyles = styled.div`
 
   position: relative;
 
-  height: 92px;
+  /* height: 92px; */
 
   ::after {
     content: '';

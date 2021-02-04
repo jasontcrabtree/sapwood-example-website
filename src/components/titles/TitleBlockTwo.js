@@ -13,7 +13,7 @@ const TitleBlockTwoStyles = styled.div`
     text-align: left;
   }
 
-  height: 92px;
+  /* height: 92px; */
 
   .brand-circles {
     display: flex;

@@ -42,3 +42,8 @@ Prismic repository at <https://lodestone-template.prismic.io/>
 "resources_repeatable",
 "services_page",
 "services_repeatable",
+
+TODO
+
+- Change all image instances to Gatsby image
+- Fix key props in SliceZone (subset of string content)

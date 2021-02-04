@@ -15,20 +15,101 @@ export const servicesPageQuery = graphql`
   query servicesRepeatablePage($uid: String) {
     prismicServicesRepeatable(uid: { eq: $uid }) {
       uid
+      data {
+        body {
+          ... on PrismicServicesRepeatableBodyImageBlock {
+            id
+            slice_type
+            primary {
+              image {
+                url
+                alt
+              }
+              image_block_colour_style
+              image_colour_block_position
+              image_source
+              image_source_link {
+                url
+              }
+            }
+          }
+          ... on PrismicServicesRepeatableBodyPageTitleBlock {
+            id
+            slice_type
+            primary {
+              title_style
+              text_alignment
+              main_page_title
+            }
+          }
+          ... on PrismicServicesRepeatableBodyColumnText {
+            id
+            slice_type
+            primary {
+              title_text_alignment
+              title_style
+              section_title {
+                text
+              }
+              column_background_style
+            }
+            items {
+              column_text_title {
+                text
+              }
+              column_text_content {
+                html
+              }
+              column_image_content {
+                url
+                alt
+              }
+            }
+          }
+          ... on PrismicServicesRepeatableBodyCardGridSection {
+            id
+            slice_type
+            primary {
+              title_style
+              card_grid_title {
+                text
+              }
+              card_grid_style
+            }
+            items {
+              card_title {
+                text
+              }
+              card_link_destination {
+                url
+              }
+              card_image {
+                url
+                alt
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
 
 const ServicesPageMainStyles = styled.main`
   section {
+    border: 1px solid red;
+  }
+
+  section {
     display: grid;
     grid-column: 1 / -1;
+    justify-content: center;
     /* margin-left: auto;
     margin-right: auto; */
     /* margin-top: 96px; */
   }
 
-  section + * {
+  section > * + * {
     margin-top: 96px;
   }
 
@@ -51,7 +132,11 @@ const ServicesPageMainStyles = styled.main`
 const ServicesPageTemplate = (props) => {
   const { data } = props;
 
-  console.log(data);
+  // console.log(data);
+
+  const servicesRepeatableSliceData = data.prismicServicesRepeatable.data.body;
+
+  console.log(servicesRepeatableSliceData);
 
   // const resourcesPageDataRes = data.prismicResourcesRepeatable.data;
 
@@ -69,10 +154,14 @@ const ServicesPageTemplate = (props) => {
         imageALT={imageALT}
         description={description} */
       />
+      {/* <section>
+        <HeroTitleBlockOne title={title} headingLevel="h1" />
+      </section> */}
+
       <section>
-        {/* <HeroTitleBlockOne title={title} headingLevel="h1" /> */}
+        <SliceZone body={servicesRepeatableSliceData} />
       </section>
-      <section>
+      {/*       <section>
         <ImageTextReverseOrder />
       </section>
       <section>
@@ -96,7 +185,7 @@ const ServicesPageTemplate = (props) => {
       </section>
       <section>
         <CardGridFour />
-      </section>
+      </section> */}
     </ServicesPageMainStyles>
   );
 };
