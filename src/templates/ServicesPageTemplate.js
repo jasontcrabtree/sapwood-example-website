@@ -49,6 +49,21 @@ export const servicesPageQuery = graphql`
               section_title {
                 text
               }
+              heading_size
+              content_order
+              image_block_colour_position
+              image_block_colour_style
+              image_source
+              image_source_link {
+                url
+              }
+              image_content {
+                alt
+                url
+              }
+              text_content {
+                html
+              }
             }
           }
           ... on PrismicServicesRepeatableBodyCardGridSection {
@@ -163,7 +178,7 @@ const ServicesPageTemplate = (props) => {
         description={description} */
       />
       <section>
-        {/* <SliceZone body={servicesRepeatableSliceData} /> */}
+        <SliceZone body={servicesRepeatableSliceData} />
       </section>
     </ServicesPageMainStyles>
   );

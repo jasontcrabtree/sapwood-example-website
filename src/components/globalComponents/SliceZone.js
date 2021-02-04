@@ -23,7 +23,7 @@ const SliceZone = (props) => {
               key={bC.id}
               titleText={bC.primary.main_page_title}
               titleAlignment
-              headingSize="h1"
+              headingSize="h2"
               titleStyle="HeroTitleBlockTwo"
             />
           );
@@ -31,52 +31,55 @@ const SliceZone = (props) => {
         if (bC.slice_type === 'column_text') {
           return (
             <div key={uuidKey + i}>
-              <TitleBlock
+              <HTMLRenderer html={bC.primary.text_content.html} />
+              {/* <TitleBlock
                 key={bC.id}
                 titleAlignment
                 headingSize="h2"
                 titleText={bC.primary.section_title.text}
                 titleStyle="TitleBlockThree"
-              />
-              {bC.items.map((text, id, item) => {
-                console.log(text, item);
-                return (
-                  // <div key={uuid + id}>
-                  //   <img
-                  //     key={uuidKey + text.column_image_content.url}
-                  //     src={text.column_image_content.url}
-                  //     alt={text.column_image_content.alt}
-                  //   />
-                  //   <h4 key={uuidKey + text.column_text_title.text}>
-                  //     {text.column_text_title.text}
-                  //   </h4>
-                  //   <HTMLRenderer
-                  //     key={uuidKey + text.column_text_content.html}
-                  //     html={text.column_text_content.html}
-                  //   />
-                  // </div>
-                  // <TextColumns
-                  //   key={uuid + id}
-                  //   columnOne={text.column_text_content.html}
-                  // />
+              /> */}
+              {/* {bC.items.map((text, id, item) => { */}
+              {/* console.log(text, item); */}
+              {/* return ( */}
+              {/* <div key={uuid + id}> */}
+              {/* <img
+                      key={uuidKey + text.column_image_content.url}
+                      src={text.column_image_content.url}
+                      alt={text.column_image_content.alt}
+                    />
+                    <h4 key={uuidKey + text.column_text_title.text}>
+                      {text.column_text_title.text}
+                    </h4>
+                    <HTMLRenderer
+                      key={uuidKey + text.column_text_content.html}
+                      html={text.column_text_content.html}
+                    />
+                  </div>
+                  <TextColumns
+                    key={uuid + id}
+                    columnOne={text.column_text_content.html}
+                  />
                   <HTMLRenderer
                     key={uuid + id}
                     html={text.column_text_content.html}
-                  />
-                );
-              })}
+                  /> */}
             </div>
           );
         }
         if (bC.slice_type === 'card_grid_section') {
-          return <h1 key={bC.id}>Card Grid</h1>;
+          return <p key={bC.id}>Card Grid</p>;
+        }
+        if (bC.slice_type === 'column_text_section') {
+          return <p key={bC.id}>Column Text</p>;
         }
         if (bC.slice_type === 'blog_post_content') {
           return (
-            <HTMLRenderer
-              key={i}
-              html={bC.items[0].blog_post_text_content.html}
-            />
+            // <HTMLRenderer
+            //   key={i}
+            //   html={bC.items[0].blog_post_text_content.html}
+            // />
+            <p>make html go brr</p>
           );
         }
         if (bC.slice_type === 'image_block') {

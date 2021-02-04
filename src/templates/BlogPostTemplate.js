@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import HTMLRenderer from 'react-html-renderer';
 import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
-import HeroTitleBlockTwo from '../components/titles/HeroTitleBlockTwo';
+import TitleBlock from '../components/titles/TitleBlock';
 import SliceZone from '../components/globalComponents/SliceZone';
 
 export const blogPostQuery = graphql`
@@ -125,7 +125,7 @@ const BlogPostTemplate = (props) => {
         description={description} */
       />
       <section>
-        <HeroTitleBlockTwo title={pageInfoTitle} />
+        <TitleBlock titleText={pageInfoTitle} />
       </section>
       <section>
         <span className="eyebrow">

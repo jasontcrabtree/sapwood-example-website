@@ -84,7 +84,7 @@ const TitleBlockFourStyles = styled.div`
   }
 `;
 
-const HeroTitleBlockTwoStyles = styled.h1`
+const HeroTitleBlockTwoStyles = styled.div`
   width: fit-content;
   text-align: center;
 
@@ -98,7 +98,7 @@ const HeroTitleBlockTwoStyles = styled.h1`
   }
 `;
 
-const HeroTitleBlockThreeStyles = styled.h1`
+const HeroTitleBlockThreeStyles = styled.div`
   text-align: center;
   padding-bottom: 24px;
 
@@ -116,7 +116,7 @@ const HeroTitleBlockThreeStyles = styled.h1`
   }
 `;
 
-const HeroTitleBlockFourStyles = styled.h1`
+const HeroTitleBlockFourStyles = styled.div`
   text-align: center;
   position: relative;
 
@@ -144,7 +144,7 @@ function TitleBlock(props) {
 
     titleStyle,
   } = props;
-  console.log(props);
+  //   console.log(props);
 
   // Change size based on props, check to see if semantic, default to h2
   const semanticHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];

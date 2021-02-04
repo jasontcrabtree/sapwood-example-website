@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TextColumnStyles = styled.ul`
+const ColumnTextSectionStyles = styled.ul`
   display: flex;
 
   gap: 24px;
@@ -29,11 +29,11 @@ const TextColumnStyles = styled.ul`
   }
 `;
 
-function TextColumns(props) {
+function ColumnTextSection(props) {
   const { backgroundColumnStyle, columnOne, columnTwo, columnThree } = props;
 
   return (
-    <TextColumnStyles>
+    <ColumnTextSectionStyles>
       {columnOne ? (
         <li className={backgroundColumnStyle ? `backgroundColumnStyle` : ''}>
           {columnOne}
@@ -49,8 +49,8 @@ function TextColumns(props) {
           {columnThree}
         </li>
       ) : null}
-    </TextColumnStyles>
+    </ColumnTextSectionStyles>
   );
 }
 
-export default TextColumns;
+export default ColumnTextSection;

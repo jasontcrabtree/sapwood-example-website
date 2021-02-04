@@ -3,12 +3,12 @@ import { graphql } from 'gatsby';
 import HTMLRenderer from 'react-html-renderer';
 import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
-import HeroTitleBlockOne from '../components/titles/HeroTitleBlockOne';
 import SliceZone from '../components/globalComponents/SliceZone';
 import CardGridFour from '../components/cardBlocks/CardGridFour';
 import TextColumns from '../components/textSections/TextColumns';
 import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
 import CardGridTwo from '../components/cardBlocks/CardGridTwo';
+import TitleBlock from '../components/titles/TitleBlock';
 
 export const resourcesPageQuery = graphql`
   query resourcesRepeatablePage($uid: String) {
@@ -72,7 +72,7 @@ const ResourcesPageTemplate = (props) => {
         description={description} */
       />
       <section>
-        <HeroTitleBlockOne title={title} headingLevel="h2" />
+        <TitleBlock titleText={title} headingSize="h2" />
       </section>
       <section>
         <ImageTextReverseOrder />

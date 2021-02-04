@@ -6,6 +6,7 @@ import HTMLRenderer from 'react-html-renderer';
 import SEO from '../components/globalComponents/SEO';
 import ImageWrapper from '../components/ImageWrapper';
 import TitleBlock from '../components/titles/TitleBlock';
+import ColumnTextSection from '../components/textSections/TextColumns';
 
 export const homePageQuery = graphql`
   query homePageQuery {
@@ -49,65 +50,19 @@ const index = (props) => {
       <SEO />
       {/* <HeroHeader>{mainTitle}</HeroHeader> */}
       <section>
-        <TitleBlock
-          hero
-          titleAlignment
-          headingSize="h1"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="HeroTitleBlockOne"
-        />
-        <hr />
-        <TitleBlock
-          hero
-          titleAlignment
-          headingSize="h1"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="HeroTitleBlockTwo"
-        />
-        <hr />
-        <TitleBlock
-          hero
-          titleAlignment
-          headingSize="h1"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="HeroTitleBlockThree"
-        />
-        <hr />
-        <TitleBlock
-          hero
-          titleAlignment
-          headingSize="h1"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="HeroTitleBlockFour"
+        <ColumnTextSection
+          columnOne="Paying down debt and long-term interest loans in a managed, deliberate
+        way that lets you work towards long-term goals while minimizing fees and
+        ensuring you can meet your weekly needs."
+          columnTwo="Setting short, medium and long-term goals to work towards — whether
+        that’s paying off a loan, saving for a holiday, getting a new bike for
+        your kids, or saving for your first home or retirement."
+          columnThree="Working towards long-term financial security for yourself, your family
+        and loved ones through making financial investments with different
+        levels of managed risk and time horizons."
         />
       </section>
 
-      <section>
-        <TitleBlock
-          headingSize="h3"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="TitleBlockOne"
-        />
-        <hr />
-        <TitleBlock
-          headingSize="h3"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="TitleBlockTwo"
-        />
-        <hr />
-        <TitleBlock
-          headingSize="h3"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="TitleBlockThree"
-        />
-        <hr />
-        <TitleBlock
-          serifStyle
-          headingSize="h3"
-          titleText="H1 Hero Centered Title Text"
-          titleStyle="TitleBlockFour"
-        />
-      </section>
       {/* <HTMLRenderer html={mainText} /> */}
     </HomePageContainerStyles>
   );
