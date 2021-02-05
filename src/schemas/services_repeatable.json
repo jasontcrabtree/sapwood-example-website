@@ -26,7 +26,9 @@
               "name": "columns",
               "display": "Columns"
             }
-          ]
+          ],
+          "content_block": [],
+          "card_grid_block": []
         },
         "choices": {
           "image_block": {
@@ -153,7 +155,7 @@
             },
             "repeat": {}
           },
-          "column_text": {
+          "content_block": {
             "type": "Slice",
             "fieldset": "Content Block",
             "description": "Title, Text and Images Content Block",
@@ -274,9 +276,9 @@
             },
             "repeat": {}
           },
-          "card_grid_section": {
+          "card_grid_block": {
             "type": "Slice",
-            "fieldset": "Card Grid Section",
+            "fieldset": "Card Grid Block",
             "description": "A Grid of Cards with Images, Text and Links",
             "icon": "view_carousel",
             "display": "list",
@@ -286,6 +288,13 @@
                 "config": {
                   "single": "heading2, heading3, heading4, heading5, heading6",
                   "label": "Card Grid Title"
+                }
+              },
+              "content_author": {
+                "type": "Text",
+                "config": {
+                  "label": "Content_Author",
+                  "placeholder": "Author"
                 }
               },
               "title_style": {
@@ -338,7 +347,7 @@
               }
             }
           },
-          "column_text_section": {
+          "column_text_block": {
             "type": "Slice",
             "fieldset": "Text Columns Block",
             "description": "Section Title, and Columns with Text",

@@ -1,22 +1,49 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import HTMLRenderer from 'react-html-renderer';
 import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
 import SliceZone from '../components/globalComponents/SliceZone';
-import CardGridFour from '../components/cardBlocks/CardGridFour';
-import TextColumns from '../components/textSections/TextColumns';
-import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
-import CardGridTwo from '../components/cardBlocks/CardGridTwo';
-import TitleBlock from '../components/titles/TitleBlock';
 
 export const resourcesPageQuery = graphql`
   query resourcesRepeatablePage($uid: String) {
     prismicResourcesRepeatable(uid: { eq: $uid }) {
       uid
       data {
-        page_title {
-          text
+        body {
+          ... on PrismicResourcesRepeatableBodyPageTitleBlock {
+            id
+            slice_type
+            primary {
+              title_style
+              text_alignment
+              main_page_title
+              heading_size
+            }
+          }
+          ... on PrismicResourcesRepeatableBodyCardGridBlock {
+            id
+            slice_type
+            primary {
+              title_style
+              card_grid_title {
+                text
+              }
+              card_grid_style
+            }
+            items {
+              content_author
+              card_link_destination {
+                url
+              }
+              card_image {
+                alt
+                url
+              }
+              card_title {
+                text
+              }
+            }
+          }
         }
       }
     }
@@ -32,19 +59,19 @@ const ResourcesPageMainStyles = styled.main`
     /* margin-top: 96px; */
   }
 
-  section + * {
+  section > * + * {
     margin-top: 96px;
   }
 
   section > * {
-    /* width: 100%; */
+    width: 100%;
     /* max-width: 100%; */
     /* margin-left: auto;
     margin-right: auto; */
   }
 
   section > * + * {
-    /* margin-top: 96px; */
+    margin-top: 96px;
   }
 
   section > figure {
@@ -55,13 +82,15 @@ const ResourcesPageMainStyles = styled.main`
 const ResourcesPageTemplate = (props) => {
   const { data } = props;
 
-  const resourcesPageDataRes = data.prismicResourcesRepeatable.data;
+  const resourcesPageDataRes = data.prismicResourcesRepeatable.data.body;
 
   console.log(resourcesPageDataRes);
 
-  const title = resourcesPageDataRes.page_title.text;
+  // console.log(resourcesPageDataRes);
 
-  console.log(title);
+  // const title = resourcesPageDataRes.page_title.text;
+
+  // console.log(title);
 
   return (
     <ResourcesPageMainStyles id="main">
@@ -72,32 +101,7 @@ const ResourcesPageTemplate = (props) => {
         description={description} */
       />
       <section>
-        <TitleBlock titleText={title} headingSize="h2" />
-      </section>
-      <section>
-        <ImageTextReverseOrder />
-      </section>
-      <section>
-        <h2>Applying these Resources</h2>
-        <TextColumns
-          columnOne="DISCLAIMER TEXT:
-
-          Mauris, ut turpis euismod auctor scelerisque integer sem commodo. Ipsum suspendisse ac lectus felis, nam sed at donec. Bibendum aliquam tortor bibendum id varius cras in vel hac. Ac ultrices hac enim posuere sed mauris quis congue. Molestie eu, eget nam magnis cursus eget volutpat faucibus. Augue elit, curabitur laoreet in sed magna a amet. Amet tellus luctus aliquet a malesuada. Condimentum commodo nec mattis urna quam cursus. Sollicitudin bibendum in pharetra enim dictum lacus, vitae non fames. "
-        />
-      </section>
-      <section>
-        <CardGridTwo />
-      </section>
-      <section>
-        <h2>Applying these Resources</h2>
-        <TextColumns
-          columnOne="DISCLAIMER TEXT:
-
-          Mauris, ut turpis euismod auctor scelerisque integer sem commodo. Ipsum suspendisse ac lectus felis, nam sed at donec. Bibendum aliquam tortor bibendum id varius cras in vel hac. Ac ultrices hac enim posuere sed mauris quis congue. Molestie eu, eget nam magnis cursus eget volutpat faucibus. Augue elit, curabitur laoreet in sed magna a amet. Amet tellus luctus aliquet a malesuada. Condimentum commodo nec mattis urna quam cursus. Sollicitudin bibendum in pharetra enim dictum lacus, vitae non fames. "
-        />
-      </section>
-      <section>
-        <CardGridFour />
+        <SliceZone body={resourcesPageDataRes} />
       </section>
     </ResourcesPageMainStyles>
   );

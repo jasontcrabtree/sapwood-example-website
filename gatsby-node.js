@@ -17,13 +17,6 @@ async function createRepeatableBlogPages({ graphql, actions }) {
           nodes {
             id
             uid
-            data {
-              blog_post_title {
-                text
-              }
-              publish_date
-              blog_post_author
-            }
           }
         }
       }
@@ -55,11 +48,6 @@ async function createRepeatableResourcesPages({ graphql, actions }) {
           nodes {
             id
             uid
-            data {
-              page_title {
-                text
-              }
-            }
           }
         }
       }

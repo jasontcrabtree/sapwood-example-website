@@ -62,6 +62,7 @@ const TextMediumImageStyles = styled.div`
 `;
 
 function TextLargeImage(props) {
+  console.log(props);
   return (
     <TextMediumImageStyles>
       <div>

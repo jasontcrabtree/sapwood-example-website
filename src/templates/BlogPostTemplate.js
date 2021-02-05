@@ -1,9 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import HTMLRenderer from 'react-html-renderer';
 import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
-import TitleBlock from '../components/titles/TitleBlock';
+import TitleBlock from '../components/TitleBlock';
 import SliceZone from '../components/globalComponents/SliceZone';
 
 export const blogPostQuery = graphql`
@@ -105,8 +104,6 @@ const BlogPostTemplate = (props) => {
   const pageInfoAuthor = blogPostRepeatableRes.blog_post_author;
 
   // POST CONTENT
-  const blogPostContent =
-    blogPostRepeatableRes.body[0].items[0].blog_post_text_content.html;
 
   const blogPostBody = blogPostRepeatableRes.body;
 

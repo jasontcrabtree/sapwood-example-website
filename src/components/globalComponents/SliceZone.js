@@ -1,9 +1,10 @@
 import React from 'react';
 import HTMLRenderer from 'react-html-renderer';
 import uuid from 'react-uuid';
+import CardGridBlock from '../CardGridBlock';
 import ImageWrapper from '../ImageWrapper';
-import TextColumns from '../textSections/TextColumns';
-import TitleBlock from '../titles/TitleBlock';
+import ColumnBlock from '../ColumnBlock';
+import TitleBlock from '../TitleBlock';
 
 const SliceZone = (props) => {
   if (!props) return null;
@@ -23,7 +24,7 @@ const SliceZone = (props) => {
               key={bC.id}
               titleText={bC.primary.main_page_title}
               titleAlignment
-              headingSize="h2"
+              headingSize="h1"
               titleStyle="HeroTitleBlockTwo"
             />
           );
@@ -32,54 +33,52 @@ const SliceZone = (props) => {
           return (
             <div key={uuidKey + i}>
               <HTMLRenderer html={bC.primary.text_content.html} />
-              {/* <TitleBlock
-                key={bC.id}
-                titleAlignment
-                headingSize="h2"
-                titleText={bC.primary.section_title.text}
-                titleStyle="TitleBlockThree"
-              /> */}
-              {/* {bC.items.map((text, id, item) => { */}
-              {/* console.log(text, item); */}
-              {/* return ( */}
-              {/* <div key={uuid + id}> */}
-              {/* <img
-                      key={uuidKey + text.column_image_content.url}
-                      src={text.column_image_content.url}
-                      alt={text.column_image_content.alt}
-                    />
-                    <h4 key={uuidKey + text.column_text_title.text}>
-                      {text.column_text_title.text}
-                    </h4>
-                    <HTMLRenderer
-                      key={uuidKey + text.column_text_content.html}
-                      html={text.column_text_content.html}
-                    />
-                  </div>
-                  <TextColumns
-                    key={uuid + id}
-                    columnOne={text.column_text_content.html}
-                  />
-                  <HTMLRenderer
-                    key={uuid + id}
-                    html={text.column_text_content.html}
-                  /> */}
             </div>
           );
         }
-        if (bC.slice_type === 'card_grid_section') {
+        /* if (bC.slice_type === 'card_grid_section') {
           return <p key={bC.id}>Card Grid</p>;
+        } */
+        if (bC.slice_type === 'card_grid_block') {
+          return (
+            <div key={bC.id}>
+              <TitleBlock
+                titleText={bC.primary.card_grid_title.text}
+                headingSize="h3"
+                titleStyle="TitleBlockTwo"
+              />
+              <CardGridBlock
+                arrowboolean
+                cardKeys={uuidKey}
+                cardArray={bC.items || ''}
+              />
+            </div>
+          );
+        }
+        if (bC.slice_type === 'column_text_block') {
+          return (
+            <div key={bC.id}>
+              <TitleBlock
+                titleText={bC.primary.section_title.text}
+                headingSize="h3"
+              />
+              <ColumnBlock
+                listKeys={uuidKey}
+                listArray={bC.items || ''}
+                columnBackground
+              />
+            </div>
+          );
         }
         if (bC.slice_type === 'column_text_section') {
-          return <p key={bC.id}>Column Text</p>;
+          return <p key={bC.id}>Column Text Section</p>;
         }
         if (bC.slice_type === 'blog_post_content') {
           return (
-            // <HTMLRenderer
-            //   key={i}
-            //   html={bC.items[0].blog_post_text_content.html}
-            // />
-            <p>make html go brr</p>
+            <HTMLRenderer
+              key={i}
+              html={bC.items[0].blog_post_text_content.html}
+            />
           );
         }
         if (bC.slice_type === 'image_block') {
@@ -91,8 +90,6 @@ const SliceZone = (props) => {
               imageSource={bC.primary.image.url || ''}
               imageSourceLink={bC.primary.image_source_link.url || ''}
               imageBlockColourStyle={bC.primary.image_block_colour_style || ''}
-              // imageBlockSize={bC.primary.image_block_size}
-              // imageColourBlockSize={bC.primary.image_colour_block_size}
               imageColourBlockPosition={bC.primary.image_colour_block_position}
             />
           );

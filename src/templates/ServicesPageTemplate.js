@@ -1,47 +1,52 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import HTMLRenderer from 'react-html-renderer';
 import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
 import SliceZone from '../components/globalComponents/SliceZone';
-import CardGridFour from '../components/cardBlocks/CardGridFour';
-import TextColumns from '../components/textSections/TextColumns';
-import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
-import CardGridTwo from '../components/cardBlocks/CardGridTwo';
 
 export const servicesPageQuery = graphql`
   query servicesRepeatablePage($uid: String) {
     prismicServicesRepeatable(uid: { eq: $uid }) {
       uid
+      url
       data {
         body {
-          ... on PrismicServicesRepeatableBodyImageBlock {
-            id
-            slice_type
-            primary {
-              image {
-                url
-                alt
-              }
-              image_block_colour_style
-              image_colour_block_position
-              image_source
-              image_source_link {
-                url
-              }
-            }
-          }
           ... on PrismicServicesRepeatableBodyPageTitleBlock {
             id
             slice_type
             primary {
-              title_style
-              text_alignment
               main_page_title
               heading_size
+              title_style
+              text_alignment
             }
           }
-          ... on PrismicServicesRepeatableBodyColumnText {
+          ... on PrismicServicesRepeatableBodyContentBlock {
+            id
+            slice_type
+            primary {
+              title_style
+              text_content {
+                html
+              }
+              section_title {
+                text
+              }
+              image_source_link {
+                url
+              }
+              image_source
+              image_content {
+                url
+                alt
+              }
+              image_block_colour_style
+              image_block_colour_position
+              heading_size
+              content_order
+            }
+          }
+          ... on PrismicServicesRepeatableBodyColumnTextBlock {
             id
             slice_type
             primary {
@@ -50,23 +55,18 @@ export const servicesPageQuery = graphql`
                 text
               }
               heading_size
-              content_order
-              image_block_colour_position
-              image_block_colour_style
-              image_source
-              image_source_link {
-                url
+              column_background_style
+            }
+            items {
+              column_item_title {
+                text
               }
-              image_content {
-                alt
-                url
-              }
-              text_content {
+              column_text_content {
                 html
               }
             }
           }
-          ... on PrismicServicesRepeatableBodyCardGridSection {
+          ... on PrismicServicesRepeatableBodyCardGridBlock {
             id
             slice_type
             primary {
@@ -88,32 +88,25 @@ export const servicesPageQuery = graphql`
                 alt
               }
             }
-            slice_label
           }
-          ... on PrismicServicesRepeatableBodyColumnTextSection {
+          ... on PrismicServicesRepeatableBodyImageBlock {
             id
             slice_type
-            slice_label
             primary {
-              section_title {
-                text
+              image_source_link {
+                url
               }
-              heading_size
-              column_background_style
-              title_style
-            }
-            items {
-              column_text_content {
-                html
-              }
-              column_item_title {
-                html
+              image_source
+              image_colour_block_position
+              image_block_colour_style
+              image {
+                alt
+                url
               }
             }
           }
         }
       }
-      url
     }
   }
 `;

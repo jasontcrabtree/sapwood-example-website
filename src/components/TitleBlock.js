@@ -1,21 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import BrandTurquoiseCircle from '../../../static/brand-turquoise-circle.svg';
-import BrandSquare from '../../../static/brand-square.svg';
+import BrandTurquoiseCircle from '../../static/brand-turquoise-circle.svg';
+import BrandSquare from '../../static/brand-square.svg';
 
 const TitleWrapperStyles = styled.div`
   color: var(--turquoise-700);
   padding-top: 36px;
+  display: flex;
 
   .hero {
     text-transform: uppercase;
   }
 
+  .left {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
   .center {
-    text-align: center;
+    justify-content: center;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 `;
 
@@ -153,10 +161,10 @@ function TitleBlock(props) {
 
   if (titleStyle === 'TitleBlockOne') {
     return (
-      <TitleWrapperStyles>
+      <TitleWrapperStyles className="center">
         <TitleSize
           className={`${hero ? 'h1-hero' : ''} ${serifStyle ? 'serif' : ''} ${
-            titleAlignment ? 'center' : ''
+            titleAlignment ? 'center' : 'left'
           }`}
         >
           {titleText}
@@ -225,7 +233,7 @@ function TitleBlock(props) {
   if (titleStyle === 'HeroTitleBlockTwo') {
     return (
       <TitleWrapperStyles>
-        <HeroTitleBlockTwoStyles>
+        <HeroTitleBlockTwoStyles className="center">
           <TitleSize className="h1-hero h1-hero-v3">{titleText}</TitleSize>
           <div className="brand-sqs">
             <img src={BrandSquare} alt="Small Pink Square with Curved Edges" />
@@ -240,7 +248,7 @@ function TitleBlock(props) {
   if (titleStyle === 'HeroTitleBlockThree') {
     return (
       <TitleWrapperStyles>
-        <HeroTitleBlockThreeStyles>
+        <HeroTitleBlockThreeStyles className="center">
           <TitleSize className="h1-hero h1-hero-v3">{titleText}</TitleSize>
         </HeroTitleBlockThreeStyles>
       </TitleWrapperStyles>
@@ -249,7 +257,7 @@ function TitleBlock(props) {
   if (titleStyle === 'HeroTitleBlockFour') {
     return (
       <TitleWrapperStyles>
-        <HeroTitleBlockFourStyles>
+        <HeroTitleBlockFourStyles className="center">
           <TitleSize className="h1-hero h1-hero-v4">{titleText}</TitleSize>
         </HeroTitleBlockFourStyles>
       </TitleWrapperStyles>
@@ -260,7 +268,7 @@ function TitleBlock(props) {
       <TitleWrapperStyles>
         <TitleSize
           className={`${hero ? 'h1-hero' : ''} ${serifStyle ? 'serif' : ''} ${
-            titleAlignment ? 'center' : ''
+            titleAlignment ? 'center' : 'left'
           }`}
         >
           {titleText}

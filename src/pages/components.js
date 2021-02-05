@@ -3,17 +3,16 @@ import styled from 'styled-components';
 
 import Typography from '../components/TypographyDemo';
 
-import TextColumns from '../components/textSections/TextColumns';
-import TextLargeImage from '../components/textSections/TextLargeImage';
-import TextMediumImage from '../components/textSections/TextMediumImage';
-import ImageTextReverseOrder from '../components/textSections/ImageTextReverseOrder';
-import CardGridOne from '../components/cardBlocks/CardGridOne';
-import CardGridTwo from '../components/cardBlocks/CardGridTwo';
-import CardGridThree from '../components/cardBlocks/CardGridThree';
-import CardGridFour from '../components/cardBlocks/CardGridFour';
+import TextLargeImage from '../archive/textSections/TextLargeImage';
+import TextMediumImage from '../archive/textSections/TextMediumImage';
+import ImageTextReverseOrder from '../archive/textSections/ImageTextReverseOrder';
+import CardGridOne from '../archive/cardBlocks/CardGridOne';
+import CardGridTwo from '../archive/cardBlocks/CardGridTwo';
+import CardGridThree from '../archive/cardBlocks/CardGridThree';
+import CardGridFour from '../archive/cardBlocks/CardGridFour';
 import FormDemo from '../components/FormDemo';
-import ImageWrapper from '../components/ImageWrapper';
-import TitleBlock from '../components/titles/TitleBlock';
+
+import TitleBlock from '../components/TitleBlock';
 
 const ComponentPageMainStyles = styled.main`
   /* ALL STYLES HERE ARE PURELY FOR PRESENTATION OF THE COMPONENTS PAGE, NO STYLES FOR COMPONENTS */
@@ -171,60 +170,20 @@ function ComponentsPage() {
 
       <section>
         <h2 className="label">Text Columns</h2>
-        <TextColumns
-          columnOne="Paying down debt and long-term interest loans in a managed, deliberate
-        way that lets you work towards long-term goals while minimizing fees and
-        ensuring you can meet your weekly needs."
-          columnTwo="Setting short, medium and long-term goals to work towards — whether
-        that’s paying off a loan, saving for a holiday, getting a new bike for
-        your kids, or saving for your first home or retirement."
-          columnThree="Working towards long-term financial security for yourself, your family
-        and loved ones through making financial investments with different
-        levels of managed risk and time horizons."
-        />
       </section>
 
       <section>
         <h2 className="label">Text Columns Two Columns</h2>
-        <TextColumns
-          columnOne="Paying down debt and long-term interest loans in a managed, deliberate
-        way that lets you work towards long-term goals while minimizing fees and
-        ensuring you can meet your weekly needs."
-          columnTwo="Setting short, medium and long-term goals to work towards — whether
-        that’s paying off a loan, saving for a holiday, getting a new bike for
-        your kids, or saving for your first home or retirement."
-        />
       </section>
 
       <section>
         <h2 className="label">
           Text Columns Two Columns with Background Column Style
         </h2>
-        <TextColumns
-          backgroundColumnStyle
-          columnOne="Paying down debt and long-term interest loans in a managed, deliberate
-        way that lets you work towards long-term goals while minimizing fees and
-        ensuring you can meet your weekly needs."
-          columnTwo="Setting short, medium and long-term goals to work towards — whether
-        that’s paying off a loan, saving for a holiday, getting a new bike for
-        your kids, or saving for your first home or retirement."
-        />
       </section>
 
       <section>
         <h2 className="label">Text Columns Background Column Style</h2>
-        <TextColumns
-          backgroundColumnStyle
-          columnOne="Paying down debt and long-term interest loans in a managed, deliberate
-        way that lets you work towards long-term goals while minimizing fees and
-        ensuring you can meet your weekly needs."
-          columnTwo="Setting short, medium and long-term goals to work towards — whether
-        that’s paying off a loan, saving for a holiday, getting a new bike for
-        your kids, or saving for your first home or retirement."
-          columnThree="Working towards long-term financial security for yourself, your family
-        and loved ones through making financial investments with different
-        levels of managed risk and time horizons."
-        />
       </section>
 
       <section>
