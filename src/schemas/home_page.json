@@ -22,6 +22,73 @@
         "label": "Homepage Paragraph",
         "placeholder": "Homepage Rich Text Paragraph"
       }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "page_title_block": {
+            "type": "Slice",
+            "fieldset": "Page Title Block",
+            "description": "A Page Title with Different Display Styles",
+            "icon": "title",
+            "display": "list",
+            "non-repeat": {
+              "main_page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Main Page Title",
+                  "placeholder": "Page Title"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Page Title - H1",
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4",
+                    "Subtitle - H5"
+                  ],
+                  "default_value": "Page Title - H1",
+                  "label": "Heading Size"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
+                    "---",
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Align Left",
+                  "placeholder_true": "Align Centre",
+                  "default_value": false,
+                  "label": "Text Alignment"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
     }
   },
   "SEO": {

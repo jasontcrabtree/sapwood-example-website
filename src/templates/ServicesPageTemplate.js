@@ -97,7 +97,7 @@ export const servicesPageQuery = graphql`
                 url
               }
               image_source
-              image_colour_block_position
+              image_block_colour_position
               image_block_colour_style
               image {
                 alt
@@ -113,10 +113,6 @@ export const servicesPageQuery = graphql`
 
 const ServicesPageMainStyles = styled.main`
   section {
-    border: 1px solid red;
-  }
-
-  section {
     display: grid;
     grid-column: 1 / -1;
     justify-content: center;
@@ -126,7 +122,7 @@ const ServicesPageMainStyles = styled.main`
   }
 
   section > * + * {
-    margin-top: 96px;
+    margin-top: 120px;
   }
 
   section > * {
@@ -141,7 +137,7 @@ const ServicesPageMainStyles = styled.main`
   }
 
   section > figure {
-    margin-top: 96px;
+    /* margin-top: 96px; */
   }
 `;
 
@@ -152,7 +148,7 @@ const ServicesPageTemplate = (props) => {
 
   const servicesRepeatableSliceData = data.prismicServicesRepeatable.data.body;
 
-  console.log(servicesRepeatableSliceData);
+  // console.log(servicesRepeatableSliceData);
 
   // const resourcesPageDataRes = data.prismicResourcesRepeatable.data;
 

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SEO from '../components/globalComponents/SEO';
 import TitleBlock from '../components/TitleBlock';
 import SliceZone from '../components/globalComponents/SliceZone';
+import normaliseTitleStyle from '../utils/normaliseTitleStyle';
 
 export const blogPostQuery = graphql`
   query blogPostRepeatableSinglePost($uid: String) {
@@ -13,6 +14,7 @@ export const blogPostQuery = graphql`
         blog_post_title {
           text
         }
+        title_style
         blog_post_author
         publish_date(formatString: "DD MMMM, YYYY")
         last_updated_date(formatString: "DD MMMM, YYYY")
@@ -34,7 +36,7 @@ export const blogPostQuery = graphql`
                 alt
                 url
               }
-              image_colour_block_position
+              image_block_colour_position
               image_block_colour_style
               image_source
               image_source_link {
@@ -49,6 +51,10 @@ export const blogPostQuery = graphql`
 `;
 
 const BlogTemplateMainStyles = styled.main`
+  h1 {
+    text-transform: uppercase;
+  }
+
   section {
     /* outline: 1px solid var(--green-400); */
     display: grid;
@@ -69,11 +75,6 @@ const BlogTemplateMainStyles = styled.main`
 
   section > figure {
     margin-top: 64px;
-  }
-
-  p,
-  ul {
-    /* border: 1px solid orangered; */
   }
 
   section:first-child > * {
@@ -99,9 +100,9 @@ const BlogPostTemplate = (props) => {
 
   // POST INFO
   const pageInfoTitle = blogPostRepeatableRes.blog_post_title.text;
-  const pageInfoPublishDate = blogPostRepeatableRes.publish_date;
-  const pageInfoUpdatedDate = blogPostRepeatableRes.last_updated_date;
-  const pageInfoAuthor = blogPostRepeatableRes.blog_post_author;
+  const pageInfoPublishDate = blogPostRepeatableRes.publish_date || '';
+  const pageInfoUpdatedDate = blogPostRepeatableRes.last_updated_date || '';
+  const pageInfoAuthor = blogPostRepeatableRes.blog_post_author || '';
 
   // POST CONTENT
 
@@ -113,6 +114,8 @@ const BlogPostTemplate = (props) => {
   //     prismicBlogPostDataResponse.cover_image.localFile.childImageSharp.fluid;
   //   const fluidImgALT = prismicBlogPostDataResponse.cover_image.alt;
 
+  console.log(blogPostRepeatableRes.title_style);
+
   return (
     <BlogTemplateMainStyles id="main">
       <SEO
@@ -122,12 +125,21 @@ const BlogPostTemplate = (props) => {
         description={description} */
       />
       <section>
-        <TitleBlock titleText={pageInfoTitle} />
+        <TitleBlock
+          titleText={pageInfoTitle}
+          headingSize="h1"
+          titleStyle={
+            normaliseTitleStyle(blogPostRepeatableRes.title_style) || ''
+          }
+        />
       </section>
       <section>
         <span className="eyebrow">
-          Published {pageInfoPublishDate} • Last Updated {pageInfoUpdatedDate} •
-          Author: {pageInfoAuthor}
+          {pageInfoPublishDate ? <>Published {pageInfoPublishDate}</> : null}
+          {pageInfoUpdatedDate ? (
+            <>• Last Updated {pageInfoUpdatedDate} </>
+          ) : null}
+          {pageInfoAuthor ? <>• Author: {pageInfoAuthor}</> : null}
         </span>
       </section>
       <section>

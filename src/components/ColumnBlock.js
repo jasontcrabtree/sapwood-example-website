@@ -13,6 +13,14 @@ const ColumnBlockStyles = styled.ul`
 
   margin-top: 40px;
 
+  div {
+    padding-top: 0px;
+  }
+
+  * + * {
+    margin-top: 8px;
+  }
+
   li {
     list-style: none;
     flex-grow: 1;
@@ -35,8 +43,6 @@ function ColumnBlock(props) {
   // const { backgroundColumnStyle, columnOne, columnTwo, columnThree } = props;
   const { listKeys, listArray, columnBackground } = props;
 
-  console.log(props);
-
   return (
     <ColumnBlockStyles>
       {listArray.map((columns, id) => (
@@ -45,6 +51,7 @@ function ColumnBlock(props) {
           className={`test ${columnBackground ? 'backgroundColumnStyle' : ''}`}
         >
           <TitleBlock
+            // fixed heading size
             headingSize="h4"
             titleText={columns.column_item_title.text}
           />

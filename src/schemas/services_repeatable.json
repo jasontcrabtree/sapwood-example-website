@@ -31,6 +31,64 @@
           "card_grid_block": []
         },
         "choices": {
+          "page_title_block": {
+            "type": "Slice",
+            "fieldset": "Page Title Block",
+            "description": "A Page Title with Different Display Styles",
+            "icon": "title",
+            "display": "list",
+            "non-repeat": {
+              "main_page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Main Page Title",
+                  "placeholder": "Page Title"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Page Title - H1",
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4",
+                    "Subtitle - H5"
+                  ],
+                  "default_value": "Page Title - H1",
+                  "label": "Heading Size"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
+                    "---",
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Align Left",
+                  "placeholder_true": "Align Centre",
+                  "default_value": false,
+                  "label": "Text Alignment"
+                }
+              }
+            },
+            "repeat": {}
+          },
           "image_block": {
             "type": "Slice",
             "fieldset": "Image Block",
@@ -57,7 +115,7 @@
                   "placeholder": "Colour"
                 }
               },
-              "image_colour_block_position": {
+              "image_block_colour_position": {
                 "type": "Select",
                 "config": {
                   "options": [
@@ -97,64 +155,6 @@
             },
             "repeat": {}
           },
-          "page_title_block": {
-            "type": "Slice",
-            "fieldset": "Page Title Block",
-            "description": "A Page Title with Different Display Styles",
-            "icon": "title",
-            "display": "list",
-            "non-repeat": {
-              "main_page_title": {
-                "type": "Text",
-                "config": {
-                  "label": "Main Page Title",
-                  "placeholder": "Page Title"
-                }
-              },
-              "heading_size": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Page Title - H1",
-                    "Section Title - H2",
-                    "Element Title - H3",
-                    "Content Title - H4",
-                    "Subtitle - H5"
-                  ],
-                  "default_value": "Page Title - H1",
-                  "label": "Heading Size"
-                }
-              },
-              "title_style": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "One - Simple",
-                    "Two - Dots",
-                    "Three - Line",
-                    "Four - Block",
-                    "---",
-                    "One - Hero Simple",
-                    "Two - Hero Squares",
-                    "Three - Hero Line",
-                    "Four - Hero Block"
-                  ],
-                  "default_value": "One - Simple",
-                  "label": "Title Style"
-                }
-              },
-              "text_alignment": {
-                "type": "Boolean",
-                "config": {
-                  "placeholder_false": "Align Left",
-                  "placeholder_true": "Align Centre",
-                  "default_value": false,
-                  "label": "Text Alignment"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "content_block": {
             "type": "Slice",
             "fieldset": "Content Block",
@@ -187,17 +187,17 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "One - Simple",
-                    "Two - Dots",
-                    "Three - Line",
-                    "Four - Block",
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
                     "---",
-                    "One - Hero Simple",
-                    "Two - Hero Squares",
-                    "Three - Hero Line",
-                    "Four - Hero Block"
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
                   ],
-                  "default_value": "One - Simple",
+                  "default_value": "Title One - Simple",
                   "label": "Title Style"
                 }
               },
@@ -365,17 +365,17 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "One - Simple",
-                    "Two - Dots",
-                    "Three - Line",
-                    "Four - Block",
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
                     "---",
-                    "One - Hero Simple",
-                    "Two - Hero Squares",
-                    "Three - Hero Line",
-                    "Four - Hero Block"
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
                   ],
-                  "default_value": "One - Simple",
+                  "default_value": "Title One - Simple",
                   "label": "Title Style"
                 }
               },

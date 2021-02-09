@@ -1,132 +1,122 @@
 {
-  "Main": {
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "Page Label",
-        "placeholder": "Label to identify Page"
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Page Label",
+        "placeholder" : "Label to identify Page"
       }
     },
-    "blog_post_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1",
-        "label": "Blog Post Title",
-        "placeholder": "Blog Post Title"
+    "blog_post_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Blog Post Title",
+        "placeholder" : "Blog Post Title"
       }
     },
-    "publish_date": {
-      "type": "Date",
-      "config": {
-        "label": "publish_date",
-        "placeholder": "Publish Date"
+    "title_style" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Hero Title One - Simple", "Hero Title Two - Squares", "Hero Title Three -  Line", "Hero Title Four - Block" ],
+        "default_value" : "Hero Title One - Simple",
+        "label" : "Title Style"
       }
     },
-    "last_updated_date": {
-      "type": "Date",
-      "config": {
-        "label": "Last Updated Date",
-        "placeholder": "Date Updated (if any)"
+    "publish_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "publish_date",
+        "placeholder" : "Publish Date"
       }
     },
-    "blog_post_author": {
-      "type": "Text",
-      "config": {
-        "label": "Blog Post Author",
-        "placeholder": "Author"
+    "last_updated_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "Last Updated Date",
+        "placeholder" : "Date Updated (if any)"
       }
     },
-    "body": {
-      "type": "Slices",
-      "fieldset": "Slice zone",
-      "config": {
-        "labels": {
-          "blog_post_content": [],
-          "image_block": []
+    "blog_post_author" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Blog Post Author",
+        "placeholder" : "Author"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "blog_post_content" : [ ],
+          "image_block" : [ ]
         },
-        "choices": {
-          "blog_post_content": {
-            "type": "Slice",
-            "fieldset": "Blog Post Content",
-            "description": "Blog Post Text Content",
-            "icon": "format_textdirection_l_to_r",
-            "display": "list",
-            "non-repeat": {},
-            "repeat": {
-              "blog_post_text_content": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label": "Blog Post Text Content"
+        "choices" : {
+          "blog_post_content" : {
+            "type" : "Slice",
+            "fieldset" : "Blog Post Content",
+            "description" : "Blog Post Text Content",
+            "icon" : "format_textdirection_l_to_r",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "blog_post_text_content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Blog Post Text Content"
                 }
               }
             }
           },
-          "image_block": {
-            "type": "Slice",
-            "fieldset": "Image Block",
-            "description": "Image block with a stylised color block and credit text",
-            "icon": "image",
-            "display": "list",
-            "non-repeat": {
-              "image_block_colour_style": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Grey-300",
-                    "Grey-700",
-                    "Turquoise-300",
-                    "Turquoise-700",
-                    "Green-300",
-                    "Green-800",
-                    "Honey-300",
-                    "Honey-600",
-                    "Dusk-Pink-500",
-                    "Dusk-Pink-800"
-                  ],
-                  "label": "Image Block Colour Style",
-                  "placeholder": "Colour"
+          "image_block" : {
+            "type" : "Slice",
+            "fieldset" : "Image Block",
+            "description" : "Image block with a stylised color block and credit text",
+            "icon" : "image",
+            "display" : "list",
+            "non-repeat" : {
+              "image_block_colour_style" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Grey-300", "Grey-700", "Turquoise-300", "Turquoise-700", "Green-300", "Green-800", "Honey-300", "Honey-600", "Dusk-Pink-500", "Dusk-Pink-800" ],
+                  "label" : "Image Block Colour Style",
+                  "placeholder" : "Colour"
                 }
               },
-              "image_colour_block_position": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "TopRight",
-                    "BottomRight",
-                    "BottomLeft",
-                    "TopLeft",
-                    "Top",
-                    "Bottom"
-                  ],
-                  "default_value": "TopRight",
-                  "label": "Image Colour Block Position"
+              "image_block_colour_position" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "TopRight", "BottomRight", "BottomLeft", "TopLeft", "Top", "Bottom" ],
+                  "default_value" : "TopRight",
+                  "label" : "Image Block Colour Position"
                 }
               },
-              "image_source_link": {
-                "type": "Link",
-                "config": {
-                  "label": "Image Source Link",
-                  "placeholder": "Source of image (to credit)"
+              "image_source_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Image Source Link",
+                  "placeholder" : "Source of image (to credit)"
                 }
               },
-              "image_source": {
-                "type": "Text",
-                "config": {
-                  "label": "Image Source",
-                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+              "image_source" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Image Source",
+                  "placeholder" : "E.g. Image via Brooke Helm on Unsplash"
                 }
               },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Image"
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           }
         }
       }

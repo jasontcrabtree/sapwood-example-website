@@ -4,18 +4,25 @@ import styled from 'styled-components';
 const ImageWrapperStyles = styled.figure`
   display: grid;
   width: fit-content;
+  max-width: auto;
+
+  padding-left: 0px;
+  padding-right: 16px;
+
   margin-left: 0;
   margin-right: auto;
-  padding-left: 0;
-  padding-right: 16px;
+
   margin-top: 8px;
   margin-bottom: 8px;
+
+  margin-left: auto;
+  margin-right: auto;
 
   position: relative;
 
   img {
     width: 600px;
-    height: 448px;
+    height: 384px;
     object-fit: cover;
     box-shadow: 0px 0px 1px 1px rgba(0.1, 0.1, 0.1, 0.01);
   }
@@ -67,8 +74,8 @@ const ImageWrapperStyles = styled.figure`
   }
 
   @media screen and (max-width: 920px) {
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: 8px;
+    padding-left: 8px;
 
     .top-right {
       right: -8px;
@@ -92,7 +99,7 @@ const ImageWrapperStyles = styled.figure`
     }
     .top-left {
       top: -24px;
-      left: -16px;
+      left: -8px;
     }
     .top-centre {
       top: -24px;

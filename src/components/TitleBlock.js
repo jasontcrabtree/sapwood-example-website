@@ -9,6 +9,13 @@ const TitleWrapperStyles = styled.div`
   padding-top: 36px;
   display: flex;
 
+  h2,
+  h3,
+  h4,
+  h5 {
+    max-width: 736px;
+  }
+
   .hero {
     text-transform: uppercase;
   }
@@ -152,7 +159,7 @@ function TitleBlock(props) {
 
     titleStyle,
   } = props;
-  //   console.log(props);
+  // console.log(props);
 
   // Change size based on props, check to see if semantic, default to h2
   const semanticHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -172,7 +179,11 @@ function TitleBlock(props) {
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'TitleBlockTwo') {
+  if (
+    titleStyle === 'TitleBlockTwo' ||
+    titleStyle === 'titletwo-dots' ||
+    titleStyle === 'dot'
+  ) {
     return (
       <TitleWrapperStyles>
         <TitleBlockTwoStyles>
@@ -193,7 +204,12 @@ function TitleBlock(props) {
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'TitleBlockThree') {
+  if (
+    titleStyle === 'TitleBlockThree' ||
+    titleStyle === 'titlethree-line' ||
+    titleStyle === 'three-line' ||
+    titleStyle === 'line'
+  ) {
     return (
       <TitleWrapperStyles>
         <TitleBlockThreeStyles>
@@ -208,7 +224,11 @@ function TitleBlock(props) {
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'TitleBlockFour') {
+  if (
+    titleStyle === 'TitleBlockFour' ||
+    titleStyle === 'titlefour-block' ||
+    titleStyle === 'block'
+  ) {
     return (
       <TitleWrapperStyles>
         <TitleBlockFourStyles>
@@ -223,14 +243,20 @@ function TitleBlock(props) {
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'HeroTitleBlockOne') {
+  if (
+    titleStyle === 'HeroTitleBlockOne' ||
+    titleStyle === 'herotitleone-simple'
+  ) {
     return (
       <TitleWrapperStyles>
         <TitleSize className="h1-hero h1-hero-v1">{titleText}</TitleSize>
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'HeroTitleBlockTwo') {
+  if (
+    titleStyle === 'HeroTitleBlockTwo' ||
+    titleStyle === 'herotitletwo-squares'
+  ) {
     return (
       <TitleWrapperStyles>
         <HeroTitleBlockTwoStyles className="center">
@@ -245,7 +271,10 @@ function TitleBlock(props) {
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'HeroTitleBlockThree') {
+  if (
+    titleStyle === 'HeroTitleBlockThree' ||
+    titleStyle === 'herotitlethree-line'
+  ) {
     return (
       <TitleWrapperStyles>
         <HeroTitleBlockThreeStyles className="center">
@@ -254,7 +283,10 @@ function TitleBlock(props) {
       </TitleWrapperStyles>
     );
   }
-  if (titleStyle === 'HeroTitleBlockFour') {
+  if (
+    titleStyle === 'HeroTitleBlockFour' ||
+    titleStyle === 'herotitlefour-block'
+  ) {
     return (
       <TitleWrapperStyles>
         <HeroTitleBlockFourStyles className="center">

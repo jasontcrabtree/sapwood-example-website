@@ -5,6 +5,8 @@ import CardGridBlock from '../CardGridBlock';
 import ImageWrapper from '../ImageWrapper';
 import ColumnBlock from '../ColumnBlock';
 import TitleBlock from '../TitleBlock';
+import ContentBlock from '../ContentBlock';
+import normaliseTitleStyle from '../../utils/normaliseTitleStyle';
 
 const SliceZone = (props) => {
   if (!props) return null;
@@ -15,6 +17,22 @@ const SliceZone = (props) => {
   // console.log(props);
   // bC = short for bodyContent
 
+  // console.log(props);
+
+  // const titleStyle = body[0].primary.title_style;
+
+  // console.log(titleStyle.toLowerCase().replace(/\s/g, ''));
+
+  // const fixStyle = toLowerCase().replace(/\s/g, '');
+
+  // console.log(normaliseTitleStyle('hello world'));
+
+  // console.log(props);
+
+  // body.map((titles, i) =>
+  //   console.log(normaliseTitleStyle(titles.primary.title_style) || '')
+  // );
+
   return (
     <>
       {body.map((bC, i) => {
@@ -23,9 +41,8 @@ const SliceZone = (props) => {
             <TitleBlock
               key={bC.id}
               titleText={bC.primary.main_page_title}
-              titleAlignment
-              headingSize="h1"
-              titleStyle="HeroTitleBlockTwo"
+              headingSize={bC.primary.heading_size.slice(-2)}
+              titleStyle={normaliseTitleStyle(bC.primary.title_style) || ''}
             />
           );
         }
@@ -36,16 +53,15 @@ const SliceZone = (props) => {
             </div>
           );
         }
-        /* if (bC.slice_type === 'card_grid_section') {
-          return <p key={bC.id}>Card Grid</p>;
-        } */
         if (bC.slice_type === 'card_grid_block') {
+          console.log(normaliseTitleStyle(bC.primary.title_style));
           return (
             <div key={bC.id}>
               <TitleBlock
                 titleText={bC.primary.card_grid_title.text}
+                // fixed heading size
                 headingSize="h3"
-                titleStyle="TitleBlockTwo"
+                titleStyle={normaliseTitleStyle(bC.primary.title_style) || ''}
               />
               <CardGridBlock
                 arrowboolean
@@ -56,10 +72,13 @@ const SliceZone = (props) => {
           );
         }
         if (bC.slice_type === 'column_text_block') {
+          console.log(bC);
           return (
             <div key={bC.id}>
               <TitleBlock
                 titleText={bC.primary.section_title.text}
+                // fixed heading size
+                titleStyle={normaliseTitleStyle(bC.primary.title_style) || ''}
                 headingSize="h3"
               />
               <ColumnBlock
@@ -72,6 +91,16 @@ const SliceZone = (props) => {
         }
         if (bC.slice_type === 'column_text_section') {
           return <p key={bC.id}>Column Text Section</p>;
+        }
+        if (bC.slice_type === 'content_block') {
+          return (
+            <div key={bC.id}>
+              <ContentBlock
+                contentKeys={uuidKey}
+                contentArray={bC.primary || ''}
+              />
+            </div>
+          );
         }
         if (bC.slice_type === 'blog_post_content') {
           return (
@@ -90,7 +119,7 @@ const SliceZone = (props) => {
               imageSource={bC.primary.image.url || ''}
               imageSourceLink={bC.primary.image_source_link.url || ''}
               imageBlockColourStyle={bC.primary.image_block_colour_style || ''}
-              imageColourBlockPosition={bC.primary.image_colour_block_position}
+              imageColourBlockPosition={bC.primary.image_block_colour_position}
             />
           );
         }

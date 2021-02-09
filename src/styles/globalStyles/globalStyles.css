@@ -132,3 +132,7 @@ button {
   border-radius: 2px;
   box-shadow: none;
 }
+
+.reverse {
+  flex-direction: row-reverse;
+}

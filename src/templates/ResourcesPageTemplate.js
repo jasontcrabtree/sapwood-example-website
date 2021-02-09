@@ -44,6 +44,31 @@ export const resourcesPageQuery = graphql`
               }
             }
           }
+          ... on PrismicResourcesRepeatableBodyContentBlock {
+            id
+            slice_type
+            primary {
+              title_style
+              text_content {
+                html
+              }
+              section_title {
+                text
+              }
+              image_source_link {
+                url
+              }
+              image_source
+              image_content {
+                url
+                alt
+              }
+              image_block_colour_style
+              image_block_colour_position
+              heading_size
+              content_order
+            }
+          }
         }
       }
     }
