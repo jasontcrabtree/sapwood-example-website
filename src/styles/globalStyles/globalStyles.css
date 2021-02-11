@@ -136,3 +136,7 @@ button {
 .reverse {
   flex-direction: row-reverse;
 }
+
+.chevron {
+  max-width: fit-content !important;
+}

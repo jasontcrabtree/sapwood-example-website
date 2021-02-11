@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
+import ChevronRight from '../../../static/chevron-right.svg';
 
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
@@ -34,6 +35,14 @@ const GlobalNavStyles = styled.nav`
     margin: 0px;
   }
 
+  ul {
+    outline: 1px solid red;
+  }
+
+  li {
+    outline: 1px solid blue;
+  }
+
   ul > li {
     margin-right: 48px;
   }
@@ -49,25 +58,6 @@ const GlobalNavStyles = styled.nav`
     margin-top: 12px;
   }
 
-  .test-list {
-    outline: 1px solid var(--dusk-pink-300);
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-
-    margin-top: 2rem;
-
-    li {
-      display: flex;
-      flex-direction: row;
-      margin: 0px;
-      padding: 0px;
-    }
-
-    li + * {
-      margin-left: 72px;
-    }
-  }
   @media screen and (max-width: 920px) {
     padding: 24px;
     ul {
@@ -80,27 +70,25 @@ const GlobalNavStyles = styled.nav`
   }
 `;
 
-const GlobalNav = () => {
+function GlobalNav() {
   const data = useStaticQuery(graphql`
     {
       allPrismicGlobalNavigation {
-        edges {
-          node {
-            data {
-              main_pages_nav_links {
-                page_nav_label
-                page_nav_link {
-                  uid
-                  id
-                  slug
-                  url
+        nodes {
+          data {
+            nav {
+              ... on PrismicGlobalNavigationNavNavItem {
+                id
+                primary {
+                  label {
+                    text
+                  }
                 }
-              }
-              home_page_nav_link {
-                url
-              }
-              home_page_nav_label {
-                text
+                items {
+                  sub_nav_link_label {
+                    text
+                  }
+                }
               }
             }
           }
@@ -109,8 +97,22 @@ const GlobalNav = () => {
     }
   `);
 
-  const globalNavRes =
-    data.allPrismicGlobalNavigation.edges[0].node.data.main_pages_nav_links;
+  const globalNavRes = data.allPrismicGlobalNavigation.nodes[0].data.nav;
+  // console.log(globalNavRes);
+
+  // globalNavRes.map((nav, i) => {
+  //   const count = i;
+  //   console.log(nav.primary.label.text.toUpperCase());
+  //   // console.log(nav.items);
+  //   nav.items.map((item, id) => console.log(item.sub_nav_link_label.text, id));
+  //   /*     if (nav.items.length > 1) {
+  //     // console.log(nav.items.sub_nav_link_label.text);
+  //     console.log(nav?.items?.sub_nav_link_label?.text);
+  //   } else {
+  //     return null;
+  //   } */
+  //   return count;
+  // });
 
   return (
     <GlobalNavStyles>
@@ -123,21 +125,32 @@ const GlobalNav = () => {
         <li>
           <Link to="/components">Components</Link>
         </li>
-        {globalNavRes.map((navItem) => (
-          <li key={navItem.page_nav_link.id}>
-            <Link to={navItem.page_nav_link.url}>{navItem.page_nav_label}</Link>
+        {globalNavRes.map((nav, i) => (
+          <li key={i}>
+            {nav.items.length ? (
+              <img
+                src={ChevronRight}
+                className="chevron"
+                alt="Chevron Pointing Right"
+              />
+            ) : (
+              ''
+            )}
+            <Link to="/">{nav.primary.label.text.toUpperCase()}</Link>
+            {nav.items.length ? (
+              <ul>
+                {nav.items.map((item, id) => (
+                  <li key={id}>
+                    <Link to="/">{item.sub_nav_link_label.text}</Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </li>
         ))}
       </ul>
-      {/* <ul className="test-list">
-        {globalNavRes.map((navItem) => (
-          <li key={navItem.page_nav_link.id}>
-            <Link to={navItem.page_nav_link.url}>{navItem.page_nav_label}</Link>
-          </li>
-        ))}
-      </ul> */}
     </GlobalNavStyles>
   );
-};
+}
 
 export default GlobalNav;

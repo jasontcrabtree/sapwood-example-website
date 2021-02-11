@@ -18,6 +18,9 @@ module.exports = {
           if (doc.type === 'services_repeatable') {
             return `/services/${doc.uid}`;
           }
+          if (doc.type === 'page_repeatable') {
+            return `/${doc.uid}`;
+          }
           // Backup for all other types
           return `/${doc.uid}`;
         },

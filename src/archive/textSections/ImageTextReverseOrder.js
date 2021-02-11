@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import CoffeeShopImage from '../../../static/image-sample.jpg';
 
 const ImageTextReverseOrderStyles = styled.div`
   display: flex;
@@ -78,7 +77,6 @@ function ImageTextReverseOrder(props) {
       <div className="parent">
         <img
           className="image"
-          src={CoffeeShopImage}
           alt="Man sits in a coffee shop reading a newspaper with a cup of tea. Bright and inviting sunlight fills the photograph frame."
         />
       </div>

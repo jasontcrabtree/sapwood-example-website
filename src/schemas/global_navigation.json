@@ -1,67 +1,58 @@
 {
   "Main": {
-    "home_page_nav_label": {
+    "doc_name": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph",
-        "label": "Home Navigation Label",
-        "placeholder": "Home Page Label"
+        "single": "heading1",
+        "label": "Document name"
       }
     },
-    "home_page_nav_link": {
-      "type": "Link",
+    "nav": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
       "config": {
-        "select": "document",
-        "customtypes": [
-          "home_page",
-          "about_page",
-          "contact_page"
-        ],
-        "label": "Home Page Link",
-        "placeholder": "Home Page URL Link"
-      }
-    },
-    "main_pages_nav_links": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "page_nav_label": {
-            "type": "Text",
-            "config": {
-              "label": "Page Navigation Label",
-              "placeholder": "Page Navigation Label"
-            }
-          },
-          "page_nav_link": {
-            "type": "Link",
-            "config": {
-              "select": "document",
-              "customtypes": [
-                "about_page",
-                "blog_page",
-                "blog_repeatable",
-                "calculators_page",
-                "contact_page",
-                "global_cta",
-                "global_footer",
-                "global_navigation",
-                "global_newsletter",
-                "global_seo_settings",
-                "home_page",
-                "legal_page",
-                "pricing_page",
-                "referrals_page",
-                "resources_page",
-                "resources_repeatable",
-                "services_page",
-							  "services_repeatable"
-              ],
-              "label": "Page Navigation Link",
-              "placeholder": "Page Navigation URL Link"
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Nav Item",
+            "description": "Nav Item with Sub Navigation",
+            "icon": "insert_link",
+            "non-repeat": {
+              "label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Label",
+                  "placeholder": "Enter Link Label..."
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "Select Link..."
+                }
+              }
+            },
+            "repeat": {
+              "sub_nav_link_label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Sub Nav Link Label",
+                  "placeholder": "Enter Sub Nav Link Label..."
+                }
+              },
+              "sub_nav_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Sub Nav Link",
+                  "placeholder": "Select Sub Nav Link..."
+                }
+              }
             }
           }
-        },
-        "label": "Main Pages Links"
+        }
       }
     }
   }
