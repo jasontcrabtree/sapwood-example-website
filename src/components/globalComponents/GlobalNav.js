@@ -36,15 +36,63 @@ const GlobalNavStyles = styled.nav`
   }
 
   ul {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
   }
 
   li {
-    outline: 1px solid blue;
+    /* outline: 1px solid blue; */
   }
 
   ul > li {
-    margin-right: 48px;
+    /* margin-right: 48px; */
+  }
+
+  li {
+    /* width: 200px; */
+    flex-basis: 16%;
+    /* outline: 1px solid red; */
+  }
+
+  ul:first-of-type > li:first-child {
+    flex-basis: 20%;
+  }
+
+  ul > li > ul > li {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  li > ul > li {
+    background: var(--turquoise-900);
+    outline: 1px solid var(--grey-500);
+    padding: 4px;
+  }
+
+  li > ul > li > a {
+    color: var(--honey-400);
+  }
+
+  ul > li > ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li {
+    line-height: 32px;
+  }
+
+  img {
+    margin-bottom: -4px;
+    margin-left: 4px;
+  }
+
+  ul > li > ul {
+    /* display: none; */
+  }
+
+  ul > li > ul:hover {
+    /* display: block; */
+    /* outline: 2px solid red !important; */
   }
 
   ul {
@@ -56,6 +104,7 @@ const GlobalNavStyles = styled.nav`
   .sapwood-wordmark-list {
     padding-left: 0px;
     margin-top: 12px;
+    width: 242px;
   }
 
   @media screen and (max-width: 920px) {
@@ -98,21 +147,6 @@ function GlobalNav() {
   `);
 
   const globalNavRes = data.allPrismicGlobalNavigation.nodes[0].data.nav;
-  // console.log(globalNavRes);
-
-  // globalNavRes.map((nav, i) => {
-  //   const count = i;
-  //   console.log(nav.primary.label.text.toUpperCase());
-  //   // console.log(nav.items);
-  //   nav.items.map((item, id) => console.log(item.sub_nav_link_label.text, id));
-  //   /*     if (nav.items.length > 1) {
-  //     // console.log(nav.items.sub_nav_link_label.text);
-  //     console.log(nav?.items?.sub_nav_link_label?.text);
-  //   } else {
-  //     return null;
-  //   } */
-  //   return count;
-  // });
 
   return (
     <GlobalNavStyles>
@@ -122,21 +156,16 @@ function GlobalNav() {
             Sapwood Financial Advisors
           </Link>
         </li>
-        <li>
-          <Link to="/components">Components</Link>
-        </li>
         {globalNavRes.map((nav, i) => (
           <li key={i}>
+            <Link to="/">{nav.primary.label.text.toUpperCase()}</Link>
             {nav.items.length ? (
               <img
                 src={ChevronRight}
                 className="chevron"
                 alt="Chevron Pointing Right"
               />
-            ) : (
-              ''
-            )}
-            <Link to="/">{nav.primary.label.text.toUpperCase()}</Link>
+            ) : null}
             {nav.items.length ? (
               <ul>
                 {nav.items.map((item, id) => (
@@ -148,6 +177,9 @@ function GlobalNav() {
             ) : null}
           </li>
         ))}
+        <li>
+          <Link to="/components">Components</Link>
+        </li>
       </ul>
     </GlobalNavStyles>
   );
