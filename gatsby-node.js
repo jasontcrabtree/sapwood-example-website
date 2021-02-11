@@ -4,6 +4,36 @@ const graphQLWrapper = (promise) =>
     return pages;
   });
 
+async function createRepeatablePages({ graphql, actions }) {
+  const pageTemplate = require.resolve(
+    './src/templates/ServicesPageTemplate.js'
+  );
+
+  // Query all Pages with their IDs and template data.
+  const blogPosts = await graphQLWrapper(
+    graphql(`
+      query blogRepeatableNodeQuery {
+        allPrismicBlogRepeatable {
+          nodes {
+            id
+            uid
+          }
+        }
+      }
+    `)
+  );
+
+  // Create pages for each Page in Prismic using the selected template.
+  blogPosts.data.allPrismicBlogRepeatable.nodes.forEach((node) => {
+    actions.createPage({
+      path: `/${node.uid}`,
+      component: pageTemplate,
+      context: {
+        uid: node.uid,
+      },
+    });
+  });
+}
 async function createRepeatableBlogPages({ graphql, actions }) {
   const blogPostTemplate = require.resolve(
     './src/templates/BlogPostTemplate.js'

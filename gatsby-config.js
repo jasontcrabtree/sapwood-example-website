@@ -34,6 +34,7 @@ module.exports = {
           global_seo_settings: require('./src/schemas/global_seo_settings.json'),
           home_page: require('./src/schemas/home_page.json'),
           legal_page: require('./src/schemas/legal_page.json'),
+          page_repeatable: require('./src/schemas/page_repeatable.json'),
           pricing_page: require('./src/schemas/pricing_page.json'),
           referrals_page: require('./src/schemas/referrals_page.json'),
           resources_page: require('./src/schemas/resources_page.json'),

@@ -1,0 +1,429 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Page Label",
+        "placeholder": "Label to identify Page"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "blog_post_content": [],
+          "image_block": [],
+          "page_title_block": [
+            {
+              "name": "title",
+              "display": "title"
+            }
+          ],
+          "column_text": [],
+          "column_text_section": [
+            {
+              "name": "columns",
+              "display": "Columns"
+            }
+          ],
+          "content_block": [],
+          "card_grid_block": []
+        },
+        "choices": {
+          "page_title_block": {
+            "type": "Slice",
+            "fieldset": "Page Title Block",
+            "description": "A Page Title with Different Display Styles",
+            "icon": "title",
+            "display": "list",
+            "non-repeat": {
+              "main_page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Main Page Title",
+                  "placeholder": "Page Title"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Page Title - H1",
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4",
+                    "Subtitle - H5"
+                  ],
+                  "default_value": "Page Title - H1",
+                  "label": "Heading Size"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
+                    "---",
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Align Left",
+                  "placeholder_true": "Align Centre",
+                  "default_value": false,
+                  "label": "Text Alignment"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Image block with a stylised color block and credit text",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image_block_colour_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Grey-300",
+                    "Grey-700",
+                    "Turquoise-300",
+                    "Turquoise-700",
+                    "Green-300",
+                    "Green-800",
+                    "Honey-300",
+                    "Honey-600",
+                    "Dusk-Pink-500",
+                    "Dusk-Pink-800"
+                  ],
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Colour"
+                }
+              },
+              "image_block_colour_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Colour Block Position"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "Source of image (to credit)"
+                }
+              },
+              "image_source": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Source",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "content_block": {
+            "type": "Slice",
+            "fieldset": "Content Block",
+            "description": "Title, Text and Images Content Block",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Page Title - H1",
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4",
+                    "Subtitle - H5"
+                  ],
+                  "default_value": "Page Title - H1",
+                  "label": "Heading Size"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
+                    "---",
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Text Content"
+                }
+              },
+              "content_order": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Text Left && Image Right",
+                  "placeholder_true": "Text Right && Image Left",
+                  "default_value": false,
+                  "label": "Content Order"
+                }
+              },
+              "image_content": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image Content"
+                }
+              },
+              "image_block_colour_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Grey-300",
+                    "Grey-700",
+                    "Turquoise-300",
+                    "Turquoise-700",
+                    "Green-300",
+                    "Green-800",
+                    "Honey-300",
+                    "Honey-600",
+                    "Dusk-Pink-500",
+                    "Dusk-Pink-800"
+                  ],
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Colour"
+                }
+              },
+              "image_block_colour_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Block Colour Position"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "Source of image (to credit)"
+                }
+              },
+              "image_source": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Source",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "card_grid_block": {
+            "type": "Slice",
+            "fieldset": "Card Grid Block",
+            "description": "A Grid of Cards with Images, Text and Links",
+            "icon": "view_carousel",
+            "display": "list",
+            "non-repeat": {
+              "card_grid_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Card Grid Title"
+                }
+              },
+              "content_author": {
+                "type": "Text",
+                "config": {
+                  "label": "Content_Author",
+                  "placeholder": "Author"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Line",
+                    "Dot",
+                    "Block"
+                  ],
+                  "default_value": "Line",
+                  "label": "Title Style"
+                }
+              },
+              "card_grid_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Style-One-ImageColourBlocks",
+                    "Style-Two-EdgeToEdge",
+                    "Style-Three-HorizontalStack",
+                    "Style-Four-SmallCardsGridColourBlock"
+                  ],
+                  "default_value": "Style-One-ImageColourBlocks",
+                  "label": "Card Grid Style"
+                }
+              }
+            },
+            "repeat": {
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Card Image"
+                }
+              },
+              "card_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3, heading4",
+                  "label": "Card Title"
+                }
+              },
+              "card_link_destination": {
+                "type": "Link",
+                "config": {
+                  "label": "Card Link Destination"
+                }
+              }
+            }
+          },
+          "column_text_block": {
+            "type": "Slice",
+            "fieldset": "Text Columns Block",
+            "description": "Section Title, and Columns with Text",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block",
+                    "---",
+                    "Hero Title One - Simple",
+                    "Hero Title Two - Squares",
+                    "Hero Title Three -  Line",
+                    "Hero Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Page Title - H1",
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4",
+                    "Subtitle - H5"
+                  ],
+                  "default_value": "Page Title - H1",
+                  "label": "Heading Size"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
+                }
+              }
+            },
+            "repeat": {
+              "column_item_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Column Item Title",
+                  "placeholder": "Column Title — Fixed Size"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content",
+                  "placeholder": "Text Content in Each Column, Multiple Columns Allowed"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
