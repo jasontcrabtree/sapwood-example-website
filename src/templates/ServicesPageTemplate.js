@@ -145,19 +145,7 @@ const ServicesPageTemplate = (props) => {
   if (!props) return <h1>No props</h1>;
   const { data } = props;
 
-  // console.log(data);
-
   const servicesRepeatableSliceData = data.prismicServicesRepeatable.data.body;
-
-  // console.log(servicesRepeatableSliceData);
-
-  // const resourcesPageDataRes = data.prismicResourcesRepeatable.data;
-
-  // console.log(resourcesPageDataRes);
-
-  // const title = resourcesPageDataRes.page_title.text;
-
-  // console.log(title);
 
   return (
     <ServicesPageMainStyles id="main">

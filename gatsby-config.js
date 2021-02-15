@@ -21,6 +21,12 @@ module.exports = {
           if (doc.type === 'page_repeatable') {
             return `/${doc.uid}`;
           }
+          if (doc.type === 'referrals_page') {
+            return `/contact/${doc.uid}`;
+          }
+          if (doc.type === 'calculators_page') {
+            return `/resources/${doc.uid}`;
+          }
           // Backup for all other types
           return `/${doc.uid}`;
         },

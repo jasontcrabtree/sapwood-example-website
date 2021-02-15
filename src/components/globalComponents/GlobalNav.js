@@ -10,6 +10,8 @@ const GlobalNavStyles = styled.nav`
   background-color: var(--honey-100);
   opacity: 0.96;
 
+  height: 400px;
+
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
 
   /* border-bottom: 2px solid var(--dusk-pink-600); */
@@ -49,8 +51,8 @@ const GlobalNavStyles = styled.nav`
 
   li {
     /* width: 200px; */
-    flex-basis: 16%;
-    /* outline: 1px solid red; */
+    flex-grow: 1;
+    outline: 1px solid red;
   }
 
   ul:first-of-type > li:first-child {
@@ -64,19 +66,19 @@ const GlobalNavStyles = styled.nav`
   }
 
   ul > li > ul > li {
-    background: var(--turquoise-900);
-    outline: 1px solid var(--grey-500);
+    /* background: var(--turquoise-900); */
+    /* outline: 1px solid var(--grey-500); */
     display: flex;
-    box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.5); */
   }
 
   ul > li > ul > li > a {
-    padding: 24px 16px;
-    width: 112px;
+    /* padding: 24px 16px; */
+    /* width: 112px; */
   }
 
   li > ul > li > a {
-    color: var(--honey-400);
+    /* color: var(--honey-400); */
   }
 
   ul > li > ul {
@@ -86,11 +88,11 @@ const GlobalNavStyles = styled.nav`
 
   ul > li > ul {
     display: grid;
-    display: none;
+    margin: 0px;
     /* width: 400px; */
-    position: absolute;
+
     /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
   }
 
   li {
@@ -144,14 +146,17 @@ function GlobalNav() {
             nav {
               ... on PrismicGlobalNavigationNavNavItem {
                 id
+                slice_label
                 primary {
-                  label {
-                    text
+                  primary_link_label
+                  primary_link_destination {
+                    url
                   }
                 }
                 items {
-                  sub_nav_link_label {
-                    text
+                  secondary_nested_link_label
+                  secondary_link_url {
+                    url
                   }
                 }
               }
@@ -174,7 +179,9 @@ function GlobalNav() {
         </li>
         {globalNavRes.map((nav, i) => (
           <li key={i}>
-            <Link to="/">{nav.primary.label.text.toUpperCase()}</Link>
+            <Link to={nav.primary.primary_link_destination.url}>
+              {nav.primary.primary_link_label}
+            </Link>
             {nav.items.length ? (
               <img
                 src={ChevronRight}
@@ -186,7 +193,9 @@ function GlobalNav() {
               <ul className="secondary">
                 {nav.items.map((item, id) => (
                   <li key={id}>
-                    <Link to="/">{item.sub_nav_link_label.text}</Link>
+                    <Link to={item.secondary_link_url.url}>
+                      {item.secondary_nested_link_label}
+                    </Link>
                   </li>
                 ))}
               </ul>
