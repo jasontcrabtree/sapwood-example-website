@@ -142,6 +142,7 @@ const ServicesPageMainStyles = styled.main`
 `;
 
 const ServicesPageTemplate = (props) => {
+  if (!props) return <h1>No props</h1>;
   const { data } = props;
 
   // console.log(data);

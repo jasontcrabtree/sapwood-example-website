@@ -58,14 +58,21 @@ const GlobalNavStyles = styled.nav`
   }
 
   ul > li > ul > li {
+    margin-top: 0px;
     margin-left: 0px;
     padding-left: 0px;
   }
 
-  li > ul > li {
+  ul > li > ul > li {
     background: var(--turquoise-900);
     outline: 1px solid var(--grey-500);
-    padding: 4px;
+    display: flex;
+    box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  ul > li > ul > li > a {
+    padding: 24px 16px;
+    width: 112px;
   }
 
   li > ul > li > a {
@@ -73,8 +80,17 @@ const GlobalNavStyles = styled.nav`
   }
 
   ul > li > ul {
-    display: flex;
-    flex-direction: column;
+    /* visibility: hidden; */
+    /* width: 0px; */
+  }
+
+  ul > li > ul {
+    display: grid;
+    display: none;
+    /* width: 400px; */
+    position: absolute;
+    /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   li {
@@ -167,7 +183,7 @@ function GlobalNav() {
               />
             ) : null}
             {nav.items.length ? (
-              <ul>
+              <ul className="secondary">
                 {nav.items.map((item, id) => (
                   <li key={id}>
                     <Link to="/">{item.sub_nav_link_label.text}</Link>

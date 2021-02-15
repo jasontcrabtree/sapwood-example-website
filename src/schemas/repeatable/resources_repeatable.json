@@ -262,6 +262,217 @@
               }
             },
             "repeat": {}
+          },
+          "text_columns_block": {
+            "type": "Slice",
+            "fieldset": "Text Columns Block",
+            "description": "Section Title, and Columns with Text",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "One - Simple",
+                    "Two - Dots",
+                    "Three - Line",
+                    "Four - Block",
+                    "---",
+                    "One - Hero Simple",
+                    "Two - Hero Squares",
+                    "Three - Hero Line",
+                    "Four - Hero Block"
+                  ],
+                  "default_value": "One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Page Title - H1",
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4",
+                    "Subtitle - H5"
+                  ],
+                  "default_value": "Page Title - H1",
+                  "label": "Heading Size"
+                }
+              },
+              "column_background_style": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No Background",
+                  "placeholder_true": "Add Background",
+                  "default_value": false,
+                  "label": "Column Background Style"
+                }
+              }
+            },
+            "repeat": {
+              "column_item_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Column Item Title",
+                  "placeholder": "Column Title — Fixed Size"
+                }
+              },
+              "column_text_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column Text Content",
+                  "placeholder": "Text Content in Each Column, Multiple Columns Allowed"
+                }
+              }
+            }
+          },
+          "custom_block": {
+            "type": "Slice",
+            "fieldset": "Custom Block",
+            "description": "A Custom component based on page requirements",
+            "icon": "brush",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5",
+                  "label": "Section Title"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4"
+                  ],
+                  "default_value": "Section Title - H2",
+                  "label": "Heading Size"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Align Left",
+                  "placeholder_true": "Align Centre",
+                  "default_value": false,
+                  "label": "Text Alignment"
+                }
+              },
+              "custom_component_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Custom Component Name",
+                  "placeholder": "Component name, with CamelCase"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Image block with a stylised color block and credit text",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image_block_colour_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Grey-300",
+                    "Grey-700",
+                    "Turquoise-300",
+                    "Turquoise-700",
+                    "Green-300",
+                    "Green-800",
+                    "Honey-300",
+                    "Honey-600",
+                    "Dusk-Pink-500",
+                    "Dusk-Pink-800"
+                  ],
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Colour"
+                }
+              },
+              "image_block_colour_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Colour Block Position"
+                }
+              },
+              "image_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Left",
+                    "Center",
+                    "Right"
+                  ],
+                  "label": "Image Position",
+                  "placeholder": "Image Alignment"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "Source of image (to credit)"
+                }
+              },
+              "image_source": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Source",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

@@ -7,31 +7,13 @@ import ColumnBlock from '../ColumnBlock';
 import TitleBlock from '../TitleBlock';
 import ContentBlock from '../ContentBlock';
 import normaliseTitleStyle from '../../utils/normaliseTitleStyle';
+import CustomBlock from '../CustomBlock';
 
 const SliceZone = (props) => {
-  if (!props) return null;
+  if (!props) return <h1>No Props, error</h1>;
   const { body } = props;
 
   const uuidKey = uuid();
-
-  // console.log(props);
-  // bC = short for bodyContent
-
-  // console.log(props);
-
-  // const titleStyle = body[0].primary.title_style;
-
-  // console.log(titleStyle.toLowerCase().replace(/\s/g, ''));
-
-  // const fixStyle = toLowerCase().replace(/\s/g, '');
-
-  // console.log(normaliseTitleStyle('hello world'));
-
-  // console.log(props);
-
-  // body.map((titles, i) =>
-  //   console.log(normaliseTitleStyle(titles.primary.title_style) || '')
-  // );
 
   return (
     <>
@@ -40,8 +22,8 @@ const SliceZone = (props) => {
           return (
             <TitleBlock
               key={bC.id}
-              titleText={bC.primary.main_page_title}
-              headingSize={bC.primary.heading_size.slice(-2)}
+              titleText={bC.primary.main_page_title || 'Error'}
+              headingSize={bC.primary.heading_size.slice(-2) || 'h2'}
               titleStyle={normaliseTitleStyle(bC.primary.title_style) || ''}
             />
           );
@@ -49,12 +31,11 @@ const SliceZone = (props) => {
         if (bC.slice_type === 'column_text') {
           return (
             <div key={uuidKey + i}>
-              <HTMLRenderer html={bC.primary.text_content.html} />
+              <HTMLRenderer html={bC.primary.text_content.html || null} />
             </div>
           );
         }
         if (bC.slice_type === 'card_grid_block') {
-          console.log(normaliseTitleStyle(bC.primary.title_style));
           return (
             <div key={bC.id}>
               <TitleBlock
@@ -72,7 +53,6 @@ const SliceZone = (props) => {
           );
         }
         if (bC.slice_type === 'column_text_block') {
-          console.log(bC);
           return (
             <div key={bC.id}>
               <TitleBlock
@@ -106,7 +86,7 @@ const SliceZone = (props) => {
           return (
             <HTMLRenderer
               key={i}
-              html={bC.items[0].blog_post_text_content.html}
+              html={bC.items[0].blog_post_text_content.html || ''}
             />
           );
         }
@@ -121,6 +101,13 @@ const SliceZone = (props) => {
               imageBlockColourStyle={bC.primary.image_block_colour_style || ''}
               imageColourBlockPosition={bC.primary.image_block_colour_position}
             />
+          );
+        }
+        if (bC.slice_type === 'custom_block') {
+          return (
+            <div>
+              <CustomBlock />
+            </div>
           );
         }
         return null;

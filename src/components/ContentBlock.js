@@ -7,7 +7,7 @@ import TitleBlock from './TitleBlock';
 
 const ContentBlockStyles = styled.div`
   display: flex;
-  gap: 96px;
+  gap: 80px;
   align-items: center;
 
   .reverse {
@@ -15,6 +15,7 @@ const ContentBlockStyles = styled.div`
   }
 
   div {
+    flex-basis: 50%;
     flex-grow: 1;
   }
 
@@ -37,7 +38,6 @@ const ContentBlockStyles = styled.div`
 function ContentBlock(props) {
   // const { backgroundColumnStyle, columnOne, columnTwo, columnThree } = props;
   const { contentArray } = props;
-  console.log(contentArray.title_style);
   return (
     <ContentBlockStyles
       className={`${contentArray.content_order ? 'reverse' : ''}`}
@@ -48,7 +48,7 @@ function ContentBlock(props) {
           headingSize={contentArray.heading_size.slice(-2)}
           titleStyle={normaliseTitleStyle(contentArray.title_style) || ''}
         />
-        <HTMLRenderer html={contentArray.text_content.html} />
+        <HTMLRenderer html={contentArray.text_content.html || ''} />
       </div>
       {contentArray.image_content.url ? (
         <div>

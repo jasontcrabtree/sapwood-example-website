@@ -21,7 +21,6 @@ const ComponentPageMainStyles = styled.main`
 
   section {
     grid-column: 1 / -1;
-    border: 1px solid var(--dusk-pink-500);
   }
 
   .label {

@@ -105,17 +105,12 @@ const ResourcesPageMainStyles = styled.main`
 `;
 
 const ResourcesPageTemplate = (props) => {
+  if (!props) return <h1>No props</h1>;
   const { data } = props;
 
   const resourcesPageDataRes = data.prismicResourcesRepeatable.data.body;
 
-  console.log(resourcesPageDataRes);
-
   // console.log(resourcesPageDataRes);
-
-  // const title = resourcesPageDataRes.page_title.text;
-
-  // console.log(title);
 
   return (
     <ResourcesPageMainStyles id="main">

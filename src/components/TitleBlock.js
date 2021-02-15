@@ -40,10 +40,12 @@ const TitleBlockTwoStyles = styled.div`
 
   .brand-circles {
     display: flex;
+    flex-direction: row;
     gap: 16px;
     margin: 0px;
     padding: 0px;
     padding-bottom: 24px;
+    max-width: 12px;
   }
 
   @media screen and (max-width: 920px) {
@@ -166,7 +168,7 @@ function TitleBlock(props) {
   const safeHeading = headingSize ? headingSize.toLowerCase() : '';
   const TitleSize = semanticHeadings.includes(safeHeading) ? safeHeading : 'h2';
 
-  if (titleStyle === 'TitleBlockOne') {
+  if (titleStyle === 'TitleBlockOne' || titleStyle === 'titleone-simple') {
     return (
       <TitleWrapperStyles className="center">
         <TitleSize

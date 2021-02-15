@@ -175,7 +175,6 @@ const FormStyles = styled.form`
 const today = new Date().toISOString().substr(0, 10);
 
 function FormDemo(props) {
-  console.log(props);
   return (
     <FormStyles>
       <label htmlFor="name">

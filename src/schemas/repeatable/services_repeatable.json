@@ -89,72 +89,6 @@
             },
             "repeat": {}
           },
-          "image_block": {
-            "type": "Slice",
-            "fieldset": "Image Block",
-            "description": "Image block with a stylised color block and credit text",
-            "icon": "image",
-            "display": "list",
-            "non-repeat": {
-              "image_block_colour_style": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Grey-300",
-                    "Grey-700",
-                    "Turquoise-300",
-                    "Turquoise-700",
-                    "Green-300",
-                    "Green-800",
-                    "Honey-300",
-                    "Honey-600",
-                    "Dusk-Pink-500",
-                    "Dusk-Pink-800"
-                  ],
-                  "label": "Image Block Colour Style",
-                  "placeholder": "Colour"
-                }
-              },
-              "image_block_colour_position": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "TopRight",
-                    "BottomRight",
-                    "BottomLeft",
-                    "TopLeft",
-                    "Top",
-                    "Bottom"
-                  ],
-                  "default_value": "TopRight",
-                  "label": "Image Colour Block Position"
-                }
-              },
-              "image_source_link": {
-                "type": "Link",
-                "config": {
-                  "label": "Image Source Link",
-                  "placeholder": "Source of image (to credit)"
-                }
-              },
-              "image_source": {
-                "type": "Text",
-                "config": {
-                  "label": "Image Source",
-                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Image"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "content_block": {
             "type": "Slice",
             "fieldset": "Content Block",
@@ -421,6 +355,142 @@
                 }
               }
             }
+          },
+          "custom_block": {
+            "type": "Slice",
+            "fieldset": "Custom Block",
+            "description": "A Custom component based on page requirements",
+            "icon": "brush",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5",
+                  "label": "Section Title"
+                }
+              },
+              "heading_size": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Section Title - H2",
+                    "Element Title - H3",
+                    "Content Title - H4"
+                  ],
+                  "default_value": "Section Title - H2",
+                  "label": "Heading Size"
+                }
+              },
+              "title_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Title One - Simple",
+                    "Title Two - Dots",
+                    "Title Three - Line",
+                    "Title Four - Block"
+                  ],
+                  "default_value": "Title One - Simple",
+                  "label": "Title Style"
+                }
+              },
+              "text_alignment": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Align Left",
+                  "placeholder_true": "Align Centre",
+                  "default_value": false,
+                  "label": "Text Alignment"
+                }
+              },
+              "custom_component_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Custom Component Name",
+                  "placeholder": "Component name, with CamelCase"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Image block with a stylised color block and credit text",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image_block_colour_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Grey-300",
+                    "Grey-700",
+                    "Turquoise-300",
+                    "Turquoise-700",
+                    "Green-300",
+                    "Green-800",
+                    "Honey-300",
+                    "Honey-600",
+                    "Dusk-Pink-500",
+                    "Dusk-Pink-800"
+                  ],
+                  "label": "Image Block Colour Style",
+                  "placeholder": "Colour"
+                }
+              },
+              "image_block_colour_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "TopRight",
+                    "BottomRight",
+                    "BottomLeft",
+                    "TopLeft",
+                    "Top",
+                    "Bottom"
+                  ],
+                  "default_value": "TopRight",
+                  "label": "Image Colour Block Position"
+                }
+              },
+              "image_position": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Left",
+                    "Center",
+                    "Right"
+                  ],
+                  "label": "Image Position",
+                  "placeholder": "Image Alignment"
+                }
+              },
+              "image_source_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Image Source Link",
+                  "placeholder": "Source of image (to credit)"
+                }
+              },
+              "image_source": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Source",
+                  "placeholder": "E.g. Image via Brooke Helm on Unsplash"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

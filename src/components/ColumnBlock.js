@@ -31,7 +31,7 @@ const ColumnBlockStyles = styled.ul`
 
   .backgroundColumnStyle {
     background-color: var(--apricot-100);
-    border: 1px solid var(--dusk-pink-400);
+    outline: 1px solid var(--grey-200);
     padding: 24px;
   }
   @media screen and (max-width: 920px) {

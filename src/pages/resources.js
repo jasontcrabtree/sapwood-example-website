@@ -47,10 +47,6 @@ const SinglePageContainerStyles = styled.main`
   section > figure {
     /* margin-top: 96px; */
   }
-
-  section {
-    border: 1px solid var(--dusk-pink-500);
-  }
 `;
 
 const index = (props) => {

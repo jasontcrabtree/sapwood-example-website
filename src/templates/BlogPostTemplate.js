@@ -89,6 +89,7 @@ const BlogTemplateMainStyles = styled.main`
 `;
 
 const BlogPostTemplate = (props) => {
+  if (!props) return <h1>No props</h1>;
   const { data } = props;
   const blogPostRepeatableRes = data.prismicBlogRepeatable.data;
 
