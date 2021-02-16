@@ -79,7 +79,7 @@ ol {
 
 form > input[type='submit'],
 form > input[type='button'],
-button {
+button:not(.nav-button) {
   background: var(--turquoise-700);
   color: var(--honey-100);
   border: none;

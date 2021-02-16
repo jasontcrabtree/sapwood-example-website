@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
+import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
@@ -9,11 +10,16 @@ const GlobalNavStyles = styled.nav`
   background-color: var(--honey-100);
   opacity: 0.96;
 
-  /* height: 400px; */
+  height: 480px;
 
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
 
   /* border-bottom: 2px solid var(--dusk-pink-600); */
+
+  .sapwood-wordmark-list {
+    padding-left: 0px;
+    margin-top: 12px;
+  }
 
   ul {
     display: flex;
@@ -33,6 +39,11 @@ const GlobalNavStyles = styled.nav`
     padding: 8px 4px 8px 8px;
   }
 
+  ul > li > ul > li > a {
+    padding: 8px 8px 8px 0px;
+    outline: 1px solid var(--grey-300);
+  }
+
   li {
     line-height: 32px;
     flex-shrink: 0;
@@ -42,10 +53,12 @@ const GlobalNavStyles = styled.nav`
     stroke: currentColor;
   }
 
-  ul > li > ul {
+  .secondary-list {
+    position: absolute;
     display: flex;
     flex-direction: column;
     margin: 0px;
+    margin-top: 32px;
   }
 
   ul {
@@ -60,15 +73,61 @@ const GlobalNavStyles = styled.nav`
     margin-left: 4px;
   }
 
-  .sapwood-wordmark-list {
-    padding-left: 0px;
-    margin-top: 12px;
-    /* width: 242px; */
+  .nav-button {
+    color: var(--turquoise-700);
+    text-decoration: underline;
+    display: inline-block;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    -webkit-appearance: none;
+  }
+
+  .menu-container {
+    /* outline: 1px solid red; */
+  }
+
+  .menu-container {
+    height: fit-content;
+
+    border: 1px solid orange;
+  }
+
+  /*
+  Menu Tutorial CSS
+  */
+  .menu-container {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .menu {
+    position: absolute;
+    top: 96px;
+    right: 0;
+    left: 0;
+    width: 240px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    /* transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s; */
+  }
+
+  .menu.active {
+    opacity: 1;
+    cursor: pointer;
+    visibility: visible;
+    /* transform: translateY(0); */
+  }
+
+  .menu-trigger {
+    /* transition: box-shadow 0.4s ease; */
   }
 
   @media screen and (min-width: 960px) {
     .primary:first-child {
-      flex-basis: 19.4%;
+      flex-basis: 264px;
       flex-shrink: 1;
 
       a {
@@ -105,6 +164,21 @@ const GlobalNavStyles = styled.nav`
 `;
 
 function GlobalNav() {
+  const dropdownRef = useRef(null);
+  // custom hook, we pass into params of dropdownRef (the element we are maintaining with state, and false as default useState)
+  const [isMenuActive, setIsMenuActive] = useDetectOutsideClick(
+    dropdownRef,
+    false
+  );
+
+  function onEnter() {
+    setIsMenuActive(!isMenuActive);
+  }
+
+  function onLeave() {
+    setIsMenuActive(isMenuActive);
+  }
+
   const data = useStaticQuery(graphql`
     {
       allPrismicGlobalNavigation {
@@ -145,29 +219,51 @@ function GlobalNav() {
           </Link>
         </li>
         {globalNavRes.map((nav, i) => (
-          <li key={i} className="primary">
-            <Link to={nav.primary.primary_link_destination.url}>
-              {nav.primary.primary_link_label}
-              {nav.items.length ? (
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+          <li
+            ref={dropdownRef}
+            key={i}
+            className="primary menu-container"
+
+            // onMouseLeave={onLeave}
+          >
+            {nav.items.length ? (
+              <button
+                className="menu-trigger nav-button"
+                type="button"
+                onMouseEnter={onEnter}
+              >
+                <Link
+                /* to={nav.primary.primary_link_destination.url} */
                 >
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="currentcolor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ) : null}
-            </Link>
-            {!nav.items.length ? (
-              <ul className="secondary">
+                  {nav.primary.primary_link_label}
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 18L15 12L9 6"
+                      stroke="currentcolor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </button>
+            ) : (
+              <Link to={nav.primary.primary_link_destination.url}>
+                {nav.primary.primary_link_label}
+              </Link>
+            )}
+            {nav.items.length ? (
+              <ul
+                className={`secondary-list nav-button menu ${
+                  isMenuActive ? 'active' : 'inactive'
+                }`}
+              >
                 {nav.items.map((item, id) => (
                   <li key={id}>
                     <Link to={item.secondary_link_url.url}>

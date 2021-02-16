@@ -105,7 +105,7 @@ const SliceZone = (props) => {
         }
         if (bC.slice_type === 'custom_block') {
           return (
-            <div>
+            <div key={bC.id}>
               <CustomBlock />
             </div>
           );
