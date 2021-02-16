@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import ChevronRight from '../../../static/chevron-right.svg';
 
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
@@ -10,26 +9,11 @@ const GlobalNavStyles = styled.nav`
   background-color: var(--honey-100);
   opacity: 0.96;
 
-  height: 400px;
+  /* height: 400px; */
 
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
 
   /* border-bottom: 2px solid var(--dusk-pink-600); */
-
-  /*  ::after {
-    content: '';
-    background: var(--green-300);
-    position: absolute;
-    bottom: 0;
-    left: 9.6%;
-    right: 9.6%;
-    top: 124px;
-    width: 80.8%;
-    height: 2px;
-  } */
-
-  /* position: sticky;
-  top: 0; */
 
   ul {
     display: flex;
@@ -37,80 +21,31 @@ const GlobalNavStyles = styled.nav`
     margin: 0px;
   }
 
-  ul {
-    /* outline: 1px solid red; */
+  li {
+    /* outline: 1px solid var(--grey-200); */
   }
 
   li {
-    /* outline: 1px solid blue; */
-  }
-
-  ul > li {
-    /* margin-right: 48px; */
-  }
-
-  li {
-    /* width: 200px; */
-    flex-grow: 1;
-    outline: 1px solid red;
-  }
-
-  ul:first-of-type > li:first-child {
-    flex-basis: 20%;
-  }
-
-  ul > li > ul > li {
-    margin-top: 0px;
-    margin-left: 0px;
     padding-left: 0px;
   }
 
-  ul > li > ul > li {
-    /* background: var(--turquoise-900); */
-    /* outline: 1px solid var(--grey-500); */
-    display: flex;
-    /* box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.5); */
-  }
-
-  ul > li > ul > li > a {
-    /* padding: 24px 16px; */
-    /* width: 112px; */
-  }
-
-  li > ul > li > a {
-    /* color: var(--honey-400); */
-  }
-
-  ul > li > ul {
-    /* visibility: hidden; */
-    /* width: 0px; */
-  }
-
-  ul > li > ul {
-    display: grid;
-    margin: 0px;
-    /* width: 400px; */
-
-    /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
-    /* grid-template-columns: repeat(3, 1fr); */
+  li > a {
+    padding: 8px 4px 8px 8px;
   }
 
   li {
     line-height: 32px;
+    flex-shrink: 0;
   }
 
-  img {
-    margin-bottom: -4px;
-    margin-left: 4px;
+  li {
+    stroke: currentColor;
   }
 
   ul > li > ul {
-    /* display: none; */
-  }
-
-  ul > li > ul:hover {
-    /* display: block; */
-    /* outline: 2px solid red !important; */
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
   }
 
   ul {
@@ -119,13 +54,45 @@ const GlobalNavStyles = styled.nav`
     }
   }
 
+  img,
+  svg {
+    margin-bottom: -6px;
+    margin-left: 4px;
+  }
+
   .sapwood-wordmark-list {
     padding-left: 0px;
     margin-top: 12px;
-    width: 242px;
+    /* width: 242px; */
   }
 
-  @media screen and (max-width: 920px) {
+  @media screen and (min-width: 960px) {
+    .primary:first-child {
+      flex-basis: 19.4%;
+      flex-shrink: 1;
+
+      a {
+        padding: 0px 0px;
+      }
+    }
+
+    .primary:nth-child(-n + 4) + * {
+      margin-left: 48px;
+      margin-left: 2.8vw;
+    }
+
+    .primary:nth-child(n + 6):nth-child(-n + 8) + * {
+      margin-left: 24px;
+      margin-left: 1.4vw;
+    }
+
+    .primary:nth-child(n + 6) {
+      margin-left: auto;
+      padding-left: 8px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
     padding: 24px;
     ul {
       display: flex;
@@ -172,24 +139,34 @@ function GlobalNav() {
   return (
     <GlobalNavStyles>
       <ul>
-        <li className="sapwood-wordmark-list">
+        <li className="sapwood-wordmark-list primary">
           <Link to="/" className="sapwood-wordmark">
             Sapwood Financial Advisors
           </Link>
         </li>
         {globalNavRes.map((nav, i) => (
-          <li key={i}>
+          <li key={i} className="primary">
             <Link to={nav.primary.primary_link_destination.url}>
               {nav.primary.primary_link_label}
+              {nav.items.length ? (
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="currentcolor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              ) : null}
             </Link>
-            {nav.items.length ? (
-              <img
-                src={ChevronRight}
-                className="chevron"
-                alt="Chevron Pointing Right"
-              />
-            ) : null}
-            {nav.items.length ? (
+            {!nav.items.length ? (
               <ul className="secondary">
                 {nav.items.map((item, id) => (
                   <li key={id}>
@@ -202,9 +179,6 @@ function GlobalNav() {
             ) : null}
           </li>
         ))}
-        <li>
-          <Link to="/components">Components</Link>
-        </li>
       </ul>
     </GlobalNavStyles>
   );
