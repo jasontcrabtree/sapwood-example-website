@@ -21,6 +21,19 @@ function useDetectOutsideClick(element, initialState) {
     };
   }, [isStateActive, element]);
 
+  /*  useEffect(() => {
+    function keyListener(e) {
+      if (e.keyCode === 27) {
+        if (isStateActive) {
+          setIsStateActive(!isStateActive);
+        }
+      }
+    }
+
+    window.addEventListener('keyup', keyListener);
+    return () => window.removeEventListener('keyup', keyListener);
+  }); */
+
   return [isStateActive, setIsStateActive];
 }
 
