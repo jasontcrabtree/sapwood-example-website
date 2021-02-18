@@ -8,7 +8,7 @@ const List = styled.li``;
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
   padding: 40px 200px;
-  padding: 40px 11.9vw;
+  padding: 40px 11.9vw 0px;
   background-color: var(--honey-100);
   opacity: 1;
 
@@ -16,7 +16,10 @@ const GlobalNavStyles = styled.nav`
 
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
 
-  /* border-bottom: 2px solid var(--dusk-pink-600); */
+  .nav-list {
+    padding-bottom: 40px;
+    border-bottom: 2px solid var(--dusk-pink-600);
+  }
 
   .sapwood-wordmark-list {
     padding-left: 0px;
@@ -38,7 +41,7 @@ const GlobalNavStyles = styled.nav`
   }
 
   li > a {
-    padding: 8px 4px 8px 8px;
+    /* padding: 8px 4px 8px 8px; */
   }
 
   li {
@@ -46,15 +49,11 @@ const GlobalNavStyles = styled.nav`
     /* flex-shrink: 0; */
   }
 
-  ul > li {
-    /* outline: 1px solid red; */
-  }
-
   li {
     stroke: currentColor;
   }
 
-  .secondary-list {
+  .secondary-menu {
     z-index: 1;
     position: absolute;
     display: flex;
@@ -63,7 +62,7 @@ const GlobalNavStyles = styled.nav`
     margin-top: 32px;
   }
 
-  .secondary-list > li > a {
+  .secondary-menu > li > a {
     padding: 16px 16px 16px 8px;
 
     padding: 32px;
@@ -71,15 +70,11 @@ const GlobalNavStyles = styled.nav`
     width: 100%;
   }
 
-  .secondary-list > li {
+  .secondary-menu > li {
     padding: 32px;
     padding-left: 8px;
     margin-top: 0px;
     width: 100%;
-  }
-
-  .secondary-list > li {
-    outline: 1px solid var(--grey-300);
   }
 
   ul {
@@ -94,9 +89,11 @@ const GlobalNavStyles = styled.nav`
     margin-left: 4px;
   }
 
+  a {
+    text-decoration: underline;
+  }
   .nav-button {
     color: var(--turquoise-700);
-    text-decoration: underline;
     display: inline-block;
     border: none;
     margin: 0;
@@ -105,22 +102,19 @@ const GlobalNavStyles = styled.nav`
     -webkit-appearance: none;
   }
 
+  .secondary-menu > li > h4 {
+    text-decoration: none !important;
+  }
+
   .primary {
     padding: 0px;
   }
 
-  .menu-container {
+  .primary-menu {
     height: fit-content;
-    /* background: lightblue;
-    border: 1px solid orange; */
-
-    /* z-index: 1; */
   }
 
-  /*
-  Menu Tutorial CSS
-  */
-  .menu-container {
+  .primary-menu {
     position: relative;
     cursor: pointer;
   }
@@ -140,8 +134,13 @@ const GlobalNavStyles = styled.nav`
     /* transform: translateY(-20px); */
   }
 
+  .contact-menu {
+    right: 0;
+    left: -400%;
+  }
+
   .menu.active,
-  .menu-container.active,
+  .primary-menu.active,
   .primary.active,
   .active {
     background: var(--honey-100);
@@ -149,18 +148,90 @@ const GlobalNavStyles = styled.nav`
     opacity: 1;
   }
 
-  .menu-container {
+  .primary-menu {
     width: 128px;
     width: fit-content;
   }
 
-  .secondary-list {
-    width: 32rem;
+  .item {
+    padding: 24px 40px;
+  }
+
+  .services-menu {
+    width: fit-content;
+    display: flex;
+
+    box-shadow: var(--shadow-small);
+  }
+
+  .resources-menu {
+    width: fit-content;
+    display: flex;
+  }
+
+  .contact-menu {
+    width: 30rem;
+  }
+
+  .individual-services-title {
+    align-items: center;
+    margin-top: 0px;
+    padding: 8px 32px;
+  }
+
+  .services-items {
     display: grid;
-    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    grid-template-columns: repeat(3, minmax(auto, 1fr));
   }
 
-  .secondary-list.active > li > a:hover {
+  .services-items > li {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    margin: 0px;
+    border: 1px solid var(--grey-300);
+  }
+
+  .services-items > li > a {
+    padding: 24px 40px;
+    width: 100%;
+  }
+
+  .resources-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+  }
+
+  .resources-items > li {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    margin: 0px;
+    border: 1px solid var(--grey-300);
+  }
+
+  .resources-items > li > a {
+    padding: 24px 40px;
+    width: 100%;
+  }
+
+  .highlight {
+    align-items: center;
+    margin-top: 0px;
+    padding: 8px 32px;
+    grid-column: span 2;
+    display: flex;
+    font-weight: bold;
+  }
+
+  .secondary-menu > li,
+  .secondary-menu {
+    border: 1px solid var(--grey-300);
+  }
+
+  .secondary-menu.active > li > a:hover,
+  .services-items > li > a:hover,
+  .resources-items > li > a:hover {
     background: var(--turquoise-900);
     color: var(--honey-200);
 
@@ -169,27 +240,18 @@ const GlobalNavStyles = styled.nav`
     }
   }
 
-  .secondary-list.active > li:hover {
-    background: var(--turquoise-900);
-    color: var(--honey-200);
-
-    a {
-      color: var(--honey-200);
-    }
-  }
-
-  .secondary-list > li {
+  .secondary-menu > li {
     /* padding-top: 24px;
     padding-bottom: 24px; */
-    opacity: 1;
+    /* opacity: 1; */
   }
 
-  .menu-container.active {
-    /* height: fit-content; */
-    /* width: 128px; */
-    /* width: fit-content; */
-    /* width: auto; */
+  /* .primary-menu.active {
     opacity: 1;
+  } */
+
+  .active .chevron {
+    transform: rotate(90deg);
   }
 
   .menu.active {
@@ -240,6 +302,7 @@ const GlobalNavStyles = styled.nav`
 function Chevron() {
   return (
     <svg
+      className="chevron"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -257,9 +320,9 @@ function Chevron() {
   );
 }
 
-function NestedLink({ id, link, label }) {
+function NestedLink({ id, link, label, highlighted }) {
   return (
-    <li key={id}>
+    <li key={id} className={`${highlighted ? 'highlight' : ''}`}>
       <Link to={link}>{label}</Link>
     </li>
   );
@@ -288,7 +351,7 @@ function GlobalNav() {
   const dropdownRefThree = useRef(null);
 
   // custom hook, we pass into params of dropdownRef (the element we are maintaining with state, and false as default useState)
-  const [isMenuActive, setIsMenuActive] = useDetectOutsideClick(
+  const [isMenuOneActive, setIsMenuOneActive] = useDetectOutsideClick(
     dropdownRef,
     false
   );
@@ -311,38 +374,6 @@ function GlobalNav() {
     setState(!isState);
   }
 
-  function onEnter() {
-    setIsMenuActive(!isMenuActive);
-  }
-  function onLeave() {
-    setIsMenuActive(!isMenuActive);
-  }
-
-  function onEnterTwo() {
-    setMenuTwoState(!isMenuTwoActive);
-  }
-
-  function onLeaveTwo() {
-    setMenuTwoState(!isMenuTwoActive);
-  }
-
-  useEffect(() => {
-    function keyListener(e) {
-      if (e.keyCode === 27) {
-        if (isMenuActive) {
-          onLeave();
-        }
-
-        if (isMenuTwoActive) {
-          onLeaveTwo();
-        }
-      }
-    }
-
-    window.addEventListener('keyup', keyListener);
-    return () => window.removeEventListener('keyup', keyListener);
-  });
-
   const data = useStaticQuery(graphql`
     {
       allPrismicGlobalNavigation {
@@ -357,8 +388,10 @@ function GlobalNav() {
                   primary_link_destination {
                     url
                   }
+                  nested_links_group_title
                 }
                 items {
+                  highlight_menu_link
                   secondary_nested_link_label
                   secondary_link_url {
                     url
@@ -373,6 +406,7 @@ function GlobalNav() {
   `);
 
   const globalNavRes = data.allPrismicGlobalNavigation.nodes[0].data.nav;
+
   const servicesLabel = globalNavRes[0].primary.primary_link_label;
   const servicesLink = globalNavRes[0].primary.primary_link_destination.url;
   const servicesItems = globalNavRes[0].items;
@@ -383,6 +417,11 @@ function GlobalNav() {
   const resourcesLabel = globalNavRes[2].primary.primary_link_label;
   const resourcesLink = globalNavRes[2].primary.primary_link_destination.url;
   const resourcesItems = globalNavRes[2].items;
+  const resourcesNestedTitle = globalNavRes[2].primary.nested_links_group_title;
+
+  // resourcesItems.push(resourcesNestedTitle);
+
+  console.log(resourcesItems);
 
   const blogLabel = globalNavRes[3].primary.primary_link_label;
   const blogLink = globalNavRes[3].primary.primary_link_destination.url;
@@ -399,7 +438,7 @@ function GlobalNav() {
 
   return (
     <GlobalNavStyles>
-      <ul>
+      <ul className="nav-list">
         <li className="sapwood-wordmark-list primary">
           <Link to="/" className="sapwood-wordmark">
             Sapwood Financial Advisors
@@ -408,10 +447,20 @@ function GlobalNav() {
 
         <li
           ref={dropdownRef}
-          className="primary menu-container"
-          onMouseLeave={onLeave}
+          className={`primary primary-menu ${
+            isMenuOneActive ? 'active' : 'inactive'
+          }`}
+          onMouseLeave={() => genericLeave(setIsMenuOneActive, isMenuOneActive)}
+          onBlur={() => genericLeave(setIsMenuOneActive, isMenuOneActive)}
         >
-          <button className="nav-button" type="button" onMouseEnter={onEnter}>
+          <button
+            className="nav-button"
+            type="button"
+            onMouseEnter={() =>
+              genericEnter(setIsMenuOneActive, isMenuOneActive)
+            }
+            onFocus={() => genericEnter(setIsMenuOneActive, isMenuOneActive)}
+          >
             <Link to={servicesLink}>
               {servicesLabel}
               <Chevron />
@@ -419,18 +468,28 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-list nav-button menu ${
-              isMenuActive ? 'active' : 'inactive'
+            className={`secondary-menu nav-button menu services-menu ${
+              isMenuOneActive ? 'active' : 'inactive'
             }`}
           >
+            <li className="item">All packages and services</li>
+            <li>
+              <h4 className="serif individual-services-title">
+                Individual Services
+              </h4>
+            </li>
             {/* map over nested items */}
-            {servicesItems.map((item, id) => (
-              <NestedLink
-                key={id}
-                link={item.secondary_link_url.url}
-                label={item.secondary_nested_link_label}
-              />
-            ))}
+            <ul className="services-items">
+              {servicesItems.map((item, id) => (
+                <NestedLink
+                  key={id}
+                  link={item.secondary_link_url.url}
+                  label={item.secondary_nested_link_label}
+                />
+              ))}
+            </ul>
+            <li className="item">When to see a financial advisor</li>
+            <li className="item">What don't financial advisors do?</li>
           </ul>
         </li>
 
@@ -440,17 +499,17 @@ function GlobalNav() {
 
         <li
           ref={dropdownRefTwo}
-          className={`primary menu-container ${
+          className={`primary primary-menu active ${
             isMenuTwoActive ? 'active' : 'inactive'
           }`}
-          onMouseLeave={onLeaveTwo}
-          onBlur={onLeaveTwo}
+          onMouseLeave={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
+          onBlur={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
         >
           <button
             className="nav-button"
             type="button"
-            onMouseEnter={onEnterTwo}
-            onFocus={onEnterTwo}
+            onMouseEnter={() => genericEnter(setMenuTwoState, isMenuTwoActive)}
+            onFocus={() => genericEnter(setMenuThreeState, isMenuThreeActive)}
           >
             <Link to={resourcesLink}>
               {resourcesLabel}
@@ -459,18 +518,44 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-list nav-button menu ${
+            className={`secondary-menu nav-button menu resources-menu ${
               isMenuTwoActive ? 'active' : 'inactive'
             }`}
           >
-            {/* map over nested items */}
-            {resourcesItems.map((item, id) => (
-              <NestedLink
-                key={id}
-                link={item.secondary_link_url.url}
-                label={item.secondary_nested_link_label}
-              />
-            ))}
+            {/* <li>
+              Calculators — A collection of free to use, no-sign up required
+              personal finance calculators
+            </li> */}
+            {/* <li>
+              <h4 className="serif">Sapwood Resources</h4>
+            </li> */}
+            <ul className="resources-items">
+              <li className="highlight">
+                <h4 className="serif">{resourcesNestedTitle}</h4>
+              </li>
+              {/* map over nested items */}
+              {resourcesItems.map((item, id) => {
+                console.log(item);
+                // if (item !== item.secondary_link_url.url) {
+                //   return (
+                //     <div>
+                //       <p>hello</p>
+                //     </div>
+                //   );
+                // }
+                if (item.secondary_link_url.url) {
+                  return (
+                    <NestedLink
+                      key={id}
+                      link={item.secondary_link_url.url}
+                      label={item.secondary_nested_link_label}
+                      highlighted={item.highlight_menu_link ? 'highlight' : ''}
+                    />
+                  );
+                }
+                return null;
+              })}
+            </ul>
           </ul>
         </li>
 
@@ -480,7 +565,7 @@ function GlobalNav() {
 
         <li
           ref={dropdownRefThree}
-          className={`primary menu-container ${
+          className={`primary primary-menu ${
             isMenuThreeActive ? 'active' : 'inactive'
           }`}
           onMouseLeave={() =>
@@ -503,7 +588,7 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-list nav-button menu ${
+            className={`secondary-menu nav-button menu contact-menu ${
               isMenuThreeActive ? 'active' : 'inactive'
             }`}
           >

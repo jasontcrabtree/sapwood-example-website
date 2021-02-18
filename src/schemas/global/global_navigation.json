@@ -1,58 +1,83 @@
 {
-  "Main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "Page Label",
-        "placeholder" : "Page / Schema Label"
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Page Label",
+        "placeholder": "Page / Schema Label"
       }
     },
-    "nav" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : {
-          "nav_item" : [ ]
+    "internal_global_component_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Internal Only - Global Component Title",
+        "placeholder": "Title for Prismic Editor — Won't Display on Website"
+      }
+    },
+    "nav": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "nav_item": [],
+          "nested_link_item": []
         },
-        "choices" : {
-          "nav_item" : {
-            "type" : "Slice",
-            "fieldset" : "Primary Link Item",
-            "description" : "Top-level, primary link item, can contain nested links.",
-            "icon" : "insert_link",
-            "non-repeat" : {
-              "primary_link_label" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Primary Link Label",
-                  "placeholder" : "Primary Link Label"
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Primary Link Item",
+            "description": "Top-level, primary link item, can contain nested links.",
+            "icon": "insert_link",
+            "non-repeat": {
+              "primary_link_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Primary Link Label",
+                  "placeholder": "Primary Link Label"
                 }
               },
-              "primary_link_destination" : {
-                "type" : "Link",
-                "config" : {
-                  "label" : "Primary Link Destination",
-                  "placeholder" : "Primary Link Destination"
+              "primary_link_destination": {
+                "type": "Link",
+                "config": {
+                  "label": "Primary Link Destination",
+                  "placeholder": "Primary Link Destination"
+                }
+              },
+              "nested_links_group_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Nested Links Group Title",
+                  "placeholder": "Title of Nested Links Group"
                 }
               }
             },
-            "repeat" : {
-              "secondary_nested_link_label" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Secondary Nested Link Label",
-                  "placeholder" : "Nested Link Label"
+            "repeat": {
+              "secondary_nested_link_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary Nested Link Label",
+                  "placeholder": "Repeated Secondary Link Label"
                 }
               },
-              "secondary_link_url" : {
-                "type" : "Link",
-                "config" : {
-                  "label" : "Secondary Link URL",
-                  "placeholder" : "Secondary Link Destination"
+              "secondary_link_url": {
+                "type": "Link",
+                "config": {
+                  "label": "Secondary Link URL",
+                  "placeholder": "Repeated Secondary Link Destination"
+                }
+              },
+              "highlight_menu_link": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Standard",
+                  "placeholder_true": "Highlighted",
+                  "default_value": false,
+                  "label": "Highlight Menu Link"
                 }
               }
             },
-            "display" : "list"
+            "display": "list"
           }
         }
       }

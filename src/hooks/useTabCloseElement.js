@@ -31,3 +31,20 @@
 // }
 
 // document.addEventListener('keydown', keyListenerBig);
+
+// useEffect(() => {
+//   function keyListener(e) {
+//     if (e.keyCode === 27) {
+//       if (isMenuOneActive) {
+//         onLeave();
+//       }
+
+//       if (isMenuTwoActive) {
+//         onLeaveTwo();
+//       }
+//     }
+//   }
+
+//   window.addEventListener('keyup', keyListener);
+//   return () => window.removeEventListener('keyup', keyListener);
+// });
