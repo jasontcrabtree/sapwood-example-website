@@ -333,7 +333,7 @@ function PrimaryLinkSingleLink({ link, label }) {
 }
 
 function PrimaryWithNestedLink(onEnter, { link, label }) {
-  console.log(link);
+  // console.log(link);
 
   return (
     <button className="" type="button" onMouseEnter={onEnter}>
@@ -417,11 +417,24 @@ function GlobalNav() {
   const resourcesLabel = globalNavRes[2].primary.primary_link_label;
   const resourcesLink = globalNavRes[2].primary.primary_link_destination.url;
   const resourcesItems = globalNavRes[2].items;
-  const resourcesNestedTitle = globalNavRes[2].primary.nested_links_group_title;
+  const resourcesNestedTitle = [
+    1,
+    globalNavRes[2].primary.nested_links_group_title,
+  ];
+
+  // console.log(typeof resourcesNestedTitle);
 
   // resourcesItems.push(resourcesNestedTitle);
+  // const resourcesArray = Object.values(resourcesItems);
+  // console.log(typeof resourcesArray);
 
-  console.log(resourcesItems);
+  const resourcesArray = Object.entries(resourcesItems);
+
+  resourcesArray.splice(1, 0, resourcesNestedTitle);
+
+  resourcesArray.forEach(([key, value]) => {
+    // console.log(key, value);
+  });
 
   const blogLabel = globalNavRes[3].primary.primary_link_label;
   const blogLink = globalNavRes[3].primary.primary_link_destination.url;
@@ -522,27 +535,17 @@ function GlobalNav() {
               isMenuTwoActive ? 'active' : 'inactive'
             }`}
           >
-            {/* <li>
-              Calculators — A collection of free to use, no-sign up required
-              personal finance calculators
-            </li> */}
-            {/* <li>
-              <h4 className="serif">Sapwood Resources</h4>
-            </li> */}
             <ul className="resources-items">
-              <li className="highlight">
-                <h4 className="serif">{resourcesNestedTitle}</h4>
-              </li>
               {/* map over nested items */}
               {resourcesItems.map((item, id) => {
-                console.log(item);
-                // if (item !== item.secondary_link_url.url) {
-                //   return (
-                //     <div>
-                //       <p>hello</p>
-                //     </div>
-                //   );
-                // }
+                // console.log(item);
+                if (item.length) {
+                  return (
+                    <li key={id} className="highlight">
+                      <h4 className="serif">{item}</h4>
+                    </li>
+                  );
+                }
                 if (item.secondary_link_url.url) {
                   return (
                     <NestedLink
