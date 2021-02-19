@@ -160,12 +160,10 @@ const index = (props) => {
   if (!props) return null;
 
   const sliceZoneBody = props.data.prismicBlogPage.data.body;
-  console.log(sliceZoneBody);
 
   return (
     <SinglePageContainerStyles id="main">
       <SEO />
-      <h1>i'm alive</h1>
       <section>
         <SliceZone body={sliceZoneBody} />
       </section>

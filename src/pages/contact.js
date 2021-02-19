@@ -160,7 +160,6 @@ const index = (props) => {
   if (!props) return null;
 
   const sliceZoneBody = props.data.prismicContactPage.data.body;
-  console.log(sliceZoneBody);
 
   return (
     <SinglePageContainerStyles id="main">

@@ -110,8 +110,6 @@ const ResourcesPageTemplate = (props) => {
 
   const resourcesPageDataRes = data.prismicResourcesRepeatable.data.body;
 
-  // console.log(resourcesPageDataRes);
-
   return (
     <ResourcesPageMainStyles id="main">
       <SEO

@@ -18,7 +18,6 @@ const CustomBlockStyles = styled.div`
 `;
 
 function CustomBlock(props) {
-  // console.log(props);
   return (
     <CustomBlockStyles>
       <p>Custom Block</p>

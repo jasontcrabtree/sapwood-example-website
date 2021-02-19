@@ -167,7 +167,6 @@ function TitleBlock(props) {
 
     titleStyle,
   } = props;
-  // console.log(props);
 
   // Change size based on props, check to see if semantic, default to h2
   const semanticHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];

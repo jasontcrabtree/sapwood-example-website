@@ -23,7 +23,7 @@
 // ]);
 
 // function keyListenerBig(e) {
-//   console.log('1');
+
 //   // get the listener corresponding to the pressed key
 //   const listener = keyListenersMap.get(e.keyCode);
 //   // call the listener if it exists

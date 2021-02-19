@@ -87,8 +87,6 @@ const CardGridBlockStyles = styled.div`
 function CardGridBlock(props) {
   const { cardKeys, cardArray, arrowboolean } = props;
 
-  // console.log(props);
-
   return (
     <CardGridBlockStyles cardStyle>
       <ul>

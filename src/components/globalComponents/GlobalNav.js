@@ -245,15 +245,106 @@ const GlobalNavStyles = styled.nav`
       margin-left: auto;
       padding-left: 8px;
     }
+
+    .mobile-menu-list {
+      display: none;
+      visibility: hidden;
+      position: absolute;
+    }
   }
 
   @media screen and (max-width: 960px) {
-    padding: 24px;
+    li {
+      padding: 24px;
+    }
+
     ul {
       display: flex;
       flex-direction: column;
       li {
         flex-direction: column;
+      }
+    }
+
+    li {
+      line-height: 48px;
+    }
+
+    li:not(:first-child) {
+      background-color: var(--grey-200);
+      border: 1px solid var(--grey-400);
+    }
+
+    .nav-list {
+      border-bottom: none;
+    }
+
+    .nav-button {
+      background-color: var(--grey-200);
+      /* padding: 8px 24px 8px 40px; */
+    }
+
+    .primary:not(.nav-button) {
+      /* padding-left: 8px; */
+    }
+
+    .primary-menu {
+      /* width: 100% !important; */
+    }
+
+    .sapwood-wordmark-list {
+      margin: 0 24px 0 0;
+      text-transform: uppercase;
+      justify-content: center;
+      letter-spacing: 0.3px;
+      padding-left: 0px;
+      line-height: 24px;
+      max-width: 20ch;
+    }
+
+    .mobile-menu-list {
+      flex-direction: row;
+    }
+
+    .mobile-menu {
+      background-color: var(--honey-100);
+      position: absolute;
+
+      width: auto;
+
+      li {
+        width: calc(100vw - 48px);
+      }
+
+      visibility: hidden;
+      opacity: 0;
+      z-index: 12;
+
+      border-bottom: 2px solid var(--dusk-pink-600);
+    }
+
+    .mobile-menu.mobile-active {
+      cursor: pointer;
+      z-index: 10;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .services-menu {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .resources-menu {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .mobile-menu.mobile-active {
+      .sapwood-wordmark-list,
+      .hidden-on-mobile {
+        position: absolute;
+        opacity: 0;
       }
     }
   }
@@ -312,11 +403,18 @@ function NestedLink({ id, link, label, highlighted }) {
 }
 
 function GlobalNav() {
+  const mobileMenuRef = useRef(null);
   const dropdownRef = useRef(null);
   const dropdownRefTwo = useRef(null);
   const dropdownRefThree = useRef(null);
 
   // custom hook, we pass into params of dropdownRef (the element we are maintaining with state, and false as default useState)
+
+  const [isMobileMenuActive, setMobileMenuActive] = useDetectOutsideClick(
+    mobileMenuRef,
+    false
+  );
+
   const [isMenuOneActive, setIsMenuOneActive] = useDetectOutsideClick(
     dropdownRef,
     false
@@ -383,8 +481,6 @@ function GlobalNav() {
   const servicesArray = Object.entries(servicesItems);
   servicesArray.splice(1, 0, servicesNestedTitle);
 
-  console.log(servicesArray);
-
   const pricingLabel = globalNavRes[1].primary.primary_link_label;
   const pricingLink = globalNavRes[1].primary.primary_link_destination.url;
 
@@ -413,7 +509,30 @@ function GlobalNav() {
 
   return (
     <GlobalNavStyles>
-      <ul className="nav-list">
+      <ul className="nav-list mobile-menu-list">
+        <li className="sapwood-wordmark-list primary">
+          <Link to="/" className="sapwood-wordmark">
+            Sapwood Financial Advisors
+          </Link>
+        </li>
+        <button
+          className="nav-button mobile-button"
+          type="button"
+          onMouseEnter={() =>
+            genericEnter(setMobileMenuActive, isMobileMenuActive)
+          }
+          onFocus={() => genericEnter(setMobileMenuActive, isMobileMenuActive)}
+        >
+          Open Menu
+        </button>
+      </ul>
+
+      <ul
+        ref={mobileMenuRef}
+        className={`nav-list mobile-menu ${
+          isMobileMenuActive ? 'mobile-active' : ''
+        }`}
+      >
         <li className="sapwood-wordmark-list primary">
           <Link to="/" className="sapwood-wordmark">
             Sapwood Financial Advisors
@@ -422,9 +541,7 @@ function GlobalNav() {
 
         <li
           ref={dropdownRef}
-          className={`primary primary-menu ${
-            isMenuOneActive ? 'active' : 'inactive'
-          }`}
+          className={`primary primary-menu ${isMenuOneActive ? 'active' : ''}`}
           onMouseLeave={() => genericLeave(setIsMenuOneActive, isMenuOneActive)}
           onBlur={() => genericLeave(setIsMenuOneActive, isMenuOneActive)}
         >
@@ -444,7 +561,7 @@ function GlobalNav() {
 
           <ul
             className={`secondary-menu nav-button services-menu ${
-              isMenuOneActive ? 'active' : 'inactive'
+              isMenuOneActive ? 'active' : ''
             }`}
           >
             {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
@@ -479,9 +596,7 @@ function GlobalNav() {
 
         <li
           ref={dropdownRefTwo}
-          className={`primary primary-menu ${
-            isMenuTwoActive ? 'active' : 'inactive'
-          }`}
+          className={`primary primary-menu ${isMenuTwoActive ? 'active' : ''}`}
           onMouseLeave={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
           onBlur={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
         >
@@ -499,7 +614,7 @@ function GlobalNav() {
 
           <ul
             className={`secondary-menu nav-button resources-menu ${
-              isMenuTwoActive ? 'active' : 'inactive'
+              isMenuTwoActive ? 'active' : ''
             }`}
           >
             {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
@@ -535,7 +650,7 @@ function GlobalNav() {
         <li
           ref={dropdownRefThree}
           className={`primary primary-menu ${
-            isMenuThreeActive ? 'active' : 'inactive'
+            isMenuThreeActive ? 'active' : ''
           }`}
           onMouseLeave={() =>
             genericLeave(setMenuThreeState, isMenuThreeActive)
@@ -558,7 +673,7 @@ function GlobalNav() {
 
           <ul
             className={`secondary-menu nav-button contact-menu
-            ${isMenuThreeActive ? 'active' : 'inactive'}`}
+            ${isMenuThreeActive ? 'active' : ''}`}
           >
             {contactItems.map((item, id) => (
               <NestedLink

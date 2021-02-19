@@ -109,13 +109,9 @@ const BlogPostTemplate = (props) => {
 
   const blogPostBody = blogPostRepeatableRes.body;
 
-  // console.log(blogPostBody);
-
   //   const fluidImgURL =
   //     prismicBlogPostDataResponse.cover_image.localFile.childImageSharp.fluid;
   //   const fluidImgALT = prismicBlogPostDataResponse.cover_image.alt;
-
-  console.log(blogPostRepeatableRes.title_style);
 
   return (
     <BlogTemplateMainStyles id="main">
