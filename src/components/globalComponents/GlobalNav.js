@@ -3,8 +3,6 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 
-const List = styled.li``;
-
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
   padding: 40px 200px;
@@ -134,11 +132,6 @@ const GlobalNavStyles = styled.nav`
     /* transform: translateY(-20px); */
   }
 
-  .contact-menu {
-    right: 0;
-    left: -400%;
-  }
-
   .menu.active,
   .primary-menu.active,
   .primary.active,
@@ -153,15 +146,9 @@ const GlobalNavStyles = styled.nav`
     width: fit-content;
   }
 
-  .item {
-    padding: 24px 40px;
-  }
-
   .services-menu {
     width: fit-content;
     display: flex;
-
-    box-shadow: var(--shadow-small);
   }
 
   .resources-menu {
@@ -170,7 +157,17 @@ const GlobalNavStyles = styled.nav`
   }
 
   .contact-menu {
-    width: 30rem;
+    width: 32rem;
+    display: flex;
+  }
+
+  .contact-menu {
+    right: 0;
+    left: -12rem;
+  }
+
+  .secondary-menu {
+    box-shadow: var(--shadow-small);
   }
 
   .individual-services-title {
@@ -219,7 +216,7 @@ const GlobalNavStyles = styled.nav`
     align-items: center;
     margin-top: 0px;
     padding: 8px 32px;
-    grid-column: span 2;
+    grid-column: 1 / -1;
     display: flex;
     font-weight: bold;
   }
@@ -410,6 +407,14 @@ function GlobalNav() {
   const servicesLabel = globalNavRes[0].primary.primary_link_label;
   const servicesLink = globalNavRes[0].primary.primary_link_destination.url;
   const servicesItems = globalNavRes[0].items;
+  const servicesNestedTitle = [
+    1,
+    globalNavRes[0].primary.nested_links_group_title,
+  ];
+  const servicesArray = Object.entries(servicesItems);
+  servicesArray.splice(1, 0, servicesNestedTitle);
+
+  console.log(servicesArray);
 
   const pricingLabel = globalNavRes[1].primary.primary_link_label;
   const pricingLink = globalNavRes[1].primary.primary_link_destination.url;
@@ -421,20 +426,8 @@ function GlobalNav() {
     1,
     globalNavRes[2].primary.nested_links_group_title,
   ];
-
-  // console.log(typeof resourcesNestedTitle);
-
-  // resourcesItems.push(resourcesNestedTitle);
-  // const resourcesArray = Object.values(resourcesItems);
-  // console.log(typeof resourcesArray);
-
   const resourcesArray = Object.entries(resourcesItems);
-
   resourcesArray.splice(1, 0, resourcesNestedTitle);
-
-  resourcesArray.forEach(([key, value]) => {
-    // console.log(key, value);
-  });
 
   const blogLabel = globalNavRes[3].primary.primary_link_label;
   const blogLink = globalNavRes[3].primary.primary_link_destination.url;
@@ -485,24 +478,36 @@ function GlobalNav() {
               isMenuOneActive ? 'active' : 'inactive'
             }`}
           >
-            <li className="item">All packages and services</li>
-            <li>
-              <h4 className="serif individual-services-title">
-                Individual Services
-              </h4>
-            </li>
             {/* map over nested items */}
             <ul className="services-items">
-              {servicesItems.map((item, id) => (
-                <NestedLink
-                  key={id}
-                  link={item.secondary_link_url.url}
-                  label={item.secondary_nested_link_label}
-                />
-              ))}
+              {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
+              {servicesArray.map((items) =>
+                items.map((item, i) => {
+                  if (item.length > 2) {
+                    return (
+                      <li key={i} className="highlight">
+                        <h4 className="serif individual-services-title">
+                          {item}
+                        </h4>
+                      </li>
+                    );
+                  }
+                  if (item.secondary_link_url) {
+                    return (
+                      <NestedLink
+                        key={i}
+                        link={item.secondary_link_url.url}
+                        label={item.secondary_nested_link_label}
+                        highlighted={
+                          item.highlight_menu_link ? 'highlight' : ''
+                        }
+                      />
+                    );
+                  }
+                  return null;
+                })
+              )}
             </ul>
-            <li className="item">When to see a financial advisor</li>
-            <li className="item">What don't financial advisors do?</li>
           </ul>
         </li>
 
@@ -536,28 +541,31 @@ function GlobalNav() {
             }`}
           >
             <ul className="resources-items">
-              {/* map over nested items */}
-              {resourcesItems.map((item, id) => {
-                // console.log(item);
-                if (item.length) {
-                  return (
-                    <li key={id} className="highlight">
-                      <h4 className="serif">{item}</h4>
-                    </li>
-                  );
-                }
-                if (item.secondary_link_url.url) {
-                  return (
-                    <NestedLink
-                      key={id}
-                      link={item.secondary_link_url.url}
-                      label={item.secondary_nested_link_label}
-                      highlighted={item.highlight_menu_link ? 'highlight' : ''}
-                    />
-                  );
-                }
-                return null;
-              })}
+              {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
+              {resourcesArray.map((items) =>
+                items.map((item, i) => {
+                  if (item.length > 1) {
+                    return (
+                      <li key={i} className="highlight">
+                        <h4 className="serif">{item}</h4>
+                      </li>
+                    );
+                  }
+                  if (item.secondary_link_url) {
+                    return (
+                      <NestedLink
+                        key={i}
+                        link={item.secondary_link_url.url}
+                        label={item.secondary_nested_link_label}
+                        highlighted={
+                          item.highlight_menu_link ? 'highlight' : ''
+                        }
+                      />
+                    );
+                  }
+                  return null;
+                })
+              )}
             </ul>
           </ul>
         </li>
