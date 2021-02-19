@@ -5,13 +5,10 @@ import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
+  opacity: 0.99;
   padding: 40px 200px;
   padding: 40px 11.9vw 0px;
   background-color: var(--honey-100);
-  opacity: 1;
-
-  /* height: 480px; */
-
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
 
   .nav-list {
@@ -28,55 +25,9 @@ const GlobalNavStyles = styled.nav`
     display: flex;
     padding-inline-start: 0px;
     margin: 0px;
-  }
-
-  li {
-    /* outline: 1px solid var(--grey-200); */
-  }
-
-  li {
-    padding-left: 0px;
-  }
-
-  li > a {
-    /* padding: 8px 4px 8px 8px; */
-  }
-
-  li {
-    /* line-height: 32px; */
-    /* flex-shrink: 0; */
-  }
-
-  li {
-    stroke: currentColor;
-  }
-
-  .secondary-menu {
-    z-index: 1;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    margin-top: 32px;
-  }
-
-  .secondary-menu > li > a {
-    padding: 16px 16px 16px 8px;
-
-    padding: 32px;
-    padding-left: 8px;
-    width: 100%;
-  }
-
-  .secondary-menu > li {
-    padding: 32px;
-    padding-left: 8px;
-    margin-top: 0px;
-    width: 100%;
-  }
-
-  ul {
     li {
+      stroke: currentColor;
+      padding-left: 0px;
       list-style: none;
     }
   }
@@ -100,8 +51,15 @@ const GlobalNavStyles = styled.nav`
     -webkit-appearance: none;
   }
 
-  .secondary-menu > li > h4 {
-    text-decoration: none !important;
+  .highlight {
+    align-items: center;
+    margin-top: 0px;
+    grid-column: 1 / -1;
+    display: flex;
+
+    h4 {
+      padding: 24px 40px;
+    }
   }
 
   .primary {
@@ -117,40 +75,67 @@ const GlobalNavStyles = styled.nav`
     cursor: pointer;
   }
 
-  .menu {
-    position: absolute;
-    top: 72;
-    right: 0;
-    left: 0;
-    /* margin-top: 32px; */
-    /* padding-top: 40px; */
-    width: 128px;
-    width: fit-content;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1;
-    /* transform: translateY(-20px); */
-  }
-
-  .menu.active,
-  .primary-menu.active,
-  .primary.active,
-  .active {
-    background: var(--honey-100);
-    z-index: 10;
-    opacity: 1;
-  }
-
   .primary-menu {
     width: 128px;
     width: fit-content;
   }
 
-  .services-menu {
-    width: fit-content;
+  .secondary-menu {
+    z-index: 1;
+    position: absolute;
     display: flex;
+    flex-direction: column;
+    margin: 0px;
+    margin-top: 32px;
   }
 
+  .secondary-menu > li > a {
+    /* padding: 16px 16px 16px 8px;
+    padding: 32px;
+    padding-left: 8px;
+    width: 100%;
+    padding: 24px 40px;
+    width: 100%; */
+  }
+
+  .secondary-menu > li {
+    /* padding: 32px; */
+    /* padding-left: 8px; */
+    margin-top: 0px;
+    width: 100%;
+  }
+
+  .services-items > li > a,
+  .resources-items > li > a,
+  .contact-items > li > a {
+    padding: 24px 40px;
+    width: 100%;
+  }
+
+  .secondary-menu > li > h4 {
+    text-decoration: none;
+  }
+
+  .secondary-menu {
+    position: absolute;
+
+    top: 8px;
+    right: 0;
+    left: 0;
+
+    width: 128px;
+    width: fit-content;
+
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .secondary-menu {
+    box-shadow: var(--shadow-small);
+  }
+
+  .services-menu,
   .resources-menu {
     width: fit-content;
     display: flex;
@@ -166,59 +151,24 @@ const GlobalNavStyles = styled.nav`
     left: -12rem;
   }
 
-  .secondary-menu {
-    box-shadow: var(--shadow-small);
-  }
-
-  .individual-services-title {
-    align-items: center;
-    margin-top: 0px;
-    padding: 8px 32px;
-  }
-
   .services-items {
     display: grid;
     grid-template-columns: repeat(3, minmax(auto, 1fr));
   }
 
-  .services-items > li {
+  .services-items > li,
+  .resources-items > li,
+  .contact-items > li {
     display: flex;
     height: auto;
-    justify-content: center;
+    align-items: center;
     margin: 0px;
     border: 1px solid var(--grey-300);
-  }
-
-  .services-items > li > a {
-    padding: 24px 40px;
-    width: 100%;
   }
 
   .resources-items {
     display: grid;
-    grid-template-columns: repeat(2, minmax(320px, 1fr));
-  }
-
-  .resources-items > li {
-    display: flex;
-    height: auto;
-    justify-content: center;
-    margin: 0px;
-    border: 1px solid var(--grey-300);
-  }
-
-  .resources-items > li > a {
-    padding: 24px 40px;
-    width: 100%;
-  }
-
-  .highlight {
-    align-items: center;
-    margin-top: 0px;
-    padding: 8px 32px;
-    grid-column: 1 / -1;
-    display: flex;
-    font-weight: bold;
+    grid-template-columns: repeat(2, minmax(256px, 1fr));
   }
 
   .secondary-menu > li,
@@ -237,25 +187,23 @@ const GlobalNavStyles = styled.nav`
     }
   }
 
-  .secondary-menu > li {
-    /* padding-top: 24px;
-    padding-bottom: 24px; */
-    /* opacity: 1; */
-  }
-
-  /* .primary-menu.active {
-    opacity: 1;
-  } */
-
   .active .chevron {
     transform: rotate(90deg);
   }
 
-  .menu.active {
+  .primary-menu.active,
+  .primary.active,
+  .active {
+    background: var(--honey-100);
+    z-index: 10;
+    opacity: 1;
+  }
+
+  .secondary-menu.active,
+  .primary-menu.active {
     opacity: 1;
     cursor: pointer;
     visibility: visible;
-    /* transform: translateY(0); */
   }
 
   @media screen and (min-width: 960px) {
@@ -322,23 +270,6 @@ function NestedLink({ id, link, label, highlighted }) {
     <li key={id} className={`${highlighted ? 'highlight' : ''}`}>
       <Link to={link}>{label}</Link>
     </li>
-  );
-}
-
-function PrimaryLinkSingleLink({ link, label }) {
-  return <Link to={link}>{label}</Link>;
-}
-
-function PrimaryWithNestedLink(onEnter, { link, label }) {
-  // console.log(link);
-
-  return (
-    <button className="" type="button" onMouseEnter={onEnter}>
-      <Link to={link}>
-        {label}
-        <Chevron />
-      </Link>
-    </button>
   );
 }
 
@@ -474,40 +405,33 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-menu nav-button menu services-menu ${
+            className={`secondary-menu nav-button services-menu services-items ${
               isMenuOneActive ? 'active' : 'inactive'
             }`}
           >
-            {/* map over nested items */}
-            <ul className="services-items">
-              {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
-              {servicesArray.map((items) =>
-                items.map((item, i) => {
-                  if (item.length > 2) {
-                    return (
-                      <li key={i} className="highlight">
-                        <h4 className="serif individual-services-title">
-                          {item}
-                        </h4>
-                      </li>
-                    );
-                  }
-                  if (item.secondary_link_url) {
-                    return (
-                      <NestedLink
-                        key={i}
-                        link={item.secondary_link_url.url}
-                        label={item.secondary_nested_link_label}
-                        highlighted={
-                          item.highlight_menu_link ? 'highlight' : ''
-                        }
-                      />
-                    );
-                  }
-                  return null;
-                })
-              )}
-            </ul>
+            {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
+            {servicesArray.map((items) =>
+              items.map((item, i) => {
+                if (item.length > 2) {
+                  return (
+                    <li key={i} className="highlight">
+                      <h4 className="serif">{item}</h4>
+                    </li>
+                  );
+                }
+                if (item.secondary_link_url) {
+                  return (
+                    <NestedLink
+                      key={i}
+                      link={item.secondary_link_url.url}
+                      label={item.secondary_nested_link_label}
+                      highlighted={item.highlight_menu_link ? 'highlight' : ''}
+                    />
+                  );
+                }
+                return null;
+              })
+            )}
           </ul>
         </li>
 
@@ -517,7 +441,7 @@ function GlobalNav() {
 
         <li
           ref={dropdownRefTwo}
-          className={`primary primary-menu active ${
+          className={`primary primary-menu ${
             isMenuTwoActive ? 'active' : 'inactive'
           }`}
           onMouseLeave={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
@@ -536,37 +460,35 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-menu nav-button menu resources-menu ${
+            className={`secondary-menu nav-button resources-menu resources-items  ${
               isMenuTwoActive ? 'active' : 'inactive'
             }`}
           >
-            <ul className="resources-items">
-              {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
-              {resourcesArray.map((items) =>
-                items.map((item, i) => {
-                  if (item.length > 1) {
-                    return (
-                      <li key={i} className="highlight">
-                        <h4 className="serif">{item}</h4>
-                      </li>
-                    );
-                  }
-                  if (item.secondary_link_url) {
-                    return (
-                      <NestedLink
-                        key={i}
-                        link={item.secondary_link_url.url}
-                        label={item.secondary_nested_link_label}
-                        highlighted={
-                          item.highlight_menu_link ? 'highlight' : ''
-                        }
-                      />
-                    );
-                  }
-                  return null;
-                })
-              )}
-            </ul>
+            {/* <ul className="resources-items"> */}
+            {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
+            {resourcesArray.map((items) =>
+              items.map((item, i) => {
+                if (item.length > 1) {
+                  return (
+                    <li key={i} className="highlight">
+                      <h4 className="serif">{item}</h4>
+                    </li>
+                  );
+                }
+                if (item.secondary_link_url) {
+                  return (
+                    <NestedLink
+                      key={i}
+                      link={item.secondary_link_url.url}
+                      label={item.secondary_nested_link_label}
+                      highlighted={item.highlight_menu_link ? 'highlight' : ''}
+                    />
+                  );
+                }
+                return null;
+              })
+            )}
+            {/* </ul> */}
           </ul>
         </li>
 
@@ -599,11 +521,9 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-menu nav-button menu contact-menu ${
-              isMenuThreeActive ? 'active' : 'inactive'
-            }`}
+            className={`secondary-menu nav-button contact-menu contact-items
+            ${isMenuThreeActive ? 'active' : 'inactive'}`}
           >
-            {/* map over nested items */}
             {contactItems.map((item, id) => (
               <NestedLink
                 key={id}
