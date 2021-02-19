@@ -19,6 +19,7 @@ const ImageWrapperStyles = styled.figure`
   margin-right: auto;
 
   position: relative;
+  z-index: -8;
 
   img {
     width: 600px;

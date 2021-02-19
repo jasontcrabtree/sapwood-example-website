@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
@@ -10,6 +10,14 @@ const GlobalNavStyles = styled.nav`
   padding: 40px 11.9vw 0px;
   background-color: var(--honey-100);
   box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.02);
+
+  li {
+    max-width: 960px;
+
+    a {
+      max-width: 960px;
+    }
+  }
 
   .nav-list {
     padding-bottom: 40px;
@@ -35,7 +43,29 @@ const GlobalNavStyles = styled.nav`
   img,
   svg {
     margin-bottom: -6px;
+  }
+
+  /* used to position svg inside links */
+  .secondary-menu > li > a > div > svg {
+    display: flex;
+    align-items: center;
     margin-left: 4px;
+    margin-top: 6px;
+  }
+
+  .highlighted > a > svg {
+    position: absolute;
+    /* width: 24px !important; */
+  }
+
+  .highlighted > a {
+    position: relative;
+  }
+
+  /* svg optical alignment */
+  .secondary-menu > li > a > .chevron {
+    margin-top: 4px;
+    margin-bottom: 0px;
   }
 
   a {
@@ -56,6 +86,7 @@ const GlobalNavStyles = styled.nav`
     margin-top: 0px;
     grid-column: 1 / -1;
     display: flex;
+    width: 100%;
 
     h4 {
       padding: 24px 40px;
@@ -64,10 +95,6 @@ const GlobalNavStyles = styled.nav`
 
   .primary {
     padding: 0px;
-  }
-
-  .primary-menu {
-    height: fit-content;
   }
 
   .primary-menu {
@@ -81,7 +108,7 @@ const GlobalNavStyles = styled.nav`
   }
 
   .secondary-menu {
-    z-index: 1;
+    z-index: 10;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -89,25 +116,12 @@ const GlobalNavStyles = styled.nav`
     margin-top: 32px;
   }
 
-  .secondary-menu > li > a {
-    /* padding: 16px 16px 16px 8px;
-    padding: 32px;
-    padding-left: 8px;
-    width: 100%;
-    padding: 24px 40px;
-    width: 100%; */
-  }
-
   .secondary-menu > li {
-    /* padding: 32px; */
-    /* padding-left: 8px; */
     margin-top: 0px;
     width: 100%;
   }
 
-  .services-items > li > a,
-  .resources-items > li > a,
-  .contact-items > li > a {
+  .secondary-menu > li > a {
     padding: 24px 40px;
     width: 100%;
   }
@@ -119,7 +133,7 @@ const GlobalNavStyles = styled.nav`
   .secondary-menu {
     position: absolute;
 
-    top: 8px;
+    top: 0px;
     right: 0;
     left: 0;
 
@@ -128,15 +142,14 @@ const GlobalNavStyles = styled.nav`
 
     visibility: hidden;
     opacity: 0;
-    z-index: 1;
+    z-index: 12;
   }
 
   .secondary-menu {
     box-shadow: var(--shadow-small);
   }
 
-  .services-menu,
-  .resources-menu {
+  .secondary-menu {
     width: fit-content;
     display: flex;
   }
@@ -148,27 +161,31 @@ const GlobalNavStyles = styled.nav`
 
   .contact-menu {
     right: 0;
-    left: -12rem;
+    left: -8rem;
   }
 
-  .services-items {
+  .services-menu {
     display: grid;
     grid-template-columns: repeat(3, minmax(auto, 1fr));
   }
 
-  .services-items > li,
-  .resources-items > li,
-  .contact-items > li {
+  .secondary-menu > li {
     display: flex;
+    flex-direction: row;
     height: auto;
     align-items: center;
     margin: 0px;
     border: 1px solid var(--grey-300);
   }
 
-  .resources-items {
+  .secondary-menu > li > a {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .resources-menu {
     display: grid;
-    grid-template-columns: repeat(2, minmax(256px, 1fr));
+    grid-template-columns: repeat(2, minmax(352px, 1fr));
   }
 
   .secondary-menu > li,
@@ -176,9 +193,7 @@ const GlobalNavStyles = styled.nav`
     border: 1px solid var(--grey-300);
   }
 
-  .secondary-menu.active > li > a:hover,
-  .services-items > li > a:hover,
-  .resources-items > li > a:hover {
+  .secondary-menu.active > li > a:hover {
     background: var(--turquoise-900);
     color: var(--honey-200);
 
@@ -187,7 +202,7 @@ const GlobalNavStyles = styled.nav`
     }
   }
 
-  .active .chevron {
+  .primary-menu.active .chevron:not(.secondary-menu > li > a > div > .chevron) {
     transform: rotate(90deg);
   }
 
@@ -264,11 +279,34 @@ function Chevron() {
     </svg>
   );
 }
+function Arrow() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
 
 function NestedLink({ id, link, label, highlighted }) {
   return (
     <li key={id} className={`${highlighted ? 'highlight' : ''}`}>
-      <Link to={link}>{label}</Link>
+      <Link to={link}>
+        {label}
+        <div>
+          <Arrow />
+        </div>
+      </Link>
     </li>
   );
 }
@@ -405,7 +443,7 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-menu nav-button services-menu services-items ${
+            className={`secondary-menu nav-button services-menu ${
               isMenuOneActive ? 'active' : 'inactive'
             }`}
           >
@@ -460,11 +498,10 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-menu nav-button resources-menu resources-items  ${
+            className={`secondary-menu nav-button resources-menu ${
               isMenuTwoActive ? 'active' : 'inactive'
             }`}
           >
-            {/* <ul className="resources-items"> */}
             {/* map over nested items (in an array comprised of the prismic items + additional title section) */}
             {resourcesArray.map((items) =>
               items.map((item, i) => {
@@ -488,7 +525,6 @@ function GlobalNav() {
                 return null;
               })
             )}
-            {/* </ul> */}
           </ul>
         </li>
 
@@ -521,7 +557,7 @@ function GlobalNav() {
           </button>
 
           <ul
-            className={`secondary-menu nav-button contact-menu contact-items
+            className={`secondary-menu nav-button contact-menu
             ${isMenuThreeActive ? 'active' : 'inactive'}`}
           >
             {contactItems.map((item, id) => (

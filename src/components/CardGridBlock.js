@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ArrowRight from '../../static/arrow-right.svg';
+import ArrowRight from '../../static/arrow-right-large.svg';
 
 const CardGridBlockStyles = styled.div`
   ul,
