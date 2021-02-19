@@ -509,7 +509,13 @@ function GlobalNav() {
 
   return (
     <GlobalNavStyles>
-      <ul className="nav-list mobile-menu-list">
+      <ul
+        className="nav-list mobile-menu-list"
+        onMouseLeave={() =>
+          genericLeave(setMobileMenuActive, isMobileMenuActive)
+        }
+        onBlur={() => genericLeave(setMobileMenuActive, isMobileMenuActive)}
+      >
         <li className="sapwood-wordmark-list primary">
           <Link to="/" className="sapwood-wordmark">
             Sapwood Financial Advisors
