@@ -3,6 +3,8 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 
+const MobileMenu = styled.ul``;
+
 const GlobalNavStyles = styled.nav`
   /* Global Content Margin 11.9vw === 200px */
   opacity: 0.99;
@@ -509,12 +511,9 @@ function GlobalNav() {
 
   return (
     <GlobalNavStyles>
-      <ul
+      <MobileMenu
         className="nav-list mobile-menu-list"
-        onMouseLeave={() =>
-          genericLeave(setMobileMenuActive, isMobileMenuActive)
-        }
-        onBlur={() => genericLeave(setMobileMenuActive, isMobileMenuActive)}
+        // onBlur={() => genericLeave(setMobileMenuActive, isMobileMenuActive)}
       >
         <li className="sapwood-wordmark-list primary">
           <Link to="/" className="sapwood-wordmark">
@@ -524,14 +523,15 @@ function GlobalNav() {
         <button
           className="nav-button mobile-button"
           type="button"
-          onMouseEnter={() =>
+          onTouchEnd={() =>
             genericEnter(setMobileMenuActive, isMobileMenuActive)
           }
-          onFocus={() => genericEnter(setMobileMenuActive, isMobileMenuActive)}
+          onClick={() => genericEnter(setMobileMenuActive, isMobileMenuActive)}
+          // onFocus={() => genericEnter(setMobileMenuActive, isMobileMenuActive)}
         >
           Open Menu
         </button>
-      </ul>
+      </MobileMenu>
 
       <ul
         ref={mobileMenuRef}
