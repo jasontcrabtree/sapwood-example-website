@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const MobileMenu = styled.ul``;
 
@@ -256,6 +257,14 @@ const GlobalNavStyles = styled.nav`
   }
 
   @media screen and (max-width: 960px) {
+    /* padding: 24px 24px 0px; */
+    box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.15);
+
+    .nav-list {
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--dusk-pink-600);
+    }
+
     li {
       padding: 24px;
     }
@@ -275,10 +284,6 @@ const GlobalNavStyles = styled.nav`
     li:not(:first-child) {
       background-color: var(--grey-200);
       border: 1px solid var(--grey-400);
-    }
-
-    .nav-list {
-      border-bottom: none;
     }
 
     .nav-button {
@@ -301,28 +306,57 @@ const GlobalNavStyles = styled.nav`
       letter-spacing: 0.3px;
       padding-left: 0px;
       line-height: 24px;
-      max-width: 20ch;
+      max-width: 16ch;
     }
 
     .mobile-menu-list {
+      margin: 0 auto;
+      max-width: 32rem;
       flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .nav-list.mobile-active {
+      border-bottom: none;
     }
 
     .mobile-menu {
       background-color: var(--honey-100);
+      box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.15);
+      padding: 24px;
+
+      /* margin-left: -24px; */
+
       position: absolute;
+      left: 0px;
+      right: 0px;
 
       width: auto;
 
-      li {
-        width: calc(100vw - 48px);
-      }
+      border-radius: 0px 4px 4px 0px;
 
       visibility: hidden;
       opacity: 0;
       z-index: 12;
 
       border-bottom: 2px solid var(--dusk-pink-600);
+
+      li {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 32rem;
+        width: calc(100vw - 48px);
+      }
+
+      li {
+        padding-left: 24px;
+      }
+
+      li > a,
+      li > button {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
     }
 
     .mobile-menu.mobile-active {
@@ -414,7 +448,7 @@ function GlobalNav() {
 
   const [isMobileMenuActive, setMobileMenuActive] = useDetectOutsideClick(
     mobileMenuRef,
-    false
+    true
   );
 
   const [isMenuOneActive, setIsMenuOneActive] = useDetectOutsideClick(
@@ -438,6 +472,12 @@ function GlobalNav() {
 
   function genericLeave(setState, isState) {
     setState(!isState);
+  }
+
+  const useMaxWidth640px = useMediaQuery('(max-width: 640px)');
+
+  function tapAtSmallSize() {
+    console.log('tap at small size');
   }
 
   const data = useStaticQuery(graphql`
@@ -509,6 +549,10 @@ function GlobalNav() {
   const legalLabel = globalNavRes[6].primary.primary_link_label;
   const legalLink = globalNavRes[6].primary.primary_link_destination.url;
 
+  /*
+TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave for consistent opening and closing. That fixed the parent mobile menu state on/off switch ability, but now need to fix nested menu on/off state to work differently on desktop to mobile (hover vs click)
+*/
+
   return (
     <GlobalNavStyles>
       <MobileMenu
@@ -523,11 +567,11 @@ function GlobalNav() {
         <button
           className="nav-button mobile-button"
           type="button"
-          onTouchEnd={() =>
-            genericEnter(setMobileMenuActive, isMobileMenuActive)
+          onClick={
+            useMaxWidth640px
+              ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
+              : null
           }
-          onClick={() => genericEnter(setMobileMenuActive, isMobileMenuActive)}
-          // onFocus={() => genericEnter(setMobileMenuActive, isMobileMenuActive)}
         >
           Open Menu
         </button>
@@ -548,16 +592,35 @@ function GlobalNav() {
         <li
           ref={dropdownRef}
           className={`primary primary-menu ${isMenuOneActive ? 'active' : ''}`}
-          onMouseLeave={() => genericLeave(setIsMenuOneActive, isMenuOneActive)}
-          onBlur={() => genericLeave(setIsMenuOneActive, isMenuOneActive)}
+          onMouseLeave={
+            !useMaxWidth640px
+              ? () => genericLeave(setIsMenuOneActive, isMenuOneActive)
+              : null
+          }
+          onBlur={
+            !useMaxWidth640px
+              ? () => genericLeave(setIsMenuOneActive, isMenuOneActive)
+              : null
+          }
         >
           <button
             className="nav-button"
             type="button"
-            onMouseEnter={() =>
-              genericEnter(setIsMenuOneActive, isMenuOneActive)
+            onMouseEnter={
+              !useMaxWidth640px
+                ? () => genericEnter(setIsMenuOneActive, isMenuOneActive)
+                : null
             }
-            onFocus={() => genericEnter(setIsMenuOneActive, isMenuOneActive)}
+            onFocus={
+              !useMaxWidth640px
+                ? () => genericEnter(setIsMenuOneActive, isMenuOneActive)
+                : null
+            }
+            onClick={
+              useMaxWidth640px
+                ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
+                : tapAtSmallSize()
+            }
           >
             <Link to={servicesLink}>
               {servicesLabel}
@@ -603,14 +666,35 @@ function GlobalNav() {
         <li
           ref={dropdownRefTwo}
           className={`primary primary-menu ${isMenuTwoActive ? 'active' : ''}`}
-          onMouseLeave={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
-          onBlur={() => genericLeave(setMenuTwoState, isMenuTwoActive)}
+          onMouseLeave={
+            !useMaxWidth640px
+              ? () => genericLeave(setMenuTwoState, isMenuTwoActive)
+              : null
+          }
+          onBlur={
+            !useMaxWidth640px
+              ? () => genericLeave(setMenuTwoState, isMenuTwoActive)
+              : null
+          }
         >
           <button
             className="nav-button"
             type="button"
-            onMouseEnter={() => genericEnter(setMenuTwoState, isMenuTwoActive)}
-            onFocus={() => genericEnter(setMenuThreeState, isMenuThreeActive)}
+            onMouseEnter={
+              !useMaxWidth640px
+                ? () => genericEnter(setMenuTwoState, isMenuTwoActive)
+                : null
+            }
+            onFocus={
+              !useMaxWidth640px
+                ? () => genericEnter(setMenuThreeState, isMenuThreeActive)
+                : null
+            }
+            onClick={
+              useMaxWidth640px
+                ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
+                : null
+            }
           >
             <Link to={resourcesLink}>
               {resourcesLabel}
@@ -658,18 +742,35 @@ function GlobalNav() {
           className={`primary primary-menu ${
             isMenuThreeActive ? 'active' : ''
           }`}
-          onMouseLeave={() =>
-            genericLeave(setMenuThreeState, isMenuThreeActive)
+          onMouseLeave={
+            !useMaxWidth640px
+              ? () => genericLeave(setMenuThreeState, isMenuThreeActive)
+              : null
           }
-          onBlur={() => genericLeave(setMenuThreeState, isMenuThreeActive)}
+          onBlur={
+            !useMaxWidth640px
+              ? () => genericLeave(setMenuThreeState, isMenuThreeActive)
+              : null
+          }
         >
           <button
             className="nav-button"
             type="button"
-            onMouseEnter={() =>
-              genericEnter(setMenuThreeState, isMenuThreeActive)
+            onMouseEnter={
+              !useMaxWidth640px
+                ? () => genericEnter(setMenuThreeState, isMenuThreeActive)
+                : null
             }
-            onFocus={() => genericEnter(setMenuThreeState, isMenuThreeActive)}
+            onFocus={
+              !useMaxWidth640px
+                ? () => genericEnter(setMenuThreeState, isMenuThreeActive)
+                : null
+            }
+            onClick={
+              useMaxWidth640px
+                ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
+                : null
+            }
           >
             <Link to={contactLink}>
               {contactLabel}
