@@ -51,6 +51,7 @@ const GlobalNavStyles = styled.nav`
   /* used to position svg inside links */
   .secondary-menu > li > a > div > svg {
     display: flex;
+    flex-direction: row;
     align-items: center;
     margin-left: 4px;
     margin-top: 6px;
@@ -106,8 +107,13 @@ const GlobalNavStyles = styled.nav`
   }
 
   .primary-menu {
-    width: 128px;
-    width: fit-content;
+    display: inline-block;
+    /* max-width: 160px; */
+    /* width: 100%; */
+    /* width: auto; */
+  }
+  .primary-menu > .nav-button > a {
+    white-space: nowrap;
   }
 
   .secondary-menu {
@@ -135,7 +141,6 @@ const GlobalNavStyles = styled.nav`
 
   .secondary-menu {
     position: absolute;
-
     top: 0px;
     right: 0;
     left: 0;
@@ -158,13 +163,14 @@ const GlobalNavStyles = styled.nav`
   }
 
   .contact-menu {
-    width: 32rem;
+    width: 28rem;
     display: flex;
   }
 
   .contact-menu {
-    right: 0;
-    left: -8rem;
+    right: 0rem;
+    /* left: -8rem; */
+    left: -12rem;
   }
 
   .services-menu {
@@ -175,19 +181,29 @@ const GlobalNavStyles = styled.nav`
   .secondary-menu > li {
     display: flex;
     flex-direction: row;
-    height: auto;
+    /* height: 100%; */
+    flex: 1;
     align-items: center;
     margin: 0px;
+    align-content: stretch;
+  }
+
+  .secondary-menu {
+    align-content: stretch;
   }
 
   .secondary-menu > li > a {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    height: 100%;
   }
 
   .resources-menu {
     display: grid;
     grid-template-columns: repeat(2, minmax(352px, 1fr));
+    grid-template-columns: repeat(2, minmax(22vw, 1fr));
+    grid-template-columns: repeat(2, minmax(clamp(10vw, 22vw, 352px), 1fr));
   }
 
   .secondary-menu > li,
@@ -283,12 +299,17 @@ const GlobalNavStyles = styled.nav`
     }
 
     li > a {
-      line-height: 32px;
+      line-height: 150%;
     }
 
-    li:not(:first-child) {
+    li {
       background-color: var(--grey-200);
-      border: 1px solid var(--grey-400);
+      border: 1px solid var(--grey-500);
+    }
+
+    .sapwood-wordmark-list {
+      background-color: var(--honey-100);
+      border: none;
     }
 
     .mobile-menu {
@@ -340,12 +361,15 @@ const GlobalNavStyles = styled.nav`
 
     .mobile-menu {
       background-color: var(--honey-100);
-      box-shadow: 0px 8px 8px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 12px 8px 6px rgba(0, 0, 0, 0.15);
       padding: 24px;
+      padding-top: 0px;
 
       position: absolute;
       left: 0px;
       right: 0px;
+
+      margin-top: -16px;
 
       width: 100vw;
 
@@ -381,10 +405,19 @@ const GlobalNavStyles = styled.nav`
       box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.05);
     }
 
+    .mobile-active {
+      transition: transform 250ms, opacity 400ms linear;
+    }
+
     .secondary-menu > li > a > div > svg {
       display: flex;
       margin-left: 8px;
-      margin-top: 16px;
+      margin-top: -8px !important;
+      /* margin-top: 16px; */
+    }
+
+    .secondary-menu.active {
+      transition: transform 500ms, opacity 400ms linear;
     }
 
     .secondary-menu {
@@ -398,17 +431,27 @@ const GlobalNavStyles = styled.nav`
 
     .secondary-menu > li > a {
       padding: 8px 24px;
-      width: 100%;
     }
 
-    .contact-menu {
+    .contact-menu,
+    .secondary-menu,
+    .services-menu {
+      opacity: 0.99;
       width: auto;
       display: flex;
     }
 
-    .contact-menu {
+    .contact-menu,
+    .secondary-menu,
+    .services-menu {
       right: -1px;
       left: -1px;
+    }
+
+    .services-menu,
+    .resources-menu {
+      left: -2px;
+      right: -2px;
     }
 
     .mobile-menu.mobile-active {
@@ -448,6 +491,10 @@ const GlobalNavStyles = styled.nav`
         transition: transform 250ms linear;
         margin-left: 4px;
       }
+    }
+
+    .serif-title {
+      display: none !important;
     }
 
     .mobile-menu.mobile-active {
@@ -548,7 +595,7 @@ function GlobalNav() {
     setState(!isState);
   }
 
-  const useMaxWidth640px = useMediaQuery('(max-width: 640px)');
+  const useMaxWidth640px = useMediaQuery('(max-width: 960px)');
 
   const data = useStaticQuery(graphql`
     {
@@ -743,7 +790,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
               items.map((item, i) => {
                 if (item.length > 2) {
                   return (
-                    <li key={i} className="highlight">
+                    <li key={i} className="highlight serif-title">
                       <h4 className="serif">{item}</h4>
                     </li>
                   );
@@ -771,16 +818,16 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
         <li
           ref={resourcesDropdownMenuRef}
           className={`primary primary-menu ${isMenuTwoActive ? 'active' : ''}`}
-          onMouseLeave={
-            !useMaxWidth640px
-              ? () => genericLeave(setMenuTwoState, isMenuTwoActive)
-              : null
-          }
-          onBlur={
-            !useMaxWidth640px
-              ? () => genericLeave(setMenuTwoState, isMenuTwoActive)
-              : null
-          }
+          // onMouseLeave={
+          //   !useMaxWidth640px
+          //     ? () => genericLeave(setMenuTwoState, isMenuTwoActive)
+          //     : null
+          // }
+          // onBlur={
+          //   !useMaxWidth640px
+          //     ? () => genericLeave(setMenuTwoState, isMenuTwoActive)
+          //     : null
+          // }
         >
           <button
             className="nav-button"
@@ -817,7 +864,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
               items.map((item, i) => {
                 if (item.length > 1) {
                   return (
-                    <li key={i} className="highlight">
+                    <li key={i} className="highlight serif-title">
                       <h4 className="serif">{item}</h4>
                     </li>
                   );
