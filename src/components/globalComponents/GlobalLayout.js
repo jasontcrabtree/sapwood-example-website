@@ -42,8 +42,8 @@ const GlobalLayoutStyles = styled.div`
     main {
       margin: 0px auto 0px;
       padding: 112px 24px 96px 24px;
-      width: auto;
-      /* max-width: 32rem; */
+      /* width: 100%; */
+      max-width: 40rem;
 
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }

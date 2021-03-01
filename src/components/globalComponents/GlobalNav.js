@@ -178,7 +178,6 @@ const GlobalNavStyles = styled.nav`
     height: auto;
     align-items: center;
     margin: 0px;
-    border: 1px solid var(--grey-300);
   }
 
   .secondary-menu > li > a {
@@ -193,7 +192,7 @@ const GlobalNavStyles = styled.nav`
 
   .secondary-menu > li,
   .secondary-menu {
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--grey-400);
   }
 
   .secondary-menu.active > li > a:hover {
@@ -257,13 +256,15 @@ const GlobalNavStyles = styled.nav`
   }
 
   @media screen and (max-width: 960px) {
-    /* padding: 24px 24px 0px; */
+    padding: 24px 24px 0px;
     box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.15);
 
     .nav-list {
       padding-bottom: 24px;
-      border-bottom: 2px solid var(--dusk-pink-600);
+      border-bottom: none;
     }
+
+    border-bottom: 3px solid var(--dusk-pink-600);
 
     li {
       padding: 24px;
@@ -281,22 +282,42 @@ const GlobalNavStyles = styled.nav`
       line-height: 48px;
     }
 
+    li > a {
+      line-height: 32px;
+    }
+
     li:not(:first-child) {
       background-color: var(--grey-200);
       border: 1px solid var(--grey-400);
     }
 
-    .nav-button {
-      background-color: var(--grey-200);
-      /* padding: 8px 24px 8px 40px; */
+    .mobile-menu {
+      li.primary-menu.active {
+        background-color: var(--grey-200);
+      }
     }
 
-    .primary:not(.nav-button) {
-      /* padding-left: 8px; */
+    .mobile-menu {
+      li.primary:not(.active) {
+        background-color: var(--grey-800);
+        a,
+        button {
+          color: var(--grey-100);
+        }
+      }
+    }
+
+    .nav-button {
+      background-color: var(--grey-200);
+      background-color: inherit;
     }
 
     .primary-menu {
-      /* width: 100% !important; */
+      .nav-button {
+        width: 100%;
+        justify-content: flex-start;
+        display: flex;
+      }
     }
 
     .sapwood-wordmark-list {
@@ -312,34 +333,29 @@ const GlobalNavStyles = styled.nav`
     .mobile-menu-list {
       margin: 0 auto;
       max-width: 32rem;
+      width: calc(100vw - 48px);
       flex-direction: row;
       justify-content: space-between;
     }
 
-    .nav-list.mobile-active {
-      border-bottom: none;
-    }
-
     .mobile-menu {
       background-color: var(--honey-100);
-      box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 8px 8px 6px rgba(0, 0, 0, 0.15);
       padding: 24px;
-
-      /* margin-left: -24px; */
 
       position: absolute;
       left: 0px;
       right: 0px;
 
-      width: auto;
+      width: 100vw;
 
-      border-radius: 0px 4px 4px 0px;
+      border-radius: 0px 0px 4px 4px;
 
       visibility: hidden;
       opacity: 0;
       z-index: 12;
 
-      border-bottom: 2px solid var(--dusk-pink-600);
+      border-bottom: 3px solid var(--dusk-pink-600);
 
       li {
         margin-left: auto;
@@ -349,14 +365,50 @@ const GlobalNavStyles = styled.nav`
       }
 
       li {
-        padding-left: 24px;
+        padding-left: 0px;
       }
 
       li > a,
       li > button {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 24px;
+        padding-right: 24px;
       }
+    }
+
+    .hamburger-button:focus,
+    .nav-button:focus {
+      outline: 2px solid var(--grey-500);
+      box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .secondary-menu > li > a > div > svg {
+      display: flex;
+      margin-left: 8px;
+      margin-top: 16px;
+    }
+
+    .secondary-menu {
+      margin: 0px;
+      margin-top: 48px;
+    }
+
+    .secondary-menu > li {
+      padding: 0px;
+    }
+
+    .secondary-menu > li > a {
+      padding: 8px 24px;
+      width: 100%;
+    }
+
+    .contact-menu {
+      width: auto;
+      display: flex;
+    }
+
+    .contact-menu {
+      right: -1px;
+      left: -1px;
     }
 
     .mobile-menu.mobile-active {
@@ -364,6 +416,8 @@ const GlobalNavStyles = styled.nav`
       z-index: 10;
       opacity: 1;
       visibility: visible;
+
+      transition: transform 250ms, opacity 400ms linear;
     }
 
     .services-menu {
@@ -374,6 +428,26 @@ const GlobalNavStyles = styled.nav`
     .resources-menu {
       display: grid;
       grid-template-columns: 1fr;
+    }
+
+    .mobile-menu-list {
+      align-items: center;
+    }
+
+    .hamburger-button {
+      background-color: var(--dusk-pink-100);
+      border: 1px solid var(--dusk-pink-700);
+
+      padding: 6px 24px 4px 24px;
+      border-radius: 4px;
+      height: auto;
+
+      transition: transform 250ms linear;
+
+      svg {
+        transition: transform 250ms linear;
+        margin-left: 4px;
+      }
     }
 
     .mobile-menu.mobile-active {
@@ -440,29 +514,29 @@ function NestedLink({ id, link, label, highlighted }) {
 
 function GlobalNav() {
   const mobileMenuRef = useRef(null);
-  const dropdownRef = useRef(null);
-  const dropdownRefTwo = useRef(null);
-  const dropdownRefThree = useRef(null);
+  const servicesDropdownMenuRef = useRef(null);
+  const resourcesDropdownMenuRef = useRef(null);
+  const contactDropdownMenuRef = useRef(null);
 
   // custom hook, we pass into params of dropdownRef (the element we are maintaining with state, and false as default useState)
 
   const [isMobileMenuActive, setMobileMenuActive] = useDetectOutsideClick(
     mobileMenuRef,
-    true
+    false
   );
 
   const [isMenuOneActive, setIsMenuOneActive] = useDetectOutsideClick(
-    dropdownRef,
+    servicesDropdownMenuRef,
     false
   );
 
   const [isMenuTwoActive, setMenuTwoState] = useDetectOutsideClick(
-    dropdownRefTwo,
+    resourcesDropdownMenuRef,
     false
   );
 
   const [isMenuThreeActive, setMenuThreeState] = useDetectOutsideClick(
-    dropdownRefThree,
+    contactDropdownMenuRef,
     false
   );
 
@@ -475,10 +549,6 @@ function GlobalNav() {
   }
 
   const useMaxWidth640px = useMediaQuery('(max-width: 640px)');
-
-  function tapAtSmallSize() {
-    console.log('tap at small size');
-  }
 
   const data = useStaticQuery(graphql`
     {
@@ -554,9 +624,12 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
 */
 
   return (
-    <GlobalNavStyles>
+    <GlobalNavStyles
+      className={`${isMobileMenuActive ? 'nav-parent-active' : ''}`}
+    >
       <MobileMenu
         className="nav-list mobile-menu-list"
+
         // onBlur={() => genericLeave(setMobileMenuActive, isMobileMenuActive)}
       >
         <li className="sapwood-wordmark-list primary">
@@ -565,7 +638,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
           </Link>
         </li>
         <button
-          className="nav-button mobile-button"
+          className="hamburger-button nav-button mobile-button"
           type="button"
           onClick={
             useMaxWidth640px
@@ -573,7 +646,39 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
               : null
           }
         >
-          Open Menu
+          Menu
+          {!isMobileMenuActive ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          )}
         </button>
       </MobileMenu>
 
@@ -590,7 +695,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
         </li>
 
         <li
-          ref={dropdownRef}
+          ref={servicesDropdownMenuRef}
           className={`primary primary-menu ${isMenuOneActive ? 'active' : ''}`}
           onMouseLeave={
             !useMaxWidth640px
@@ -618,8 +723,8 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
             }
             onClick={
               useMaxWidth640px
-                ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
-                : tapAtSmallSize()
+                ? () => genericEnter(setIsMenuOneActive, isMenuOneActive)
+                : null
             }
           >
             <Link to={servicesLink}>
@@ -664,7 +769,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
         </li>
 
         <li
-          ref={dropdownRefTwo}
+          ref={resourcesDropdownMenuRef}
           className={`primary primary-menu ${isMenuTwoActive ? 'active' : ''}`}
           onMouseLeave={
             !useMaxWidth640px
@@ -687,12 +792,12 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
             }
             onFocus={
               !useMaxWidth640px
-                ? () => genericEnter(setMenuThreeState, isMenuThreeActive)
+                ? () => genericEnter(setMenuTwoState, isMenuTwoActive)
                 : null
             }
             onClick={
               useMaxWidth640px
-                ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
+                ? () => genericEnter(setMenuTwoState, isMenuTwoActive)
                 : null
             }
           >
@@ -738,7 +843,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
         </li>
 
         <li
-          ref={dropdownRefThree}
+          ref={contactDropdownMenuRef}
           className={`primary primary-menu ${
             isMenuThreeActive ? 'active' : ''
           }`}
@@ -768,7 +873,7 @@ TODO: I changed the mobile menu to onClick instead of onMouseEnter/onMouseLeave 
             }
             onClick={
               useMaxWidth640px
-                ? () => genericEnter(setMobileMenuActive, isMobileMenuActive)
+                ? () => genericEnter(setMenuThreeState, isMenuThreeActive)
                 : null
             }
           >
