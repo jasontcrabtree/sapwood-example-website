@@ -46,6 +46,7 @@ const SliceZone = (props) => {
               />
               <CardGridBlock
                 arrowboolean
+                gridStyles={bC.primary}
                 cardKeys={uuidKey}
                 cardArray={bC.items || ''}
               />

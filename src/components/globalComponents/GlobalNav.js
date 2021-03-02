@@ -228,7 +228,7 @@ const GlobalNavStyles = styled.nav`
   .primary.active,
   .active {
     background: var(--honey-100);
-    z-index: 10;
+    z-index: 15;
     opacity: 1;
   }
 

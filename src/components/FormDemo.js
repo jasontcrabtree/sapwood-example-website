@@ -53,7 +53,6 @@ const FormStyles = styled.form`
 
   input:focus,
   textarea:focus {
-    /* outline: var(--green-700) 2px solid; */
   }
 
   input,
@@ -108,7 +107,6 @@ const FormStyles = styled.form`
       -moz-appearance: none;
 
       cursor: pointer;
-      /* outline: none; */
       display: inline-block;
 
       height: 26px;
@@ -135,10 +133,6 @@ const FormStyles = styled.form`
       :checked {
         background: var(--dusk-pink-700);
         border: 2px solid var(--dusk-pink-600);
-      }
-
-      :focus {
-        /* outline: 1px solid var(--dusk-pink-700); */
       }
     }
 

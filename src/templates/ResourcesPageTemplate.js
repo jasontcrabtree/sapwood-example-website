@@ -79,9 +79,6 @@ const ResourcesPageMainStyles = styled.main`
   section {
     display: grid;
     grid-column: 1 / -1;
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* margin-top: 96px; */
   }
 
   section > * + * {
@@ -90,9 +87,6 @@ const ResourcesPageMainStyles = styled.main`
 
   section > * {
     width: 100%;
-    /* max-width: 100%; */
-    /* margin-left: auto;
-    margin-right: auto; */
   }
 
   section > * + * {

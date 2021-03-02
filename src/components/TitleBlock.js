@@ -9,7 +9,7 @@ const TitleWrapperStyles = styled.div`
   padding-top: 36px;
   display: flex;
 
-  /* z-index: -5; */
+  z-index: -5;
 
   h2,
   h3,
@@ -62,6 +62,7 @@ const TitleBlockTwoStyles = styled.div`
 const TitleBlockThreeStyles = styled.div`
   padding-top: 24px;
   position: relative;
+  /* z-index: 0; */
 
   ::after {
     content: '';
@@ -79,7 +80,7 @@ const TitleBlockFourStyles = styled.div`
   padding-left: 40px;
   padding-top: 36px;
 
-  z-index: -8;
+  /* z-index: 0; */
 
   ::after {
     background: var(--honey-300);
@@ -89,7 +90,7 @@ const TitleBlockFourStyles = styled.div`
     left: 0px;
     height: 80px;
     width: 160px;
-    z-index: -11;
+    /* z-index: -11; */
   }
 
   @media screen and (max-width: 920px) {
@@ -124,7 +125,7 @@ const HeroTitleBlockThreeStyles = styled.div`
   padding-bottom: 24px;
 
   position: relative;
-  z-index: -10;
+  /* z-index: 0; */
 
   ::after {
     content: '';
@@ -141,7 +142,7 @@ const HeroTitleBlockThreeStyles = styled.div`
 const HeroTitleBlockFourStyles = styled.div`
   text-align: center;
   position: relative;
-  z-index: -10;
+  /* z-index: 0; */
 
   ::after {
     background: var(--honey-300);
@@ -151,7 +152,7 @@ const HeroTitleBlockFourStyles = styled.div`
     left: 32px;
     height: 40px;
     width: 160px;
-    z-index: -10;
+    /* z-index: -10; */
   }
 `;
 

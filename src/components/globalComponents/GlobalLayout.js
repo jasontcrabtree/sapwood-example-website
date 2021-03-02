@@ -33,9 +33,8 @@ const GlobalLayoutStyles = styled.div`
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-gap: 32px;
-    /* Working styles */
-    /* border-left: 1px solid var(--dusk-pink-500);
-    border-right: 1px solid var(--dusk-pink-500); */
+
+    /* TODO: MAX WIDTH */
   }
 
   @media screen and (max-width: 920px) {

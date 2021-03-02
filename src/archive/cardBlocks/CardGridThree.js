@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ArrowRight from '../../../static/arrow-right-large.svg';
 
-const cardContent = [
+const cardArray = [
   {
     id: 1,
     title: 'Calculating the impact of fees on your investing',
@@ -41,7 +41,7 @@ const cardContent = [
   },
 ];
 
-const CardGridStyles = styled.div`
+const CardGridThreeStyles = styled.div`
   ul,
   li {
     padding: 0px;
@@ -162,9 +162,9 @@ const CardGridStyles = styled.div`
 
 function CardGridThree() {
   return (
-    <CardGridStyles>
+    <CardGridThreeStyles>
       <ul>
-        {cardContent.map((card, i) => (
+        {cardArray.map((card, i) => (
           <li key={i}>
             <a href="/">
               <img src={card.image} alt={card.imageAlt} />
@@ -185,7 +185,7 @@ function CardGridThree() {
           </li>
         ))}
       </ul>
-    </CardGridStyles>
+    </CardGridThreeStyles>
   );
 }
 
