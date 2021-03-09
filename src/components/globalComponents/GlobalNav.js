@@ -141,7 +141,7 @@ const GlobalNavStyles = styled.nav`
 
   .secondary-menu {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 0;
     left: 0;
 
