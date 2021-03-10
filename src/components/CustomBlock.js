@@ -17,10 +17,10 @@ const CustomBlockStyles = styled.div`
   }
 `;
 
-function CustomBlock(props) {
+function CustomBlock({ customComponentName }) {
   return (
     <CustomBlockStyles>
-      <p>Custom Block</p>
+      <p>{customComponentName}</p>
     </CustomBlockStyles>
   );
 }

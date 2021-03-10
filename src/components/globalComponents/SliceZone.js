@@ -8,6 +8,8 @@ import TitleBlock from '../TitleBlock';
 import ContentBlock from '../ContentBlock';
 import normaliseTitleStyle from '../../utils/normaliseTitleStyle';
 import CustomBlock from '../CustomBlock';
+import GlobalCTA from './GlobalCTA';
+import DividerLine from '../DividerLine';
 
 const SliceZone = (props) => {
   if (!props) return <h1>No Props, error</h1>;
@@ -18,6 +20,7 @@ const SliceZone = (props) => {
   return (
     <>
       {body.map((bC, i) => {
+        console.log(bC);
         if (bC.slice_type === 'page_title_block') {
           return (
             <TitleBlock
@@ -105,9 +108,25 @@ const SliceZone = (props) => {
           );
         }
         if (bC.slice_type === 'custom_block') {
+          if (bC.primary.custom_component_name === 'CTAContact') {
+            return (
+              <div key={bC.id}>
+                <GlobalCTA />
+              </div>
+            );
+          }
           return (
             <div key={bC.id}>
-              <CustomBlock />
+              <CustomBlock
+                customComponentName={bC.primary.custom_component_name}
+              />
+            </div>
+          );
+        }
+        if (bC.slice_type === 'divider_line') {
+          return (
+            <div key={bC.id}>
+              <DividerLine />
             </div>
           );
         }

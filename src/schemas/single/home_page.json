@@ -29,7 +29,8 @@
           ],
           "content_block": [],
           "card_grid_block": [],
-          "custom_block": []
+          "custom_block": [],
+          "divider_line": []
         },
         "choices": {
           "page_title_block": {
@@ -488,6 +489,43 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "divider_line": {
+            "type": "Slice",
+            "fieldset": "Divider Line",
+            "description": "A divider/visual element to break up content",
+            "icon": "linear_scale",
+            "display": "list",
+            "non-repeat": {
+              "divider_visual_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "DividerLineOne",
+                    "DividerLineTwo",
+                    "DividerLineThree",
+                    "DividerLineFour",
+                    "DividerLineFive"
+                  ],
+                  "default_value": "DividerLineOne",
+                  "label": "Divider Visual Style"
+                }
+              },
+              "divider_colour": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "DuskPink",
+                    "Turquoise",
+                    "Honey",
+                    "Grey"
+                  ],
+                  "default_value": "DuskPink",
+                  "label": "Divider Colour"
                 }
               }
             },
