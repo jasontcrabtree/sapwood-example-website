@@ -9,14 +9,26 @@ const ImageWrapperStyles = styled.figure`
   padding-left: 0px;
   padding-right: 16px;
 
-  margin-left: 0;
-  margin-right: auto;
+  /* margin-left: 0;
+  margin-right: auto; */
 
   margin-top: 8px;
   margin-bottom: 8px;
 
-  margin-left: auto;
-  margin-right: auto;
+  .left {
+    margin-left: 0px;
+    margin-right: auto;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .right {
+    margin-left: auto;
+    margin-right: 0;
+  }
 
   position: relative;
   z-index: -8;
@@ -122,12 +134,13 @@ function ImageWrapper(props) {
     imageBlockColourStyle,
     // imageBlockSize,
     // imageColourBlockSize,
+    imagePosition,
     imageColourBlockPosition,
   } = props;
 
   return (
     <ImageWrapperStyles
-      className="parent "
+      className="parent center"
       background={`var(--${imageBlockColourStyle.toLowerCase()})`}
     >
       <div
@@ -142,19 +155,19 @@ function ImageWrapper(props) {
       {imageColourBlockPosition === 'BottomLeft' ||
       imageColourBlockPosition === 'BottomRight' ||
       imageColourBlockPosition === 'Bottom' ? (
-        <>
+        <div>
           <figcaption className="eyebrow" background={imageBlockColourStyle}>
             <a href={imageSourceLink}>{imageCredit}</a>
           </figcaption>
           <img src={imageSource} alt={imageAlt} />
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           <img src={imageSource} alt={imageAlt} />
           <figcaption className="eyebrow" background={imageBlockColourStyle}>
             <a href={imageSourceLink}>{imageCredit}</a>
           </figcaption>
-        </>
+        </div>
       )}
     </ImageWrapperStyles>
   );

@@ -20,13 +20,15 @@ const SliceZone = (props) => {
   return (
     <>
       {body.map((bC, i) => {
-        console.log(bC);
+        // console.log(bC);
         if (bC.slice_type === 'page_title_block') {
+          console.log(bC.primary.text_alignment);
           return (
             <TitleBlock
               key={bC.id}
               titleText={bC.primary.main_page_title || 'Error'}
               headingSize={bC.primary.heading_size.slice(-2) || 'h2'}
+              textAlignment={bC.primary.text_alignment}
               titleStyle={normaliseTitleStyle(bC.primary.title_style) || ''}
             />
           );
@@ -104,6 +106,7 @@ const SliceZone = (props) => {
               imageSourceLink={bC.primary.image_source_link.url || ''}
               imageBlockColourStyle={bC.primary.image_block_colour_style || ''}
               imageColourBlockPosition={bC.primary.image_block_colour_position}
+              imagePosition={bC.primary.image_position}
             />
           );
         }
